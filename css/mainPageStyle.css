@@ -3,14 +3,17 @@
 }
 
 #loginImage{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2%;
+    margin-right: 20%;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; 
- }
+#searchBar:hover {
+    background-color: #549037;
+}
+
+#searchBar{
+    border-color: #549037;
+}
 
 #dropdownMenuLink {
     color: #FFFFFF;;
@@ -18,9 +21,19 @@
 }
 
 
- nav .navbar-nav li .nav-item{
+form {
+    margin-right: 5%;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; 
+ }
+
+nav .navbar-nav li .nav-item{
     color: #549037 ;
 }
 
-
-
+nav .navbar-nav form .btn {
+    background-color: red;
+}
