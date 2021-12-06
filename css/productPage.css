@@ -1,0 +1,52 @@
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+aside {
+  float: left;
+}
+
+#logoImg {
+  height: 100px;
+}
+
+#loginImage{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; 
+}
+
+#dropdownMenuLink {
+  color: #FFFFFF;;
+  background-color: #549037;
+}
+
+
+nav .navbar-nav li .nav-item{
+  color: #549037 ;
+}
+
+.carousel-inner{
+  height: 400px;
+}
+
+.carousel-inner > .carousel-item > img {
+  max-height: 400px;
+  max-width: 100%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  outline: black;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+}
