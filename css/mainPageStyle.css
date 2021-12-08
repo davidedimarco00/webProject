@@ -72,14 +72,62 @@ main .carousel-inner .carousel-item .carousel-caption p {
     vertical-align: top;
 }
 
+main div.container  {
+    max-width: 100%;
+    margin-top: 50px;
+    background-color: #f5f8fa;
+}
+
+main div.container .list-group a {
+
+}
+
+main div.container .list-group a:focus {
+   
+    box-shadow: 5px 5px 3px #dedede;
+    align-content: center;
+    list-style-position: inside;
+    background-color:  #495057;
+    color: white;
+}
+
+
+main div.container .list-group a:hover{
+    background-color:  #495057;
+    transition: .2s;
+    color: white;
+    font-size: bold;
+ }
+
+ main div.container .card {
+    outline: none;
+    border-color: #6c9fc9;
+    box-shadow: 2px 2px 2px  ;
+    transform: translateY(-10px);
+    transition: .4s;   
+}
+
+main div.container .card:hover {
+    outline: none;
+    border-color: #6c9fc9;
+    box-shadow: 2px 2px 2px  ;
+    transform: translateY(-10px);
+    transition: .4s;   
+}
+
+
+
+
+
+
 footer  {
     height: 250px;
     width: 100%;
+    margin-top: 5000px;
     background-color: #000000;
     background-image: linear-gradient(to bottom left, #000000,#343a40,#495057);
     bottom: 0;
     text-align: center;
-
     vertical-align: center;
 }
 
