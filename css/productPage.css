@@ -50,3 +50,12 @@ nav .navbar-nav li .nav-item{
   border-radius: 50%;
   border: 1px solid black;
 }
+
+footer {
+  background-color: black;
+}
+
+svg > use {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
