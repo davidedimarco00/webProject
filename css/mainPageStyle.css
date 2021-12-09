@@ -1,6 +1,6 @@
 .selector-for-some-widget {
     box-sizing: content-box;
-  }
+}
 
 
 #logoImg {
@@ -12,8 +12,21 @@
     margin-right: 20%;
 }
 
+.navbar {
+    position: fixed;
+}
+
+main header nav .navbar {
+    position: fixed;
+}
+
 main nav div.dropdown a.btn {
     border-radius: 50px;
+}
+
+main nav div.form-inline .dropdown-menu {
+    align-content: center;
+    vertical-align:auto;
 }
 
 main nav div.form-inline input {
@@ -38,13 +51,10 @@ main nav div.form-inline:hover input{
 
 .dropdown:hover .dropdown-menu {
     display: block;
-    animation: .5s;
-    margin-top: 0; 
+    transition: .5s;
+    margin-top: 30; 
 }
 
-nav .navbar-nav form .btn {
-    background-color: red;
-}
 
 main .carousel-inner .carousel-item {
     height:600px;
@@ -97,15 +107,17 @@ main div.container .list-group a:hover{
     transition: .2s;
     color: white;
     font-size: bold;
- }
-
- main div.container .card {
-    outline: none;
-    border-color: #6c9fc9;
-    box-shadow: 2px 2px 2px  ;
-    transform: translateY(-10px);
-    transition: .4s;   
 }
+
+main div.container .card {
+    height: 300px;
+}
+
+main div.container .card .card-body {
+    height: 400px;
+}
+
+
 
 main div.container .card:hover {
     outline: none;

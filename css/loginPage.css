@@ -1,0 +1,42 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+body, html {
+    height: 100%;
+}
+
+.bg-image {
+    background-image: url("../images/loginSignUpBg.jpg");
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+main section div.cardLogin{
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.8); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 40%;
+        padding: 20px;
+        text-align: center; 
+        border-radius: 40px;  
+}
+
+main section div.cardLogin p, h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
