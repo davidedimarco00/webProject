@@ -88,10 +88,6 @@ main div.container  {
     background-color: #f5f8fa;
 }
 
-main div.container .list-group a {
-
-}
-
 main div.container .list-group a:focus {
    
     box-shadow: 5px 5px 3px #dedede;
@@ -109,14 +105,6 @@ main div.container .list-group a:hover{
     font-size: bold;
 }
 
-main div.container .card {
-    height: 300px;
-}
-
-main div.container .card .card-body {
-    height: 400px;
-}
-
 
 
 main div.container .card:hover {
@@ -126,10 +114,6 @@ main div.container .card:hover {
     transform: translateY(-10px);
     transition: .4s;   
 }
-
-
-
-
 
 
 footer  {
