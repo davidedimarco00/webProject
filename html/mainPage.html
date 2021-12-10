@@ -21,7 +21,7 @@
 
         <main>
             <header id="myHeader">
-               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
                         <img src="../images/LOGO/D-SOUND SYSTEM.png" id="logoImg">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,16 +31,11 @@
                         <div class="collapse navbar-collapse" id="navbarScroll">
                             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;" id="navbarLinkContainer">
                                 <li class="nav-item">
-                                    <div class="dropdown show">
-                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    
+                                        <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Home
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                                   
                                 </li>
 
                                 <li class="nav-item">
@@ -68,7 +63,6 @@
                                   </a>
                                   <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
                                       <li><a class="dropdown-item" href="../html/loginPage.html">Accedi</a></li>
-                                      <li><a class="dropdown-item" href="../html/signUpPage.html">Registrati</a></li>
                                   </ul>
                               </div>
                             </form>
@@ -182,8 +176,19 @@
 
 
 
-        <footer id="myFooter">
-                <p>COSE COSE COSE</p> 
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+          <div class="col-md-4 d-flex align-items-center mx-2">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="text-muted">© 2021 Company, Inc</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-2">
+            <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/"><img class="bi" width="24" height="24" src="../images/whatsapp.svg"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://wwww.facebook.com/"><img class="bi" width="24" height="24" src="../images/facebook.svg"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><img class="bi" width="24" height="24" src="../images/instagram.svg"></a></li>
+          </ul>
         </footer>
       </body>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

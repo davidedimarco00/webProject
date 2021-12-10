@@ -20,10 +20,6 @@ main header nav .navbar {
     position: fixed;
 }
 
-main nav div.dropdown a.btn {
-    border-radius: 50px;
-}
-
 main nav div.form-inline .dropdown-menu {
     align-content: center;
     vertical-align:auto;
