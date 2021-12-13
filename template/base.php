@@ -9,7 +9,7 @@
         <!-- Bootstrap CSS -->
         <link href="../css/mainPageStyle.css" rel="stylesheet" type="text/css" >
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <title>MainPage</title>
+        <title><?php echo $templateParams["titolo"]; ?></title>
         <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
       </head>
       <body>
@@ -73,8 +73,12 @@
                     </div>
                 </nav>
             </header>
-           <!-- qua va il codice dinamico -->
-              
+          <!-- qua va il codice dinamico -->
+          <?php
+            if(isset($templateParams["pagereq"])){
+              require($templateParams["pagereq"]);
+            }
+          ?>
         </main>
        
 
