@@ -17,7 +17,7 @@
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="jsUtils/jquery-1.11.3.min.js" type="text/javascript"></script>
       <!-- <script type="text/javascript" src="../javascript/setNavbar.js"></script> -->
-      <script src="javascript/mainPage.js" type="text/javascript"></script>
+      <!-- <script src="javascript/mainPage.js" type="text/javascript"></script> -->
 
       <main>
         <header id="myHeader">

@@ -1,159 +1,207 @@
--- *********************************************
--- * Standard SQL generation                   
--- *--------------------------------------------
--- * DB-MAIN version: 11.0.1              
--- * Generator date: Dec  4 2018              
--- * Generation date: Mon Nov 29 22:39:09 2021 
--- * LUN file: C:\Users\david\OneDrive\Desktop\PROGETTO WEB\webProject\database\webProject.lun 
--- * Schema: E-COMMERCELOGIC2/SQL 
--- ********************************************* 
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Creato il: Dic 27, 2021 alle 22:20
+-- Versione del server: 10.4.21-MariaDB
+-- Versione PHP: 8.0.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
--- Database Section
--- ________________ 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-create database E-COMMERCELOGIC2;
+--
+-- Database: `ecommerce`
+--
 
+-- --------------------------------------------------------
 
--- DBSpace Section
--- _______________
+--
+-- Struttura della tabella `cliente`
+--
 
+CREATE TABLE `cliente` (
+  `civico` int(11) NOT NULL,
+  `metPagamento` varchar(20) NOT NULL,
+  `NickCliente` varchar(20) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `Nome` varchar(20) NOT NULL,
+  `Cognome` varchar(20) NOT NULL,
+  `data_di_nascita` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Tables Section
--- _____________ 
+-- --------------------------------------------------------
 
-create table ORDINE (
-     Stato char(1) not null,
-     prezzoTotale char(1) not null,
-     codOrdine char(1) not null,
-     Data char(1) not null,
-     numProdotti char(1) not null,
-     NickVend char(1) not null,
-     NickCliente char(1) not null,
-     codSpedizione char(1) not null,
-     constraint ID_ORDINE_ID primary key (codOrdine));
+--
+-- Struttura della tabella `ordine`
+--
 
-create table PRODOTTO (
-     peso char(1) not null,
-     tipo char(1) not null,
-     costo char(1) not null,
-     codProdotto char(1) not null,
-     Prezzo char(1) not null,
-     constraint ID_PRODOTTO_ID primary key (codProdotto));
+CREATE TABLE `ordine` (
+  `Stato` varchar(20) NOT NULL,
+  `prezzoTotale` float NOT NULL,
+  `codOrdine` int(11) NOT NULL,
+  `Data` date NOT NULL,
+  `numProdotti` int(11) NOT NULL,
+  `NickVend` varchar(20) NOT NULL,
+  `NickCliente` varchar(20) NOT NULL,
+  `codSpedizione` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table SPEDIZIONE (
-     codSpedizione char(1) not null,
-     nomeCorriere char(1) not null,
-     indirizzoDest char(1) not null,
-     constraint ID_SPEDIZIONE_ID primary key (codSpedizione));
+-- --------------------------------------------------------
 
-create table VENDITORE (
-     NickVend char(1) not null,
-     password char(1) not null,
-     email char(1) not null,
-     Nome char(1) not null,
-     Cognome char(1) not null,
-     data_di_nascita char(1) not null,
-     constraint ID_VENDITORE_ID primary key (NickVend));
+--
+-- Struttura della tabella `prodotto`
+--
 
-create table CLIENTE (
-     civico char(1) not null,
-     metPagamento char(1) not null,
-     NickCliente char(1) not null,
-     password char(1) not null,
-     email char(1) not null,
-     Nome char(1) not null,
-     Cognome char(1) not null,
-     data_di_nascita char(1) not null,
-     constraint ID_CLIENTE_ID primary key (NickCliente));
+CREATE TABLE `prodotto` (
+  `peso` float NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `costo` float NOT NULL,
+  `codProdotto` int(11) NOT NULL,
+  `Prezzo` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table codProdotto (
-     codOrdine char(1) not null,
-     codProdotto char(1) not null,
-     constraint ID_codProdotto_ID primary key (codOrdine, codProdotto));
+-- --------------------------------------------------------
 
-create table codProdotto_1 (
-     codProdotto char(1) not null,
-     NickVend char(1) not null,
-     constraint ID_codPr_PRODO_ID primary key (codProdotto));
+--
+-- Struttura della tabella `prodottoordine`
+--
 
+CREATE TABLE `prodottoordine` (
+  `codOrdine` int(11) NOT NULL,
+  `codProdotto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Constraints Section
--- ___________________ 
+-- --------------------------------------------------------
 
-alter table ORDINE add constraint ID_ORDINE_CHK
-     check(exists(select * from codProdotto
-                  where codProdotto.codOrdine = codOrdine)); 
+--
+-- Struttura della tabella `prodottovenditore`
+--
 
-alter table ORDINE add constraint REF_ORDIN_VENDI_FK
-     foreign key (NickVend)
-     references VENDITORE;
+CREATE TABLE `prodottovenditore` (
+  `codProdotto` int(11) NOT NULL,
+  `NickVend` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-alter table ORDINE add constraint REF_ORDIN_CLIEN_FK
-     foreign key (NickCliente)
-     references CLIENTE;
+-- --------------------------------------------------------
 
-alter table ORDINE add constraint REF_ORDIN_SPEDI_FK
-     foreign key (codSpedizione)
-     references SPEDIZIONE;
+--
+-- Struttura della tabella `spedizione`
+--
 
-alter table PRODOTTO add constraint ID_PRODOTTO_CHK
-     check(exists(select * from codProdotto_1
-                  where codProdotto_1.codProdotto = codProdotto)); 
+CREATE TABLE `spedizione` (
+  `codSpedizione` int(11) NOT NULL,
+  `nomeCorriere` varchar(20) NOT NULL,
+  `indirizzoDest` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-alter table codProdotto add constraint REF_codPr_PRODO_FK
-     foreign key (codProdotto)
-     references PRODOTTO;
+-- --------------------------------------------------------
 
-alter table codProdotto add constraint FKORD_cod
-     foreign key (codOrdine)
-     references ORDINE;
+--
+-- Struttura della tabella `venditore`
+--
 
-alter table codProdotto_1 add constraint ID_codPr_PRODO_FK
-     foreign key (codProdotto)
-     references PRODOTTO;
+CREATE TABLE `venditore` (
+  `NickVend` varchar(20) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `Nome` varchar(20) NOT NULL,
+  `Cognome` varchar(20) NOT NULL,
+  `data_di_nascita` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-alter table codProdotto_1 add constraint FKVEN_cod_FK
-     foreign key (NickVend)
-     references VENDITORE;
+--
+-- Indici per le tabelle scaricate
+--
 
+--
+-- Indici per le tabelle `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`NickCliente`);
 
--- Index Section
--- _____________ 
+--
+-- Indici per le tabelle `ordine`
+--
+ALTER TABLE `ordine`
+  ADD PRIMARY KEY (`codOrdine`),
+  ADD KEY `REF_ORDIN_VENDI_FK` (`NickVend`),
+  ADD KEY `REF_ORDIN_CLIEN_FK` (`NickCliente`),
+  ADD KEY `REF_ORDIN_SPEDI_FK` (`codSpedizione`);
 
-create unique index ID_ORDINE_IND
-     on ORDINE (codOrdine);
+--
+-- Indici per le tabelle `prodotto`
+--
+ALTER TABLE `prodotto`
+  ADD PRIMARY KEY (`codProdotto`);
 
-create index REF_ORDIN_VENDI_IND
-     on ORDINE (NickVend);
+--
+-- Indici per le tabelle `prodottoordine`
+--
+ALTER TABLE `prodottoordine`
+  ADD PRIMARY KEY (`codOrdine`,`codProdotto`);
 
-create index REF_ORDIN_CLIEN_IND
-     on ORDINE (NickCliente);
+--
+-- Indici per le tabelle `prodottovenditore`
+--
+ALTER TABLE `prodottovenditore`
+  ADD PRIMARY KEY (`codProdotto`);
 
-create index REF_ORDIN_SPEDI_IND
-     on ORDINE (codSpedizione);
+--
+-- Indici per le tabelle `spedizione`
+--
+ALTER TABLE `spedizione`
+  ADD PRIMARY KEY (`codSpedizione`);
 
-create unique index ID_PRODOTTO_IND
-     on PRODOTTO (codProdotto);
+--
+-- Indici per le tabelle `venditore`
+--
+ALTER TABLE `venditore`
+  ADD PRIMARY KEY (`NickVend`);
 
-create unique index ID_SPEDIZIONE_IND
-     on SPEDIZIONE (codSpedizione);
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
 
-create unique index ID_VENDITORE_IND
-     on VENDITORE (NickVend);
+--
+-- AUTO_INCREMENT per la tabella `ordine`
+--
+ALTER TABLE `ordine`
+  MODIFY `codOrdine` int(11) NOT NULL AUTO_INCREMENT;
 
-create unique index ID_CLIENTE_IND
-     on CLIENTE (NickCliente);
+--
+-- AUTO_INCREMENT per la tabella `prodotto`
+--
+ALTER TABLE `prodotto`
+  MODIFY `codProdotto` int(11) NOT NULL AUTO_INCREMENT;
 
-create unique index ID_codProdotto_IND
-     on codProdotto (codOrdine, codProdotto);
+--
+-- AUTO_INCREMENT per la tabella `spedizione`
+--
+ALTER TABLE `spedizione`
+  MODIFY `codSpedizione` int(11) NOT NULL AUTO_INCREMENT;
 
-create index REF_codPr_PRODO_IND
-     on codProdotto (codProdotto);
+--
+-- Limiti per le tabelle scaricate
+--
 
-create unique index ID_codPr_PRODO_IND
-     on codProdotto_1 (codProdotto);
+--
+-- Limiti per la tabella `ordine`
+--
+ALTER TABLE `ordine`
+  ADD CONSTRAINT `REF_ORDIN_CLIEN_FK` FOREIGN KEY (`NickCliente`) REFERENCES `cliente` (`NickCliente`),
+  ADD CONSTRAINT `REF_ORDIN_SPEDI_FK` FOREIGN KEY (`codSpedizione`) REFERENCES `spedizione` (`codSpedizione`),
+  ADD CONSTRAINT `REF_ORDIN_VENDI_FK` FOREIGN KEY (`NickVend`) REFERENCES `venditore` (`NickVend`);
+COMMIT;
 
-create index FKVEN_cod_IND
-     on codProdotto_1 (NickVend);
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
