@@ -1,9 +1,9 @@
 <?php
 session_start();
-//define("UPLOAD_DIR", "./upload/");
+//define("UPLOAD_DIR", "./images/");
 require_once("utils/functions.php");
 require_once("db/database.php");
 
-$dbh = new DatabaseHelper("localhost", "root", "", "webproject", 3306);
+//$dbh = new DatabaseHelper("localhost", "root", "", "webproject", 3306);
 
 ?> 
