@@ -6,9 +6,12 @@
     height: 100px;
 }
 
+
+
 #loginImage {
-    margin-left: 2%;
-    margin-right: 20%;
+    width: 80%;
+    height: 32px;
+
 }
 
 .navbar {
@@ -41,6 +44,10 @@ main nav div.form-inline:hover input{
     background: #495057;
     color: #FFFFFF;
     border-radius: 10px;
+}
+
+main nav .nav-item {
+    display: flex;
 }
 
 
@@ -100,6 +107,15 @@ main div.container .list-group a:hover{
     font-size: bold;
 }
 
+main div.container .col {
+    align-items: center;
+}
+
+main div.container .card {
+    width: auto;
+    height: max-content;
+    
+}
 
 
 main div.container .card:hover {
