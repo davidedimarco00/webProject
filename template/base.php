@@ -7,10 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     
         <!-- Bootstrap CSS -->
-        <link href="<?php echo $templateParams["css"] ?>" rel="stylesheet" type="text/css" >
+        <?php if(isset($templateParams["css"])): ?>
+          <link href="<?php echo $templateParams["css"] ?>" rel="stylesheet" type="text/css" >
+        <?php endif; ?>
+        <!-- <link href="css/mainPageStyle.css" rel="stylesheet" type="text/css" > -->
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <title><?php echo $templateParams["titolo"]; ?></title>
-        <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
   </head>
     <body>
       <!-- Optional JavaScript -->
