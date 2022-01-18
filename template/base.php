@@ -56,7 +56,7 @@
                           <img src="images/account-circle.png" alt="accountImage" id="loginImage" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
-                          <li><a class="dropdown-item" href="html/loginPage.html">Accedi</a></li>
+                          <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
                         </ul>
                       </div>
                       </form>

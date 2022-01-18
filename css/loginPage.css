@@ -6,8 +6,10 @@
     box-sizing: border-box;
   }
 
-body, html {
+html, body, main {
     height: 100%;
+    width: 100%;
+   
 }
 
 .bg-image {
@@ -15,28 +17,29 @@ body, html {
     filter: blur(8px);
     -webkit-filter: blur(8px);
     height: 100%;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
 
 main section div.cardLogin {
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-        color: white;
-        font-weight: bold;
-        border: 3px solid #f1f1f1;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        width: 40%;
-        padding: 20px;
-        text-align: center; 
-        border-radius: 40px;  
-        object-fit: contain;
-        box-shadow: 2px;
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+      color: white;
+      font-weight: bold;
+      border: 3px solid #f1f1f1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 40%;
+      padding: 20px;
+      text-align: center; 
+      border-radius: 40px;  
+      object-fit: contain;
+      box-shadow: 2px;
 }
 
 main section div.cardLogin p, h2{
@@ -69,4 +72,5 @@ main section div.cardLogin form button:focus {
 
 form input {
   text-align: center;
+  border-radius: 50px !important;
 }
