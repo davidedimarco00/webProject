@@ -3,7 +3,7 @@
         <h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
         <?php endif;?>
 
-        <div class="row">
+            <section>
               <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span class="text-muted">Your cart</span>
@@ -148,7 +148,7 @@
                   <button class="btn btn-primary btn-lg btn-block" type="submit" >Continue to Payment </button>
                 </form>
               </div>
-            </div>
+            </section>
       
           <!-- Bootstrap core JavaScript
           ================================================== -->
