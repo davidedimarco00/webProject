@@ -10,17 +10,17 @@ function getIdFromName($name){
 }
 
 function registerLoggedUser($logininfo){
-    $_SESSION["idautore"] = $logininfo["idautore"];
+    $_SESSION["id"] = $logininfo["id"];
     $_SESSION["username"] = $logininfo["username"];
     $_SESSION["nome"] = $logininfo["nome"];
 }
 
 function isUserLoggedIn(){
-    return isSet($_SESSION["idautore"]) && isSet($_SESSION["username"]) && isSet($_SESSION["nome"]);
+    return isSet($_SESSION["id"]) && isSet($_SESSION["username"]) && isSet($_SESSION["nome"]);
 }
 
 function logUserOut(){
-    $_SESSION["idautore"] = NULL;
+    $_SESSION["id"] = NULL;
     $_SESSION["username"] = NULL;
     $_SESSION["nome"] = NULL;
 }

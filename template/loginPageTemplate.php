@@ -3,25 +3,25 @@
     <div class="cardLogin">
         <img src="./images/LOGO/D-SOUND SYSTEM.png" alt="logoLogin">
         <h2>Log-in or Register</h2>
-        <form action= "#" method="POST">
+        <form action="#" method="POST">
             <div class="first" >
-                <label for="exampleInputEmail1" class="form-label">NickName</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="username" class="form-label">NickName</label>
+                <input type="text" class="form-control" id="username" name="username">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" class="form-check-input" id="vendor">
                 <label id="checkbox" class="form-check-label" for="exampleCheck1">Sono un venditore</label>
             </div>
             <div class="buttonAndLink">
-                <button type="submit" href="../index.php" class="btn btn-primary">Login</button>
+                <input type="submit" name="submit" value="Login" />
                 <!-- Quando clicco devo fare l'accesso e andare sulla mainPage -->
                 <button type="button" href="../index.php" class="btn btn-secondary" onclick="showRegistrationForm()">Register</button>
             </div>
-            </form>
+        </form>
     </div>
 </section>
 <script type="text/javascript" src="./jsUtils/removeElement.js"></script>
