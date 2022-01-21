@@ -3,8 +3,8 @@
 
     //Base Template
     $templateParams["titolo"] = "homePage";
-    $templateParams["pagereq"] = "template/mainPage.php";
-    $templateParams["css"] = "css/mainPageStyle.css";
+    $templateParams["pagereq"] = "template/mainPageTemplate.php";
+    $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
 
     //$templateParams["qualcosa"] = $dbh->;
     //Home Template

@@ -12,7 +12,7 @@ html, body, main {
    
 }
 
-.bg-image {
+body .bg-image {
     background-image: url("../images/loginSignUpBg.jpg");
     filter: blur(8px);
     -webkit-filter: blur(8px);
@@ -47,9 +47,8 @@ main section div.cardLogin p, h2{
 }
 
 main section div.cardLogin img {
-  height: 300px;
+  width: 30%;
   border-radius: 40px;
-  opacity: 0.8;
 }
 
 

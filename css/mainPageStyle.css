@@ -1,11 +1,10 @@
 .selector-for-some-widget {
     box-sizing: content-box;
 }
-
+/*
 #logoImg {
     height: 100px;
 }
-
 
 
 #loginImage {
@@ -57,7 +56,7 @@ main nav .nav-item {
     margin-top: 30; 
 }
 
-
+*/
 main .carousel-inner .carousel-item {
     height:600px;
     background-position:center;     
@@ -126,7 +125,7 @@ main div.container .card:hover {
     transition: .4s;   
 }
 
-
+/*
 footer  {
     height: 250px;
     width: 100%;
@@ -143,6 +142,6 @@ footer p, footer span.text-muted {
     vertical-align: center;
     text-align: center;
 }
-
+*/
 
 

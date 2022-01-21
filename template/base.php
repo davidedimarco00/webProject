@@ -5,10 +5,11 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    
         <!-- Bootstrap CSS -->
         <?php if(isset($templateParams["css"])): ?>
-          <link href="<?php echo $templateParams["css"] ?>" rel="stylesheet" type="text/css" >
+          <?php for($i = 0; $i < count($templateParams["css"]); $i++): ?>
+            <link href="<?php echo $templateParams["css"][$i] ?>" rel="stylesheet" type="text/css">
+          <?php endfor; ?>
         <?php endif; ?>
         <!-- <link href="css/mainPageStyle.css" rel="stylesheet" type="text/css" > -->
 
@@ -65,14 +66,18 @@
             </div>
           </nav>
         </header>
+
         <!-- qua va il codice dinamico -->
         <?php
           if(isset($templateParams["pagereq"])){
             require($templateParams["pagereq"]);
           }
+
+
+
         ?>
       </main>
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top" id="myFooter">
           <div class="col-md-4 d-flex align-items-center mx-2">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
               <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>

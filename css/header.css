@@ -1,0 +1,58 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+#logoImg {
+    height: 100px;
+}
+
+
+#loginImage {
+    width: 80%;
+    height: 32px;
+
+}
+
+.navbar {
+    position: fixed;
+}
+
+main header nav .navbar {
+    position: fixed;
+}
+
+main nav div.form-inline .dropdown-menu {
+    align-content: center;
+    vertical-align:auto;
+}
+
+main nav div.form-inline input {
+    width: -40%;
+    background: none;
+    border: 1px solid #343a40;
+    border-radius: 60px;
+    box-sizing: content-box;
+    font-family: Arial;
+    font-size: 18px;
+    color: #000000;
+    transition: .3s;
+}
+
+main nav div.form-inline:hover input{
+    width: 100%;
+    background: #495057;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+main nav .nav-item {
+    display: flex;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: .5s;
+    margin-top: 30; 
+}
+
