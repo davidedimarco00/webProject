@@ -1,9 +1,9 @@
 <?php
     require_once 'bootstrap.php';
 
-    /*if(isSet($_GET["action"]) && $_GET["action"]=="logout"){
+    if(isSet($_GET["action"]) && $_GET["action"]=="logout"){
         logUserOut();
-    }*/
+    }
     if(isset($_POST["username"]) && isset($_POST["password"])){
         //$login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
         if($_POST["username"] == "briglia" && $_POST["password"] == "miao"){
@@ -21,7 +21,7 @@
     if(isUserLoggedIn()){
         $templateParams["titolo"] = "Admin Page";
         $templateParams["pagereq"] = "template/mainPageTemplate.php";
-        $templateParams["css"] = "css/mainPageStyle.css";
+        $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
         if(isset($_GET["formmsg"])){
             $templateParams["formmsg"] = $_GET["formmsg"];
         }
@@ -30,7 +30,6 @@
         $templateParams["titolo"] = "Login Page";
         $templateParams["pagereq"] = "template/loginPageTemplate.php";
         $templateParams["css"] = array("css/loginPage.css", "css/header.css", "css/footer.css");
-        var_dump($login_result);
     }
 
     require 'template/base.php';

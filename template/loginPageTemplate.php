@@ -18,8 +18,8 @@
             </div>
             <div class="buttonAndLink">
                 <input type="submit" name="submit" value="Login" />
-                <!-- Quando clicco devo fare l'accesso e andare sulla mainPage -->
-                <button type="button" href="../index.php" class="btn btn-secondary" onclick="showRegistrationForm()">Register</button>
+                <!-- Quando clicco devo fare l'accesso e andare sulla mainPage
+                <button type="button" href="../index.php" class="btn btn-secondary" onclick="showRegistrationForm()">Register</button> -->
             </div>
         </form>
     </div>
