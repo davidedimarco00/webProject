@@ -4,6 +4,6 @@ session_start();
 require_once("utils/functions.php");
 require_once("db/database.php");
 
-//$dbh = new DatabaseHelper("localhost", "root", "", "webproject", 3306);
+$dbh = new DatabaseHelper("localhost", "root", "", "ecommerce", 3306);
 
 ?> 

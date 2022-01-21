@@ -80,7 +80,7 @@ class DatabaseHelper{
     }
 
     public function checkLogin($user,$pass){
-        $query = "SELECT idautore, nome, username FROM autore WHERE attivo=1 AND username=? AND password=?";
+        $query = "SELECT NickCliente, Nome, Cognome FROM cliente WHERE NickCLiente=? AND password=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$user, $pass);
         $stmt->execute();

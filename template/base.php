@@ -60,7 +60,7 @@
                         <?php if(!isUserLoggedIn()): ?>
                           <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
                         <?php else: ?>
-                          <li><a class="dropdown-item"><?php echo $_SESSION["nome"]; ?></a></li>
+                          <li><a class="dropdown-item"><?php echo $_SESSION["Nome"].$_SESSION["Cognome"]; ?></a></li>
                           <li><a class="dropdown-item" href="#">I miei Articoli</a></li>
                           <li><a class="dropdown-item" href="./loginPage.php?action=logout">Logout</a></li>
                         <?php endif; ?>
