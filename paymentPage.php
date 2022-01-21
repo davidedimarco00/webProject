@@ -2,7 +2,7 @@
 require_once 'bootstrap.php';
 
 //Placeholder Templates: da sostituire con le query al database
-$templateParams["css"] = "css/paymentPage.css";
+$templateParams["css"] = array("css/paymentPage.css", "css/header.css", "css/footer.css");
 $templateParams["titolo"] = "Payment Details";
 $templateParams["pagereq"] = "template/payment.php";
 //$templateParams["nomearticolo"] = $dbh->metodo per prendere l'articolo richiesto;

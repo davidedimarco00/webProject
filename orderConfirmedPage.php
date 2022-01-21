@@ -2,7 +2,7 @@
 require_once 'bootstrap.php';
 
 //Placeholder Templates: da sostituire con le query al database
-$templateParams["css"] = "css/orderConfirmedPage.css";
+$templateParams["css"] = array("css/orderConfirmendPage.css", "css/header.css", "css/footer.css");
 $templateParams["titolo"] = "Order Details";
 $templateParams["pagereq"] = "template/corderconfirmed.php";
 //$templateParams["nomearticolo"] = $dbh->metodo per prendere l'articolo richiesto;
