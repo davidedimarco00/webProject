@@ -13,7 +13,7 @@
                 <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="vendor">
+                <input type="checkbox" class="form-check-input" id="vendor" name="vendor" />
                 <label id="checkbox" class="form-check-label" for="exampleCheck1">Sono un venditore</label>
             </div>
             <div class="buttonAndLink">

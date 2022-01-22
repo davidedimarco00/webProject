@@ -5,12 +5,17 @@
         logUserOut();
     }
     if(isSet($_POST["username"]) && isSet($_POST["password"])){
-        $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
-        /*if($_POST["username"] == "briglia" && $_POST["password"] == "miao"){
-            $login_result=array("id" => 0,"username" => "briglia","nome" => "Andrea Brigliadori");
-        }*/
+        if(isSet($_POST["vendor"]) && $_POST["vendor"] == "on"){
+            $isVendor=true;
+            $login_result = $dbh->checkLogin($_POST["username"], hash("sha256", $_POST["password"]), $isVendor);
+        }
+        else {
+            $isVendor=false;
+            $login_result = $dbh->checkLogin($_POST["username"], hash("sha256", $_POST["password"]), $isVendor);
+        }
+        
         if(count($login_result)!=0){
-            registerLoggedUser($login_result[0]);
+            registerLoggedUser($login_result[0], $isVendor);
         }
     }
     

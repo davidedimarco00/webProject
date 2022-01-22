@@ -79,10 +79,24 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function checkLogin($user,$pass){
-        $query = "SELECT NickCliente, Nome, Cognome FROM cliente WHERE NickCLiente=? AND password=?";
+    public function checkLogin($user,$pass,$isVendor){
+        if($isVendor){
+            $query = "SELECT NickVend, Nome, Cognome FROM venditore WHERE NickVend=? AND password=?";
+        }
+        else {
+            $query = "SELECT NickCliente, Nome, Cognome FROM cliente WHERE NickCliente=? AND password=?";
+        }
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$user, $pass);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllArticles(){
+        $query = "SELECT codProdotto, tipo, costo, peso FROM prodotto";
+        $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
 
