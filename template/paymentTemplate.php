@@ -43,14 +43,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 mb-4 d-flex justify-content-between"> <span>Previous step</span> <button class="btn btn-success px-3">Complete Payment</button> </div>
+                    <div class="mt-4 mb-4 d-flex justify-content-between"> <button>Previous step</button> <button class="btn btn-success px-3" href="orderConfirmedPage.php">Complete Payment</button> </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card card-blue p-3 text-white mb-3"> <span>You have to pay</span>
                         <div class="d-flex flex-row align-items-end mb-3">
                             <h1 class="mb-0 yellow">$549</h1> <span>.99</span>
                         </div> <span>Enjoy all the features and perk after you complete the payment</span> <a href="#" class="yellow decoration">Know all the features</a>
-                        <div class="hightlight"> <span>100% Guaranteed support and update for the next 5 years.</span> </div>
+                        <div class="hightlight"> <span>Total</span> </div>
                     </div>
                 </div>
             </div>

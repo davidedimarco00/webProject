@@ -4,7 +4,7 @@ require_once 'bootstrap.php';
 //Placeholder Templates: da sostituire con le query al database
 $templateParams["css"] = array("css/paymentPage.css", "css/header.css", "css/footer.css");
 $templateParams["titolo"] = "Payment Details";
-$templateParams["pagereq"] = "template/payment.php";
+$templateParams["pagereq"] = "template/paymentTemplate.php";
 //$templateParams["nomearticolo"] = $dbh->metodo per prendere l'articolo richiesto;
 //Home Template
 //$templateParams["venditore"] = $dbh->metodo per ottenere il venditore;

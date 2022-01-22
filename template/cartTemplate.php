@@ -145,7 +145,7 @@
                     <input type="checkbox" class="custom-control-input" id="save-info">
                     <label class="custom-control-label" for="save-info">Save this information for next time</label>
                   </div>
-                  <button class="btn btn-primary btn-lg btn-block" type="submit" >Continue to Payment </button>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit" href="paymentPage.php">Continue to Payment </button>
                 </form>
               </div>
             </section>
