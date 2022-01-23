@@ -17,6 +17,9 @@
         if(count($login_result)!=0){
             registerLoggedUser($login_result[0], $isVendor);
         }
+        else{
+            $templateParams["formmsg"] = "Login Error";
+        }
     }
     
     if(isUserLoggedIn()){

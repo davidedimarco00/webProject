@@ -3,6 +3,9 @@
     <div class="cardLogin">
         <img src="./images/LOGO/D-SOUND SYSTEM.png" alt="logoLogin">
         <h2>Log-in or Register</h2>
+        <?php if(isset($templateParams["formmsg"])):?>
+        <p><?php echo $templateParams["formmsg"]; ?></p>
+        <?php endif; ?>
         <form action="#" method="POST">
             <div class="first" >
                 <label for="username" class="form-label">NickName</label>
