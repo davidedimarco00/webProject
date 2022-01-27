@@ -3,9 +3,10 @@ class DatabaseHelper{
     private $db;
 
     public function __construct($servername, $username, $password, $dbname, $port){
-        $this->db = new mysqli($servername, $username, $password, $dbname, $port);
+        $this->db = new mysqli($servername, $username, $password, "dsoundsystem", $port);
         if ($this->db->connect_error) {
             die("Connection failed: " . $db->connect_error);
+            echo "Connessione fallita";
         }        
     }
 
@@ -19,10 +20,9 @@ class DatabaseHelper{
     }
 
     public function getCategories(){
-        $stmt = $this->db->prepare("SELECT * FROM categoria");
+        $stmt = $this->db->prepare("SELECT Nome FROM categoria");
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -94,14 +94,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getAllArticles(){
+  /*  public function getAllArticles(){
         $query = "SELECT codProdotto, tipo, costo, peso FROM prodotto";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
-    }
+    }*/
 
 }
 ?>

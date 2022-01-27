@@ -5,7 +5,8 @@
     $templateParams["titolo"] = "homePage";
     $templateParams["pagereq"] = "template/mainPageTemplate.php";
     $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
-    $templateParams["articoli"] = $dbh->getAllArticles();
+    $templateParams["categories"] = $dbh->getCategories();
+  /*  $templateParams["articoli"] = $dbh->getAllArticles();*/
     //$templateParams["qualcosa"] = $dbh->;
     //Home Template
     //$templateParams["articoli"] = $dbh->metodo per ottenere gli articoli della pagina principale;

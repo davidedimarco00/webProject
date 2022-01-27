@@ -40,7 +40,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="html/cartPage.html">Carrello</a>
+                      <a class="nav-link" href="../webProject/cartPage.php">Carrello</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="html/chisiamo.html">Chi siamo?</a>

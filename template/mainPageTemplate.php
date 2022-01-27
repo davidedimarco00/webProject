@@ -42,16 +42,17 @@
 
   <!------ ALBUM PRODOTTI----->
 
+
   <div class="container">
 
   <div class="row">
 
   <div class="col-xl-2 col-md-4 justify-content-center mycols">
   <div class="list-group" id="list-tab" role="presentation">
-    <a class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Microphone</a>
-    <a class="list-group-item list-group-item-action mx-auto" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Speakers</a>
-    <a class="list-group-item list-group-item-action mx-auto" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Mixer</a>
-    <a class="list-group-item list-group-item-action mx-auto" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+  <?php foreach($templateParams["categories"] as $id => $value): ?> 
+    <a class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" href="#list-<?php echo $value['Nome']?>" role="tab" aria-controls="home"><?php echo $value['Nome']?></a>  
+  <?php endforeach;?>    
+   
   </div>
   </div>
 
