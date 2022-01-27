@@ -43,7 +43,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 mb-4 d-flex justify-content-between"> <button>Previous step</button> <button class="btn btn-success px-3" href="orderConfirmedPage.php">Complete Payment</button> </div>
+                    <div class="mt-4 mb-4 d-flex justify-content-between">
+                        <button onclick="location.href='cartPage.php'">Previous step</button>
+                        <button class="btn btn-success px-3" onclick="location.href='orderConfirmedPage.php'">Complete Payment</button> </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card card-blue p-3 text-white mb-3"> <span>You have to pay</span>

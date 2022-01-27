@@ -34,13 +34,9 @@
                   </li>
                   <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>
-                    <strong>$20</strong>
+                    <strong><?php echo $templateParams["total"]; ?></strong>
                   </li>
                 </ul>
-          
-
-
-
                 <form class="card p-2">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Promo code">
@@ -52,7 +48,7 @@
               </div>
               <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
-                <form class="needs-validation" novalidate="" action="../html/paymentPage.html">
+                <form class="needs-validation" novalidate="" action="paymentPage.php">
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="firstName">First name</label>
@@ -142,7 +138,7 @@
                     <input type="checkbox" class="custom-control-input" id="save-info">
                     <label class="custom-control-label" for="save-info">Save this information for next time</label>
                   </div>
-                  <button class="btn btn-primary btn-lg btn-block" type="submit" href="paymentPage.php">Continue to Payment </button>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to Payment </button>
                 </form>
               </div>
             </section>
@@ -163,7 +159,6 @@
               window.addEventListener('load', function() {
                 // Fetch all the forms we want to apply custom Bootstrap validation styles to
                 var forms = document.getElementsByClassName('needs-validation');
-      
                 // Loop over them and prevent submission
                 var validation = Array.prototype.filter.call(forms, function(form) {
                   form.addEventListener('submit', function(event) {
