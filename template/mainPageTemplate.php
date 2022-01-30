@@ -38,55 +38,60 @@
   <span class="visually-hidden">Next</span>
   </button>
   </div>
-
-
   <!------ ALBUM PRODOTTI----->
 
 
   <div class="container">
 
-  <div class="row">
+    
 
-  <div class="col-xl-2 col-md-4 justify-content-center mycols">
-  <div class="list-group" id="list-tab" role="presentation">
-  <?php foreach($templateParams["categories"] as $id => $value): ?> 
-    <a class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" href="#list-<?php echo $value['Nome']?>" role="tab" aria-controls="home"><?php echo $value['Nome']?></a>  
-  <?php endforeach;?>    
-   
-  </div>
-  </div>
+      <div class="row">
 
-  <div class="col-xl-2 col-md-4 justify-content-center mycols">
-      <div class="card">
-        <img class="card-img-top" src="images/mixer2.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">MIXER</h5>
-          <p class="card-text">testo testo testo testo testo testo testo</p>
-          <a href="https://www.facebook.com"></a>
+      <div class="col-xl-2 col-md-4 justify-content-center mycols">
+      <div class="form-inline my-2 my-lg-0">
+        <form>
+          <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+        </form>
+      </div>
+      <div class="list-group" id="list-tab" role="presentation">
+      <?php foreach($templateParams["categories"] as $id => $value): ?> 
+        <a class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" href="#list-<?php echo $value['Nome']?>" role="tab" aria-controls="home"><?php echo $value['Nome']?></a>  
+      <?php endforeach;?>    
+      
+      </div>
+      </div>
+
+      <div class="col-xl-2 col-md-4 justify-content-center mycols">
+          <div class="card">
+            <img class="card-img-top" src="images/mixer2.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">MIXER</h5>
+              <p class="card-text">testo testo testo testo testo testo testo</p>
+              <a href="https://www.facebook.com"></a>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="col-xl-2 col-md-4  mycols">
+          <div class="card">
+            <img class="card-img-top" src="images/speakerCOVER.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">MIXER</h5>
+              <p class="card-text">testo testo testo testo testo testo testo</p>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-xl-2 col-md-4  mycols">
+
+        <div class="card">
+
+          <img class="card-img-top" src="images/mixer2.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">MIXER</h5>
+            <p class="card-text">testo testo testo testo testo testo testo</p>
+            <a href="../html/productPage.html" class="stretched-link"></a>
+          </div>
         </div>
-      </div>
-
-  </div>
-
-  <div class="col-xl-2 col-md-4  mycols">
-      <div class="card">
-        <img class="card-img-top" src="images/speakerCOVER.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">MIXER</h5>
-          <p class="card-text">testo testo testo testo testo testo testo</p>
-        </div>
-      </div>
-  </div>
-
-  <div class="col-xl-2 col-md-4  mycols">
-
-    <div class="card">
-
-      <img class="card-img-top" src="images/mixer2.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">MIXER</h5>
-        <p class="card-text">testo testo testo testo testo testo testo</p>
-        <a href="../html/productPage.html" class="stretched-link"></a>
-      </div>
-    </div>
   </div>

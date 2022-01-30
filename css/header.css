@@ -8,9 +8,31 @@
 
 
 #loginImage {
-    width: 80%;
+    width: 32px;
     height: 32px;
+    
+    
+}
 
+#notificationImage {
+    width: 32px;
+    height: 32px;
+  
+    
+}
+
+#notificationCounter {
+    position: relative;
+    width: 20px;
+    background-color:red;
+    position: absolute;
+    top: 0px;
+    left: -5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
 }
 
 .navbar {
@@ -26,33 +48,28 @@ main nav div.form-inline .dropdown-menu {
     vertical-align:auto;
 }
 
-main nav div.form-inline input {
-    width: -40%;
-    background: none;
-    border: 1px solid #343a40;
-    border-radius: 60px;
-    box-sizing: content-box;
-    font-family: Arial;
-    font-size: 18px;
-    color: #000000;
-    transition: .3s;
-}
-
-main nav div.form-inline:hover input{
-    width: 100%;
-    background: #495057;
-    color: #FFFFFF;
-    border-radius: 10px;
-}
 
 main nav .nav-item {
     display: flex;
 }
 
-
 .dropdown:hover .dropdown-menu {
-    display: block;
-    transition: .5s;
-    margin-top: 30; 
+    display: block; 
+    white-space: nowrap;
 }
+
+
+.dropdown-menu .notification .imageNot, .dropdown-menu .notification {
+    display: inline-block;
+}
+
+.dropdown-menu .card-body:hover {
+    
+    background-color:  #495057;
+    transition: .2s;
+    color: white;
+    font-size: bold;
+}
+
+
 

@@ -49,14 +49,51 @@
                       <a class="nav-link" href="html/contactsPage.html">Contatti</a>
                     </li>
                   </ul>
-                  <div class="form-inline my-2 my-lg-0">
-                    <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+                 
                       <div class="dropdown text-end">
-                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle hide" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                          <img src="images/account-circle.png" alt="accountImage" id="loginImage" width="32" height="32" class="rounded-circle">
-                        </a>
-                        <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
+                        <img src="images/notificationIcon.png" alt="notificationImage" id="notificationImage" class="rounded-circle">
+                        <p id ="notificationCounter">1</p>
+                        <ul class="dropdown-menu text-small aria-hidden" id="dropnotify" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-20px, 34px);" >
+                          
+                            
+                            <div class="notification">
+
+                            <div class="imageNot">
+                            <p>
+                            </div>
+                            
+                              <div class="card-body">
+                                <h5 class="card-title">NOTIFICATION TITLE</h5>
+                                <h6 class="card-subtitle">DATA</h6>
+                                <p class="card-text">TESTO NOTIFICA</p>
+                              </div>
+
+                              <div class="imageNot">
+                                <img>immagine</img>
+                              </div>
+
+                              <div class="card-body">
+                                <h5 class="card-title">NOTIFICATION TITLE</h5>
+                                <h6 class="card-subtitle">DATA</h6>
+                                <p class="card-text">TESTO NOTIFICA</p>
+                              </div>
+                              <div class="card-body">
+                                <h5 class="card-title">NOTIFICATION TITLE</h5>
+                                <h6 class="card-subtitle">DATA</h6>
+                                <p class="card-text">TESTO NOTIFICA</p>
+                              </div>
+                              <div class="card-body">
+                                <h5 class="card-title">NOTIFICATION TITLE</h5>
+                                <h6 class="card-subtitle">DATA</h6>
+                                <p class="card-text">TESTO NOTIFICA</p>
+                              </div>
+                          
+                         
+                        </ul>
+                      </div>
+                      <div class="dropdown text-end">
+                        <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
+                        <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-20px, 34px);" data-popper-placement="bottom-end">
                         <?php if(!isUserLoggedIn()): ?>
                           <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
                         <?php endif; ?>
@@ -72,8 +109,7 @@
                         <?php endif; ?>
                         </ul>
                       </div>
-                      </form>
-                  </div>
+                
                 </div>
             </div>
           </nav>

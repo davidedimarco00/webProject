@@ -83,6 +83,27 @@ main .carousel-inner .carousel-item .carousel-caption p {
     vertical-align: top;
 }
 
+main  div.container .form-inline input {
+    border: 1px solid #343a40;
+    border-radius: 60px;
+    box-sizing:border-box;
+    font-family: Arial;
+    font-size: 18px;
+    color: #000000;
+    transition: .3s;
+}
+
+main  div.container .form-inline {
+    padding-bottom: 10px;
+}
+
+main  div.container .form-inline input:hover {
+    
+    background: #495057;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
 main div.container  {
     max-width: 100%;
     margin-top: 50px;
