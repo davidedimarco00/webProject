@@ -11,11 +11,11 @@ function getIdFromName($name){
 
 function registerLoggedUser($logininfo, $isVendor){
     if($isVendor){
-        $_SESSION["Nickname"] = $logininfo["NickVend"];
+        $_SESSION["Nickname"] = $logininfo["Nickname"];
         $_SESSION["isVendor"] = true;
     }
     else{
-        $_SESSION["Nickname"] = $logininfo["NickCliente"];
+        $_SESSION["Nickname"] = $logininfo["Nickname"];
         $_SESSION["isVendor"] = false;
     }
     
@@ -32,6 +32,7 @@ function logUserOut(){
     $_SESSION["Nome"] = NULL;
     $_SESSION["Cognome"] = NULL;
     $_SESSION["isVendor"] = NULL;
+    session_destroy();
 }
 
 function isUserVendor(){

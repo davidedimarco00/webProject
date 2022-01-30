@@ -1,21 +1,32 @@
 <?php
     require_once 'bootstrap.php';
 
-    if(isSet($_GET["action"]) && $_GET["action"]=="logout"){
+    /*if(isSet($_GET["action"]) && $_GET["action"]=="logout"){
         logUserOut();
+    }*/
+
+    if(isSet($_POST["name"]) && isSet($_POST["surname"]) && isSet($_POST["email"]) && isSet($_POST["nickname"]) && isSet($_POST["password"])) {
+            if (isSet($_POST["isVend"]) == NULL) {
+                $registration_result= $dbh->addNewUser($_POST["name"], $_POST["surname"], 
+                                                    $_POST["nickname"],$_POST["email"],
+                                                    hash("sha256", $_POST["password"]),
+                                                    0);
+            }else {
+                $registration_result= $dbh->addNewUser($_POST["name"], $_POST["surname"], 
+                                                $_POST["nickname"],$_POST["email"],
+                                                hash("sha256", $_POST["password"]),
+                                                1);
+
+            }
     }
-    if(isSet($_POST["username"]) && isSet($_POST["password"])){
-        if(isSet($_POST["vendor"]) && $_POST["vendor"] == "on"){
-            $isVendor=true;
-            $login_result = $dbh->checkLogin($_POST["username"], hash("sha256", $_POST["password"]), $isVendor);
-        }
-        else {
-            $isVendor=false;
-            $login_result = $dbh->checkLogin($_POST["username"], hash("sha256", $_POST["password"]), $isVendor);
-        }
-        
+
+
+    if(isSet($_POST["nickname"]) && isSet($_POST["password"]) && !isSet($_POST["name"])) {
+
+        $login_result = $dbh->checkLogin($_POST["nickname"], hash("sha256", $_POST["password"]));
+
         if(count($login_result)!=0){
-            registerLoggedUser($login_result[0], $isVendor);
+            registerLoggedUser($login_result[0], $login_result[0]["isVend"]);
         }
         else{
             $templateParams["formmsg"] = "Login Error";
@@ -26,11 +37,13 @@
         $templateParams["titolo"] = "Admin Page";
         $templateParams["pagereq"] = "template/mainPageTemplate.php";
         $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
+        $templateParams["categories"] = $dbh->getCategories();
     }
     else{
         $templateParams["titolo"] = "Login Page";
         $templateParams["pagereq"] = "template/loginPageTemplate.php";
         $templateParams["css"] = array("css/loginPage.css", "css/header.css", "css/footer.css");
+        $templateParams["categories"] = $dbh->getCategories();
     }
 
     require 'template/base.php';

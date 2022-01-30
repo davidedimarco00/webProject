@@ -79,19 +79,25 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function checkLogin($user,$pass,$isVendor){
-        if($isVendor){
-            $query = "SELECT NickVend, Nome, Cognome FROM venditore WHERE NickVend=? AND password=?";
-        }
-        else {
-            $query = "SELECT NickCliente, Nome, Cognome FROM cliente WHERE NickCliente=? AND password=?";
-        }
+    public function checkLogin($user,$pass){
+      
+        $query = "SELECT Nome, Cognome, Nickname, isVend FROM utente WHERE Nickname=? AND password=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$user, $pass);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function addNewUser($name, $surname, $nickname, $email, $pass, $isVend){
+        $query = "INSERT INTO `utente` (`Nome`, `Cognome`, `Nickname`, `E_mail`, `Password`, `isVend`) VALUES (?, ?, ?, ?, ?, ?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssssi', $name, $surname, $nickname, $email, $pass, $isVend);
+        $result = $stmt->execute();
+        if (false === $result) {
+            echo "<script type='text/javascript'>alert('Username già esistente');</script>";
+        }
+       // return $result->fetch_all(MYSQLI_ASSOC);
     }
 
   /*  public function getAllArticles(){

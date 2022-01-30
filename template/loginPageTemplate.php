@@ -6,23 +6,19 @@
         <?php if(isset($templateParams["formmsg"])):?>
         <p><?php echo $templateParams["formmsg"]; ?></p>
         <?php endif; ?>
-        <form action="#" method="POST">
+        <form action="../webProject/loginPage.php" method="POST">
             <div class="first" >
-                <label for="username" class="form-label">NickName</label>
-                <input type="text" class="form-control" id="username" name="username">
+                <label for="nickname" class="form-label">Nickname</label>
+                <input type="text" class="form-control" id="nickname" name="nickname">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="vendor" name="vendor" />
-                <label id="checkbox" class="form-check-label" for="exampleCheck1">Sono un venditore</label>
-            </div>
-            <div class="buttonAndLink">
-                <input type="submit" name="submit" value="Login" />
-                <!-- Quando clicco devo fare l'accesso e andare sulla mainPage
-                <button type="button" href="../index.php" class="btn btn-secondary" onclick="showRegistrationForm()">Register</button> -->
+
+            <div class="buttonAndLink" id="lastDiv">
+                 <button type="submit" id="loginButton" href="#" class="btn btn-secondary">Login</button>
+                <button type="button" id="registrationButton" class="btn btn-secondary" onclick="showRegistrationForm()">Register</button>
             </div>
         </form>
     </div>
