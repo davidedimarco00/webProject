@@ -159,3 +159,10 @@ create unique index ID_SPEDIZIONE_IND
 create unique index SID_SPEDI_ORDIN_IND
      on SPEDIZIONE (CodOrdine);
 
+rename TABLE CARRELLO to carrello;
+rename TABLE NOTIFICA to notifica;
+rename TABLE CATEGORIA to categoria;
+rename TABLE ORDINE to ordine;
+rename TABLE PRODOTTO to prodotto;
+rename TABLE SPEDIZIONE to spedizione;
+rename TABLE UTENTE to utente;
