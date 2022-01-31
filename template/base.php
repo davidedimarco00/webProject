@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                   <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;" id="navbarLinkContainer">
                     <li class="nav-item">
-                      <a class="btn btn-secondary" href="https://www.instagram.com" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="btn btn-secondary" href="index.php" role="button" aria-haspopup="true" aria-expanded="false">
                         Home
                       </a>
                     </li>
