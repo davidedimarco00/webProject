@@ -80,7 +80,6 @@ class DatabaseHelper{
     }
 
     public function checkLogin($user,$pass){
-      
         $query = "SELECT Nome, Cognome, Nickname, isVend FROM utente WHERE Nickname=? AND password=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$user, $pass);
@@ -89,7 +88,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function addNewUser($name, $surname, $nickname, $email, $pass, $isVend){
+    public function addNewUser($name, $surname, $nickname, $email, $pass, $isVend) {
         $query = "INSERT INTO `utente` (`Nome`, `Cognome`, `Nickname`, `E_mail`, `Password`, `isVend`) VALUES (?, ?, ?, ?, ?, ?);";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sssssi', $name, $surname, $nickname, $email, $pass, $isVend);
@@ -98,6 +97,24 @@ class DatabaseHelper{
             echo "<script type='text/javascript'>alert('Username già esistente');</script>";
         }
        // return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getNotifies($nickname){
+        $query = "SELECT data, testo from notifica WHERE NOT letto and data < NOW() and Nickname=?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$nickname);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getNotReadNotifiesNumber($nickname){
+        $query = "SELECT count(*) as notRead from notifica where NOT letto and data < NOW() and Nickname=?; ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$nickname);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
   /*  public function getAllArticles(){

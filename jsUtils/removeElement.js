@@ -5,6 +5,5 @@ $( document ).ready(function() {
     
     elem = document.getElementById("myFooter");
     elem.parentNode.removeChild(elem);
-    
  });
 

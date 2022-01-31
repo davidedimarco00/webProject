@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                   <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;" id="navbarLinkContainer">
                     <li class="nav-item">
-                      <a class="btn btn-secondary" href="./webProject/index.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="btn btn-secondary" href="https://www.instagram.com" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Home
                       </a>
                     </li>
@@ -50,45 +50,21 @@
                     </li>
                   </ul>
                  
-                      <div class="dropdown text-end">
+                      <div class="dropdown text-end" id="dropDownNotification">
                         <img src="images/notificationIcon.png" alt="notificationImage" id="notificationImage" class="rounded-circle">
-                        <p id ="notificationCounter">1</p>
+                        <?php if(isUserHasNotifies()): ?>
+                          <p id ="notificationCounter"><?php echo $_SESSION["NotifiesNumber"] ?> </p>  
+                        <?php endif; ?>
+                        
                         <ul class="dropdown-menu text-small aria-hidden" id="dropnotify" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-20px, 34px);" >
-                          
-                            
-                            <div class="notification">
-
-                            <div class="imageNot">
-                            
+                            <div class="notification" id="panelNotify">
+                              <img src="images/bellnotify.png" alt="bellNotify" id="bellImage" >
                             </div>
-                            
-                              <div class="card-body">
-                                <h5 class="card-title">NOTIFICATION TITLE</h5>
-                                <h6 class="card-subtitle">DATA</h6>
-                                <p class="card-text">TESTO NOTIFICA</p>
-                              </div>
-
-                              <div class="imageNot">
-                                <img>immagine</img>
-                              </div>
-
-                              <div class="card-body">
-                                <h5 class="card-title">NOTIFICATION TITLE</h5>
-                                <h6 class="card-subtitle">DATA</h6>
-                                <p class="card-text">TESTO NOTIFICA</p>
-                              </div>
-                              <div class="card-body">
-                                <h5 class="card-title">NOTIFICATION TITLE</h5>
-                                <h6 class="card-subtitle">DATA</h6>
-                                <p class="card-text">TESTO NOTIFICA</p>
-                              </div>
-                              <div class="card-body">
-                                <h5 class="card-title">NOTIFICATION TITLE</h5>
-                                <h6 class="card-subtitle">DATA</h6>
-                                <p class="card-text">TESTO NOTIFICA</p>
-                              </div>
-                          
-                         
+                            <?php if (!isUserLoggedIn()): ?>
+                                <div class="card-body" id="notificationCard">
+                                  <p class="card-text">Log-in to see your notifies</p>
+                                </div>
+                            <?php endif ?>
                         </ul>
                       </div>
                       <div class="dropdown text-end">
@@ -146,4 +122,5 @@
       </body>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+      <script type="text/javascript "src="./jsUtils/header.js"></script>
 </html> 

@@ -17,9 +17,8 @@
 #notificationImage {
     width: 32px;
     height: 32px;
-  
-    
 }
+
 
 #notificationCounter {
     position: relative;
@@ -56,20 +55,35 @@ main nav .nav-item {
 .dropdown:hover .dropdown-menu {
     display: block; 
     white-space: nowrap;
+    transition: .5s;
 }
 
+.dropdown:hover {
+    transform: scale(1.1);
+    z-index: 999;
+}
 
-.dropdown-menu .notification .imageNot, .dropdown-menu .notification {
+#panelNotify{
+    display: inline-grid;
+}
+
+#bellImage{
+    height: 50px;
+}
+
+#notificationCard {
     display: inline-block;
 }
 
+
 .dropdown-menu .card-body:hover {
-    
     background-color:  #495057;
     transition: .2s;
     color: white;
     font-size: bold;
+    
 }
+
 
 
 

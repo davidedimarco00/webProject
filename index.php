@@ -10,6 +10,12 @@
     $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
     $templateParams["categories"] = $dbh->getCategories();
 
+    if (isSet($_SESSION["Nickname"])) {
+      $templateParams["notReadNotifies"] = $dbh->getNotReadNotifiesNumber($_SESSION["Nickname"]);
+      $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
+    }
+    
+ 
 
   /*  $templateParams["articoli"] = $dbh->getAllArticles();*/
     //$templateParams["qualcosa"] = $dbh->;
