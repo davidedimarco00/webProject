@@ -39,7 +39,7 @@ create table UTENTE (
      Nome varchar(20) not null,
      Cognome varchar(20) not null,
      Nickname varchar(20) not null,
-     E_mail varchar(20) not null,
+     E_mail varchar(200) not null,
      Password varchar(256) not null,
      isVend bit not null,
      constraint ID_UTENTE_ID primary key (Nickname));
@@ -59,7 +59,7 @@ create table CATEGORIA (
 
 create table NOTIFICA (
      CodNotifica int(11) not null AUTO_INCREMENT,
-     Data date not null,
+     Data datetime not null,
      Testo varchar(600) not null,
      Letto bit not null,
      Nickname varchar(20) not null,
@@ -92,10 +92,6 @@ alter table PRODOTTO add constraint REF_PRODO_CATEG_FK
 alter table CARRELLO add constraint REF_CARRE_UTENT_FK
      foreign key (Nickname)
      references UTENTE (Nickname);
-
-alter table ORDINE add constraint ID_ORDINE_CHK
-     check(exists(select * from SPEDIZIONE
-                  where SPEDIZIONE.CodOrdine = CodOrdine)); 
 
 alter table ORDINE add constraint SID_ORDIN_CARRE_FK
      foreign key (CodCarrello)

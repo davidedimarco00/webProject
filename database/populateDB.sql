@@ -22,7 +22,7 @@ INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (NULL,'Cables');
 INSERT INTO `utente` (`Nome`, `Cognome`, `Nickname`, `E_mail`, `Password`, `isVend`) VALUES
 ('Andrea', 'Brigliadori', 'bribri00', 'brigliadoriandrea@gmail.com', 'adec5f06f4290eca5edafd9d779f48f6aa4fc83c7a50cd1644545a04aeac2a7e', b'1'),
 ('Davide', 'Di marco', 'davidima00', 'davidedimarco44@gmail.com', '9331a1d273d1c186ac996050b184dd0c616d495c4b6ff7bc9ba016c21cd331ea', b'1'),
-('Riccardo', 'Leonelli', 'richileo', 'riccardoleonelli@gmail.com', '7477c6479a5184743694f9b65d3c422d76d7009f9bafa3c37e1c1677694c6198', b'1'),
+('Riccardo', 'Leonelli', 'richileo', 'riccardoleonelli@gmail.com', '7477c6479a5184743694f9b65d3c422d76d7009f9bafa3c37e1c1677694c6198', b'1');
 INSERT INTO `utente`(`Nome`, `Cognome`, `Nickname`, `E_mail`, `Password`, `isVend`) VALUES ('Marco','Rossi','marcolinor','marcorossi@gmail.com','aa9b6b0760783de8553dcad5fab353d64e51bb4c73e3057fbd15d58842c1fe5e',b'0');
 
 /*PRODOTTI -> SUBWOOFER*/
