@@ -3,7 +3,7 @@ class DatabaseHelper{
     private $db;
 
     public function __construct($servername, $username, $password, $dbname, $port){
-        $this->db = new mysqli($servername, "root", $password, "dsoundsystemLOGIC", $port);
+        $this->db = new mysqli($servername, $username, $password, "dsoundsystem", $port);
         if ($this->db->connect_error) {
             die("Connection failed: " . $db->connect_error);
             echo "Connessione fallita";
