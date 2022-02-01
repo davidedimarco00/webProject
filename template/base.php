@@ -64,8 +64,23 @@
                                 <div class="card-body" id="notificationCard">
                                   <p class="card-text">Log-in to see your notifies</p>
                                 </div>
-                            <?php endif ?>
+                            <?php endif; ?>
+
+                            <?php if (isUserHasNotifies() && isUserLoggedIn()): ?>
+                              <?php foreach($templateParams["notifies"] as $key): ?>
+                                <div class="card-body" id="notificationCard">
+                                    <p><?php echo $key["data"]?></p>
+                                    <p><?php echo $key["testo"]?></p>
+                                </div>
+                              <?php endforeach; ?>
+                            <?php endif; ?>
+                            <a href="" >See All</a>
                         </ul>
+
+                        
+
+
+
                       </div>
                       <div class="dropdown text-end">
                         <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">

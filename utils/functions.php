@@ -9,7 +9,7 @@
         return preg_replace("/[^a-z]/", '', strtolower($name));
     }
 
-    function registerLoggedUser($logininfo, $isVendor, $notifies_result) {
+    function registerLoggedUser($logininfo, $isVendor, $notifiesCount_result, $notifies_result) {
         if($isVendor){
             $_SESSION["Nickname"] = $logininfo["Nickname"];
             $_SESSION["isVendor"] = true;
@@ -21,7 +21,9 @@
         
         $_SESSION["Nome"] = $logininfo["Nome"];
         $_SESSION["Cognome"] = $logininfo["Cognome"];
-        $_SESSION["NotifiesNumber"] = $notifies_result;
+        $_SESSION["NotifiesNumber"] = $notifiesCount_result;
+        $_SESSION["notifies"] = $notifies_result;
+
     }
 
     function isUserLoggedIn(){
@@ -29,7 +31,8 @@
     }
 
     function isUserHasNotifies(){
-        return isSet($_SESSION["NotifiesNumber"]) && $_SESSION["NotifiesNumber"]!=0;
+        return isSet($_SESSION["NotifiesNumber"]) && $_SESSION["NotifiesNumber"]!=0 &&
+         isSet($_SESSION["notifies"]) && $_SESSION["notifies"]!=0;
     }
 
     function logUserOut(){
@@ -38,6 +41,7 @@
         $_SESSION["Cognome"] = NULL;
         $_SESSION["isVendor"] = NULL;
         $_SESSION["NotifiesNumber"] = NULL;
+        $_SESSION["notifies"]=NULL;
         session_destroy();
     }
 

@@ -13,6 +13,7 @@
     if (isSet($_SESSION["Nickname"])) {
       $templateParams["notReadNotifies"] = $dbh->getNotReadNotifiesNumber($_SESSION["Nickname"]);
       $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
+      print_r($templateParams["notifies"]);
     }
     
  

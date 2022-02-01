@@ -64,7 +64,8 @@ main nav .nav-item {
 }
 
 #panelNotify{
-    display: inline-grid;
+    display: block;
+    text-align: center;
     
 }
 
@@ -72,8 +73,20 @@ main nav .nav-item {
     height: 50px;
 }
 
-#notificationCard {
-    display: inline-block;
+#checkNotifyImg {
+    height: 30px;
+}
+
+#notificationCard{
+    overflow-y: scroll;   
+}
+
+#notificationCard p {
+    text-align: center;
+}
+
+ul a {
+    text-align: center;
 }
 
 .dropdown-menu .card-body:hover {

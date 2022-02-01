@@ -17,12 +17,15 @@
     if(isSet($_POST["nickname"]) && isSet($_POST["password"]) && !isSet($_POST["name"])) {
 
         $login_result = $dbh->checkLogin($_POST["nickname"], hash("sha256", $_POST["password"]));
-        $notifies_result = $dbh->getNotReadNotifiesNumber($_POST["nickname"]);
+        $notifiesCount_result = $dbh->getNotReadNotifiesNumber($_POST["nickname"]);
+        $notifies_result = $dbh->getNotifies($_POST["nickname"]);
+        
+
         if(count($login_result)!=0){
-            registerLoggedUser($login_result[0], $login_result[0]["isVend"], $notifies_result[0]["notRead"]);
+            registerLoggedUser($login_result[0], $login_result[0]["isVend"], $notifiesCount_result[0]["notRead"], $notifies_result);
         }
         else{
-            $templateParams["formmsg"] = "Login Error";
+            $templateParams["formmsg"] = "Incorrect Nickname or Password";
         }
     }
 
@@ -46,12 +49,14 @@
         $templateParams["pagereq"] = "template/mainPageTemplate.php";
         $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
         $templateParams["categories"] = $dbh->getCategories();
+        $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
     }
     else{
         $templateParams["titolo"] = "Login Page";
         $templateParams["pagereq"] = "template/loginPageTemplate.php";
         $templateParams["css"] = array("css/loginPage.css", "css/header.css", "css/footer.css");
         $templateParams["categories"] = $dbh->getCategories();
+        $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
     }
 
     require 'template/base.php';
