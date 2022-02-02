@@ -51,7 +51,9 @@ main section div.cardLogin img {
   border-radius: 40px;
 }
 
-
+.cardLogin{
+  text-align: center;
+}
 main section div.cardLogin form button {
   background-color: black;
   border-color: white;

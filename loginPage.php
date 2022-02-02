@@ -49,13 +49,19 @@
         $templateParams["pagereq"] = "template/mainPageTemplate.php";
         $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
         $templateParams["categories"] = $dbh->getCategories();
-        $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
+        if ($_SESSION["Nickname"]) {
+            $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
+        }
+       
     }
     else{
         $templateParams["titolo"] = "Login Page";
         $templateParams["pagereq"] = "template/loginPageTemplate.php";
         $templateParams["css"] = array("css/loginPage.css", "css/header.css", "css/footer.css");
         $templateParams["categories"] = $dbh->getCategories();
+    }
+
+    if (isSet($_SESSION["Nickname"]) ) {
         $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
     }
 

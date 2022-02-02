@@ -17,7 +17,7 @@
             </div>
 
             <div class="buttonAndLink" id="lastDiv">
-                 <button type="submit" id="loginButton" href="#" class="btn btn-secondary">Login</button>
+                    <button type="submit" id="loginButton" href="#" class="btn btn-secondary">Login</button>
                 <button type="button" id="registrationButton" class="btn btn-secondary" onclick="showRegistrationForm()">Register</button>
             </div>
         </form>

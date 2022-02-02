@@ -43,7 +43,7 @@
                       <a class="nav-link" href="../webProject/cartPage.php">Carrello</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="html/chisiamo.html">Chi siamo?</a>
+                      <a class="nav-link" href="../webProject/whoWeAre.php">Chi siamo?</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="html/contactsPage.html">Contatti</a>

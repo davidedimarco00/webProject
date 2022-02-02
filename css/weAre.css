@@ -1,0 +1,25 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+
+.container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h2, p {
+    text-align: center;
+}
+
+.userImage {
+    border-radius: 50%;
+    width: 50%;
+    height: 170px;
+}
+
