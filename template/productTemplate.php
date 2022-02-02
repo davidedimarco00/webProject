@@ -1,6 +1,6 @@
         
 
-        <?php $current = $templateParams["item"]; ?> 
+        <?php $current = $templateParams["item"][0]; $current["images"]=array("images/mixer.jpg", "images/mixer2.jpg", "images/mixer3.jpg"); ?>
         <div class="px-4 my-5 text-left">
           <div class="row">
             <div class="col-lg-4">
@@ -30,31 +30,13 @@
               </div>
             </div>
             <div class="col-lg-8">
-              <h1 class="display-6"><?php echo $current["name"]; ?></h1>
-              <p class="lead mb-4">Visita lo store di <?php echo $current["vendor"]; ?></p>
-              <p class="lead mb-2">Prezzo: <?php echo $current["price"]; ?>€ & Spedizione a <?php echo $current["shippingprice"]; ?> €</p>
+              <h1 class="display-6"><?php echo $current["Nome"]; ?></h1>
+              <p class="lead mb-4">Visita lo store di <?php echo ""; ?></p>
+              <p class="lead mb-2">Prezzo: <?php echo $current["Prezzo"]; ?>€ & Spedizione a <?php echo ""; ?> €</p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-left">
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Acquista Ora</button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4">Aggiungi al Carrello</button>
               </div>
             </div>
           </div>
-            <div>
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Specifiche Tecniche</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                <?php foreach($templateParams["caratteristiche"] as $car): ?> <!-- TODO da modificare -->
-                  <tr>
-                    <th scope="row"><?php echo $car[0]; ?></th>
-                    <td><?php echo $car[1]; ?></td>
-                  </tr>
-                <?php endforeach;?>
-                </tbody>
-              </table>
-            </div>
         </div>

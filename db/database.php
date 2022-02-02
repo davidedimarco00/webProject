@@ -117,14 +117,32 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-  /*  public function getAllArticles(){
-        $query = "SELECT codProdotto, tipo, costo, peso FROM prodotto";
+    /*public function getAllProductsByVendor($vendor){
+        $query = "SELECT count(*) as notRead from notifica where NOT letto and data < NOW() and Nickname=?; ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$nickname);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }*/
+    public function getAllProducts(){
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
-    }*/
+    }
+
+    public function getObject($cod){
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto WHERE CodProdotto=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$cod);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
 }
 ?>
