@@ -4,27 +4,62 @@
         <?php endif;?>
 
             <section>
-              <div class="col-md-4 order-md-2 mb-4">
+              <div class="col-md-4 order-md-2 mb-4" style="width: 60%">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span class="text-muted">Your cart</span>
                   <span class="badge badge-secondary badge-pill">3</span>
                 </h4>
-                <ul class="list-group mb-3">
+                
+
+                <aside class="col-lg-9">
                   
-                  <?php foreach($templateParams["items"] as $item): ?>
-                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-borderless table-shopping-cart">
+                                <thead class="text-muted bg-light">
+                                    <tr class="small text-uppercase">
+                                        <th scope="col">Product</th>
+                                        <th scope="col" width="120">Quantity</th>
+                                        <th scope="col" width="120">Price(EUR)</th>
+                                        <th scope="col" class="text-right d-none d-md-block"></th>
+                                    </tr>
+                                </thead>
+                                  <?php foreach($templateParams["items"] as $item): ?>
 
-                      <h6 class="my-0"><?php echo $item["name"]; ?></h6>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <figure class="itemside align-items-center">
+                                                        <div class="aside"><img src="<?php echo $item["images"][0]; ?>" alt="PrimaryImage" style="height: 180px"></div>
+                                                        <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true"><?php echo $item["name"]; ?></a>
+                                                            <p class="text-muted small">VENDOR: <?php echo $item["vendor"]; ?><br> CodArticle: MAXTRA</p>
+                                                        </figcaption>
+                                                    </figure>
+                                                </td>
+                                                <td> <select class="form-control">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                    </select> </td>
+                                                <td>
+                                                    <div class="price-wrap"> <var class="price"><?php echo $item["price"]; ?></var></div>
+                                                </td>
+                                                <td class="text-right d-none d-md-block">
+                                                <button type="button" class="btn btn-outline-secondary">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M6.5 1a.5.5 0 0 0-.5.5v1h4v-1a.5.5 0 0 0-.5-.5h-3ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1H3.042l.846 10.58a1 1 0 0 0 .997.92h6.23a1 1 0 0 0 .997-.92l.846-10.58Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"></path>
+                                                  </svg>
+                                                <span class="visually-hidden">Button</span>
+                                                </button>
+                                                </td>
+                                              </tr>
+                                        </tbody>
 
-                      <small class="text-muted">vendor : <?php echo $item["vendor"]; ?></small>
-                    </div>
-                    <span class="text-muted"><?php echo $item["price"]; ?></span>
-                  </li>
-
-                  <?php endforeach; ?>
-
-
+                                  <?php endforeach; ?>
+                            </table>
+                          </div>
+                        </div> 
                   <li class="list-group-item d-flex justify-content-between bg-light">
                     <div class="text-success">
                       <h6 class="my-0">Promo code</h6>
@@ -36,7 +71,7 @@
                     <span>Total (USD)</span>
                     <strong><?php echo $templateParams["total"]; ?></strong>
                   </li>
-                </ul>
+                
                 <form class="card p-2">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Promo code">
@@ -45,7 +80,13 @@
                     </div>
                   </div>
                 </form>
+                </div>
+                </aside>
+
+
               </div>
+
+
               <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
                 <form class="needs-validation" novalidate="" action="paymentPage.php">
