@@ -67,7 +67,7 @@
             <div class="card-body">
               <h5 class="card-title"><?php echo $current["Nome"];?></h5>
               <p class="card-text"><?php echo $current["Descrizione"];?></p>
-              <a href="productPage.php?cod=<?php echo $current["CodProdotto"]; ?>"></a>
+              <a href="productPage.php?cod=<?php echo $current["CodProdotto"]; ?>">Visualizza</a>
             </div>
           </div>
       </div>
