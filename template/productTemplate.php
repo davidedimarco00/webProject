@@ -1,6 +1,6 @@
         
 
-        <?php $current = $templateParams["item"][0]; $current["images"]=array("images/mixer.jpg", "images/mixer2.jpg", "images/mixer3.jpg"); ?>
+        <?php $current = $templateParams["item"]; ?>
         <div class="px-4 my-5 text-left">
           <div class="row">
             <div class="col-lg-4">

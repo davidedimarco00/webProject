@@ -48,4 +48,43 @@
     function isUserVendor(){
         return isSet($_SESSION["isVendor"]) && $_SESSION["isVendor"];
     }
+
+    function getImages($codProdotto){
+        $images = array();
+        for($i=0; $i<10; $i++){
+            $img="images/".$codProdotto."_".$i;
+            if(exif_imagetype($img.".jpg")) {
+                array_push($images, $img.".jpg");
+            }
+            if(exif_imagetype($img.".png")) {
+                array_push($images, $img.".png");
+            }
+            if(exif_imagetype($img.".jpeg")) {
+                array_push($images, $img.".jpeg");
+            }
+        }
+        if($images==NULL || count($images)==0){
+            return array("images/placeholder.jpg");
+        }
+        else {
+            return $images;
+        }
+        
+    }
+
+    function getFirstImage($codProdotto){
+        for($i=0; $i<10; $i++){
+            $img="images/".$codProdotto."_".$i;
+            if(exif_imagetype($img.".jpg")) {
+                return $img.".jpg";
+            }
+            if(exif_imagetype($img.".png")) {
+                return $img.".png";
+            }
+            if(exif_imagetype($img.".jpeg")) {
+                return $img.".jpeg";
+            }
+        }
+        return "images/placeholder.jpg";
+    }
 ?>

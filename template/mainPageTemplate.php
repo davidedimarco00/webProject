@@ -60,38 +60,16 @@
       
       </div>
       </div>
-
+      <?php foreach($templateParams["items"] as $current): ?>
       <div class="col-xl-2 col-md-4 justify-content-center mycols">
           <div class="card">
-            <img class="card-img-top" src="images/mixer2.jpg" alt="Card image cap">
+            <img class="card-img-top" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">MIXER</h5>
-              <p class="card-text">testo testo testo testo testo testo testo</p>
-              <a href="https://www.facebook.com"></a>
-            </div>
-          </div>
-
-      </div>
-
-      <div class="col-xl-2 col-md-4  mycols">
-          <div class="card">
-            <img class="card-img-top" src="images/speakerCOVER.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">MIXER</h5>
-              <p class="card-text">testo testo testo testo testo testo testo</p>
+              <h5 class="card-title"><?php echo $current["Nome"];?></h5>
+              <p class="card-text"><?php echo $current["Descrizione"];?></p>
+              <a href="productPage.php?cod=<?php echo $current["CodProdotto"]; ?>"></a>
             </div>
           </div>
       </div>
-
-      <div class="col-xl-2 col-md-4  mycols">
-
-        <div class="card">
-
-          <img class="card-img-top" src="images/mixer2.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">MIXER</h5>
-            <p class="card-text">testo testo testo testo testo testo testo</p>
-            <a href="../html/productPage.html" class="stretched-link"></a>
-          </div>
-        </div>
+      <?php endforeach; ?>
   </div>

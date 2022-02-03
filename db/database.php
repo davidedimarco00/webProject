@@ -3,7 +3,7 @@ class DatabaseHelper{
     private $db;
 
     public function __construct($servername, $username, $password, $dbname, $port){
-        $this->db = new mysqli($servername, $username, $password, "dsoundsystem", $port);
+        $this->db = new mysqli($servername, $username, $password, "dsoundsystemLOGIC", $port);
         if ($this->db->connect_error) {
             die("Connection failed: " . $db->connect_error);
             echo "Connessione fallita";
@@ -138,6 +138,16 @@ class DatabaseHelper{
         $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto WHERE CodProdotto=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$cod);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getRandomProducts($limit){
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto ORDER BY RAND() LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$limit);
         $stmt->execute();
         $result = $stmt->get_result();
 

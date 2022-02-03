@@ -15,13 +15,7 @@
       $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
       print_r($templateParams["notifies"]);
     }
-    
- 
-
-  /*  $templateParams["articoli"] = $dbh->getAllArticles();*/
-    //$templateParams["qualcosa"] = $dbh->;
-    //Home Template
-    //$templateParams["articoli"] = $dbh->metodo per ottenere gli articoli della pagina principale;
+    $templateParams["items"]=$dbh->getRandomProducts(7);
 
     require 'template/base.php';
 ?>
