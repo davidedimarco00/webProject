@@ -3,7 +3,7 @@ class DatabaseHelper{
     private $db;
 
     public function __construct($servername, $username, $password, $dbname, $port){
-        $this->db = new mysqli($servername, $username, $password, "dsoundsystem", $port);
+        $this->db = new mysqli($servername, $username, $password, "dsoundsystemLOGIC", $port);
         if ($this->db->connect_error) {
             die("Connection failed: " . $db->connect_error);
             echo "Connessione fallita";
@@ -144,6 +144,42 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProductById($id){
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto WHERE CodProdotto=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertProduct($nome, $descrizione, $prezzo, $codCategoria){
+        $query = "INSERT INTO prodotto (Nome, Descrizione, Prezzo, CodCategoria) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssdi', $nome, $descrizione, $prezzo, $codCategoria);
+        $stmt->execute();
+        
+        return $stmt->insert_id;
+    }
+
+    public function updateProduct($codProdotto, $nome, $descrizione, $prezzo, $codCategoria){
+        $query = "UPDATE prodotto SET Nome = ?, Descrizione = ?, Prezzo = ?, CodCategoria = ? WHERE CodProdotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssdii', $nome, $descrizione, $prezzo, $codCategoria, $codProdotto);
+        
+        return $stmt->execute();
+    }
+
+    public function deleteProduct($codProdotto){
+        $query = "DELETE FROM prodotto WHERE CodProdotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$codProdotto);
+        $stmt->execute();
+        
+        return true;
     }
 
 }
