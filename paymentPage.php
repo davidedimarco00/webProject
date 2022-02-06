@@ -5,5 +5,7 @@ $templateParams["css"] = array("css/paymentPage.css", "css/header.css", "css/foo
 $templateParams["titolo"] = "Payment Details";
 $templateParams["pagereq"] = "template/paymentTemplate.php";
 
+$templateParams["total"] = 100.00;
+
 require 'template/base.php';
 ?>
