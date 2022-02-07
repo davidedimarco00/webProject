@@ -45,7 +45,13 @@
         return isSet($_SESSION["isVendor"]) && $_SESSION["isVendor"];
     }
 
-    function getImages($codProdotto){
+    function tempImageCheck($img){
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $type = finfo_file($finfo, $img);
+        return isset($type) && in_array($type, array("image/png", "image/jpeg", "image/gif"));
+    }
+
+    /*function getImages($codProdotto){
         $images = array();
         for($i=0; $i<10; $i++){
             $img="images/".$codProdotto."_".$i;
@@ -57,6 +63,32 @@
             }
             if(exif_imagetype($img.".jpeg")) {
                 array_push($images, $img.".jpeg");
+            }
+        }
+        if($images==NULL || count($images)==0){
+            return array("images/placeholder.jpg");
+        }
+        else {
+            return $images;
+        }
+        
+    }*/
+
+    function getImages($codProdotto){
+        $images = array();
+        for($i=0; $i<10; $i++){
+            $img="images/".$codProdotto."_".$i;
+            if(tempImageCheck($img.".jpg")) {
+                array_push($images, $img.".jpg");
+            }
+            if(tempImageCheck($img.".png")) {
+                array_push($images, $img.".png");
+            }
+            if(tempImageCheck($img.".jpeg")) {
+                array_push($images, $img.".jpeg");
+            }
+            if(tempImageCheck($img.".gif")) {
+                array_push($images, $img.".gif");
             }
         }
         if($images==NULL || count($images)==0){
