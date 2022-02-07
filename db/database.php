@@ -110,13 +110,25 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }*/
     public function getAllProducts(){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getProductsByVendor($vendor){
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto where Venditore=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$vendor);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
 
     public function getObject($cod){
         $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto WHERE CodProdotto=?";

@@ -69,18 +69,20 @@
     }
 
     function getFirstImage($codProdotto){
-        for($i=0; $i<10; $i++){
+        /*for($i=0; $i<10; $i++){
             $img="images/".$codProdotto."_".$i;
             if(exif_imagetype($img.".jpg")) {
-                return $img.".jpg";
+                return $img+".jpg";
             }
             if(exif_imagetype($img.".png")) {
-                return $img.".png";
+                return $img+".png";
             }
-            if(exif_imagetype($img.".jpeg")) {
+        }*/
+
+           /* if(exif_imagetype($img.".jpeg")) {
                 return $img.".jpeg";
-            }
-        }
+            }*/
+
         return "images/placeholder.jpg";
     }
 

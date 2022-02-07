@@ -62,3 +62,14 @@ INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCateg
 /*NOTIFICA SOLO PER PROVA A DAVIDE CHE E UN VENDITORE*/
 INSERT INTO `notifica`(`CodNotifica`, `Data`, `Testo`, `Letto`, `Nickname`) VALUES (NULL,'2022-01-22','Notifica di prova',false,'davidima00');
 
+/*CODICI SCONTO*/
+
+INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto%`) VALUES (1,'PROMO20',20);
+INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto%`) VALUES (2,'PROMO30',30);
+INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto%`) VALUES (3,'PROMO50',50);
+
+/*UPDATE PRODOTTO->VENDITORE*/
+ALTER TABLE prodotto 
+ADD Venditore varchar(200);
+
+UPDATE `prodotto` SET `Venditore`='davidima00' WHERE 1 
