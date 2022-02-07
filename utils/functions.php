@@ -109,10 +109,10 @@
             if(tempImageCheck($img.".png")) {
                 return $img.".png";
             }
-            if(exif_imagetype($img.".jpeg")) {
+            if(tempImageCheck($img.".jpeg")) {
                 return $img.".jpeg";
             }
-            if(exif_imagetype($img.".gif")) {
+            if(tempImageCheck($img.".gif")) {
                 return $img.".gif";
             }
         }
