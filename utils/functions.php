@@ -101,19 +101,21 @@
     }
 
     function getFirstImage($codProdotto){
-        /*for($i=0; $i<10; $i++){
+        for($i=0; $i<10; $i++){
             $img="images/".$codProdotto."_".$i;
-            if(exif_imagetype($img.".jpg")) {
-                return $img+".jpg";
+            if(tempImageCheck($img.".jpg")) {
+                return $img.".jpg";
             }
-            if(exif_imagetype($img.".png")) {
-                return $img+".png";
+            if(tempImageCheck($img.".png")) {
+                return $img.".png";
             }
-        }*/
-
-           /* if(exif_imagetype($img.".jpeg")) {
+            if(exif_imagetype($img.".jpeg")) {
                 return $img.".jpeg";
-            }*/
+            }
+            if(exif_imagetype($img.".gif")) {
+                return $img.".gif";
+            }
+        }
 
         return "images/placeholder.jpg";
     }
@@ -142,6 +144,7 @@
             $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
         }
         //Controllo il primo nome disponibile
+        $i=0;
         while (true){
             if(!exif_imagetype($fullPath.$i)){
                 $fullPath.=$i;
@@ -154,17 +157,7 @@
             $i++;
 
         }
-        //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
-        /*if (file_exists($fullPath)) {
-            $i = 1;
-            do{
-                $i++;
-                $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."_$i.".$imageFileType;
-            }
-            while(file_exists($path.$imageName));
-            $fullPath = $path.$imageName;
-        }*/
-
+        
         //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
         if(strlen($msg)==0){
             if(!move_uploaded_file($image["tmp_name"], $fullPath)){
