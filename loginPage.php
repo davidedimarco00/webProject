@@ -5,8 +5,6 @@
         logUserOut();
     }*/
 
-    
-
    /* if (isSet($_SESSION["Nickname"])) {
         $templateParams["notReadNotifies"] = $dbh->getNotReadNotifiesNumber($_POST["nickname"]);
         $templateParams["notifies"] = $dbh->getNotifies($_POST["nickname"]);
@@ -45,25 +43,25 @@
     }
     
     if(isUserLoggedIn()){
-        $templateParams["titolo"] = "Admin Page";
+        /*$templateParams["titolo"] = "Admin Page";
         $templateParams["pagereq"] = "template/mainPageTemplate.php";
         $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
         $templateParams["categories"] = $dbh->getCategories();
         if ($_SESSION["Nickname"]) {
             $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
-        }
+        }*/
+        header("location: index.php");
        
     }
-    else{
+    else {
         $templateParams["titolo"] = "Login Page";
         $templateParams["pagereq"] = "template/loginPageTemplate.php";
         $templateParams["css"] = array("css/loginPage.css", "css/header.css", "css/footer.css");
-        $templateParams["categories"] = $dbh->getCategories();
     }
 
-    if (isSet($_SESSION["Nickname"]) ) {
+    /*if (isSet($_SESSION["Nickname"]) ) {
         $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
-    }
+    }*/
 
     require 'template/base.php';
 ?> 
