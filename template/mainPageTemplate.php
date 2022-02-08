@@ -1,3 +1,9 @@
+  <?php if(isSet($_GET["formmsg"])): ?>
+  <div class="error">
+      <h5>Attenzione!</h5>
+      <p><?php echo $_GET["formmsg"]; ?></p>
+  </div>
+  <?php endif; ?>
 
   <!--   CAROUSEL     ---->
   <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">

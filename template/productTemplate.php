@@ -31,7 +31,7 @@
             </div>
             <div class="col-lg-8">
               <h1 class="display-6"><?php echo $current["Nome"]; ?></h1>
-              <p class="lead mb-4">Visita lo store di <?php echo ""; ?></p>
+              <a class="lead mb-4" href="#">Visita lo store di <?php echo $current["Venditore"]; ?></a>
               <p class="lead mb-2">Prezzo: <?php echo $current["Prezzo"]; ?>€ & Spedizione a <?php echo ""; ?> €</p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-left">
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Acquista Ora</button>

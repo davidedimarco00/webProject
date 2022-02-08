@@ -58,29 +58,6 @@
         
     }
 
-    /*function getImages($codProdotto){
-        $images = array();
-        for($i=0; $i<10; $i++){
-            $img="images/".$codProdotto."_".$i;
-            if(exif_imagetype($img.".jpg")) {
-                array_push($images, $img.".jpg");
-            }
-            if(exif_imagetype($img.".png")) {
-                array_push($images, $img.".png");
-            }
-            if(exif_imagetype($img.".jpeg")) {
-                array_push($images, $img.".jpeg");
-            }
-        }
-        if($images==NULL || count($images)==0){
-            return array("images/placeholder.jpg");
-        }
-        else {
-            return $images;
-        }
-        
-    }*/
-
     function getImages($codProdotto){
         $images = array();
         for($i=0; $i<10; $i++){
@@ -126,7 +103,7 @@
         return "images/placeholder.jpg";
     }
 
-    function uploadImage($path, $image, $cod){
+    /*function uploadImage($path, $image, $cod){
         $imageName = basename($image["name"]);
         $fullPath = $path.$cod."_";
         
@@ -175,7 +152,7 @@
             }
         }
         return array($result, $msg);
-    }
+    }*/
 
     function uploadImages($path, $images, $cod){
         $maxKB = 1500;
@@ -217,12 +194,10 @@
                 if(!move_uploaded_file($images["tmp_name"][$i], $fullPath)){
                     $msg.= "Errore nel caricamento dell'immagine.";
                 }
-                else{
-                    $result = 1;
-                    $msg = $imageName;
-                }
             }
-            array_push($allresults, $msg);
+            if($msg!=""){
+                array_push($allresults, $msg);
+            }
         }
         return $allresults;
     }

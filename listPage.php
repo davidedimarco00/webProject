@@ -9,7 +9,7 @@
         $templateParams["items"]=$dbh->getProductsByVendor($_SESSION["Nickname"]);
     }else {
         $templateParams["items"]=$dbh->getAllProducts();
-        print_r($templateParams["items"]); //to delete
+        //print_r($templateParams["items"]);
     }
     require 'template/base.php';
 ?>

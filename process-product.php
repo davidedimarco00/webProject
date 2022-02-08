@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL); ini_set('display_errors', 1);
     require_once 'bootstrap.php';
 
     /*Home Template
@@ -16,7 +16,7 @@
     require_once "bootstrap.php";
 
     if (!isUserLoggedIn() || !isUserVendor() || !isSet($_POST["action"]) || ($_POST["action"]!=1 && $_POST["action"]!=2 && $_POST["action"]!=0)){
-        header("location: index.php?error=error");
+        header("location: index.php?formmsg=Permesso negato. ");
     }
 
     //aggiungi
@@ -24,43 +24,63 @@
         $nome = htmlspecialchars($_POST["Nome"]);
         $desc = htmlspecialchars($_POST["Descrizione"]);
         $prezzo = (float) htmlspecialchars($_POST["Prezzo"]);
-        //$vend = $_SESSION["Nickname"];
+        $vend = $_SESSION["Nickname"];
         $codcat = (int) htmlspecialchars($_POST["category"]);
         
         $result=1;
-        $msg="error";
-        $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
-        var_dump($allresult);
-        if($codcat !=-1){
-            $codProdotto = $dbh->insertProduct($nome, $desc, $prezzo, $codcat);
-            if($codProdotto != false){
-                $msg="Success!";
-            }
-            else {
-                $msg="Error!";
+        $msg="";
+        if ($_FILES["images"]!=NULL && empty($_FILES['images'])){
+            $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
+            if(!empty($allresult)){
+                $msg.="Errore nel caricamento di una o più immagini. ";
             }
         }
+        
+        if($codcat != "-1"){
+            $codProdotto = $dbh->insertProduct($nome, $desc, $prezzo, $codcat, $vend);
+            if($codProdotto != false){
+                $msg.="Prodotto inserito con successo. ";
+            }
+            else {
+                $msg.="Errore nell'inserimento del prodotto. ";
+            }
+        }
+        else{
+            $msg.="Errore generico";
+        }
+
         header("location: index.php?formmsg=".$msg);
     }
 
     //agiorna/ modifica
     if($_POST["action"]==1){
+        $msg="";
+
         $nome = htmlspecialchars($_POST["Nome"]);
         $desc = htmlspecialchars($_POST["Descrizione"]);
         $prezzo = (float) htmlspecialchars($_POST["Prezzo"]);
-        //$vend = $_SESSION["Nickname"];
+        $vend = $_SESSION["Nickname"];
         $codcat = (int) htmlspecialchars($_POST["category"]);
-        $result=1;
-        $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
-        if($codcat != -1){
+        
+        if ($_FILES["images"]!=NULL && empty($_FILES['images'])){
+            $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
+            if(!empty($allresult)){
+                $msg.="Errore nel caricamento di una o più immagini. ";
+            }
+        }
+
+        if($codcat != "-1" && !empty($dbh->getProductById((int)$_POST["codProdotto"]))){
             //$imgarticolo = $msg;
-            $codProdotto = $dbh->updateProduct((int)$_POST["codProdotto"], $nome, $desc, $prezzo, $codcat);
+            $codProdotto = $dbh->updateProduct((int)$_POST["codProdotto"], $nome, $desc, $prezzo, $codcat, $vend);
             if($codProdotto != false){
-                $msg="Success!";
+                $msg.="Prodotto aggiornato con successo! ";
             }
             else {
-                $msg="Error!";
+                $msg.="Errore nell'aggiornamento del prodotto! ";
             }
+        }
+        else{
+            $msg.="Errore generico. ";
         }
         header("location: index.php?formmsg=".$msg);
     }
