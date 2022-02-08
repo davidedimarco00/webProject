@@ -47,8 +47,15 @@
 
     function tempImageCheck($img){
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $type = finfo_file($finfo, $img);
-        return isset($type) && in_array($type, array("image/png", "image/jpeg", "image/gif"));
+        if (is_file($img)){
+            $type = finfo_file($finfo, $img);
+            return isset($type) && in_array($type, array("image/png", "image/jpeg", "image/gif"));
+        }
+        else {
+            return false;
+        }
+        return false;
+        
     }
 
     /*function getImages($codProdotto){
@@ -116,7 +123,6 @@
                 return $img.".gif";
             }
         }
-
         return "images/placeholder.jpg";
     }
 
@@ -146,12 +152,12 @@
         //Controllo il primo nome disponibile
         $i=0;
         while (true){
-            if(!exif_imagetype($fullPath.$i)){
-                $fullPath.=$i;
-                break;
-            }
             if($i>=10){
                 $msg .= "Troppi file gia presenti per lo stesso prodotto. ";
+                break;
+            }
+            if(!tempImageCheck($fullPath.$i.$imageFileType)){
+                $fullPath.=$i;
                 break;
             }
             $i++;

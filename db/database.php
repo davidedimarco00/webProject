@@ -141,7 +141,7 @@ class DatabaseHelper{
     }
 
     public function getRandomProducts($limit){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto ORDER BY RAND() LIMIT ?";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto ORDER BY RAND() LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$limit);
         $stmt->execute();
