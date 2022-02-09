@@ -39,6 +39,17 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAllNotifies($nickname){
+        $query = "SELECT CodNotifica, Data, Testo from notifica WHERE Nickname=?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$nickname);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+
     public function getNotReadNotifiesNumber($nickname){
         $query = "SELECT count(*) as notRead from notifica where NOT letto and data < NOW() and Nickname=?; ";
         $stmt = $this->db->prepare($query);

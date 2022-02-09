@@ -74,7 +74,7 @@
                                 </div>
                               <?php endforeach; ?>
                             <?php endif; ?>
-                            <a href="" >See All</a>
+                            <a href="./notifies.php" >See all</a>
                         </ul>
 
                         
