@@ -48,8 +48,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-
-
     public function getNotReadNotifiesNumber($nickname){
         $query = "SELECT count(*) as notRead from notifica where NOT letto and data < NOW() and Nickname=?; ";
         $stmt = $this->db->prepare($query);
@@ -72,6 +70,16 @@ class DatabaseHelper{
         $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto where Venditore=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$vendor);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProductsByCategory($cat){
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto where CodCategoria=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$cat);
         $stmt->execute();
         $result = $stmt->get_result();
 
