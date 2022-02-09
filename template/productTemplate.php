@@ -31,8 +31,8 @@
             </div>
             <div class="col-lg-8">
               <h1 class="display-6"><?php echo $current["Nome"]; ?></h1>
-              <a class="lead mb-4" href="#">Visita lo store di <?php echo $current["Venditore"]; ?></a>
-              <p class="lead mb-2">Prezzo: <?php echo $current["Prezzo"]; ?>€ & Spedizione a <?php echo ""; ?> €</p>
+              <a class="lead mb-4" href="listPage.php?vendor=<?php echo $current["Venditore"]; ?>">Visita lo store di <?php echo $current["Venditore"]; ?></a>
+              <p class="lead mb-2">Prezzo: <?php echo $current["Prezzo"]; ?>€ & Spedizione a <?php echo "0"; ?> €</p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-left">
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Acquista Ora</button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4">Aggiungi al Carrello</button>

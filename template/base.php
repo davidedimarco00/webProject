@@ -89,7 +89,7 @@
                           <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
                         <?php endif; ?>
                         <?php if(isUserLoggedIn() && isUserVendor()): ?>
-                          <li><a class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></a></li>
+                          <li><p class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></p></li>
                           <li><a class="dropdown-item" href="./listPage.php">I miei Prodotti</a></li>
                           <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
                         <?php endif; ?>
@@ -111,9 +111,6 @@
           if(isset($templateParams["pagereq"])){
             require($templateParams["pagereq"]);
           }
-
-
-
         ?>
       </main>
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top" id="myFooter">

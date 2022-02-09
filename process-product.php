@@ -29,7 +29,7 @@
         
         $result=1;
         $msg="";
-        if ($_FILES["images"]!=NULL && empty($_FILES['images'])){
+        if ($_FILES["images"]!=NULL && !empty($_FILES['images'])){
             $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
             if(!empty($allresult)){
                 $msg.="Errore nel caricamento di una o più immagini. ";
@@ -62,7 +62,7 @@
         $vend = $_SESSION["Nickname"];
         $codcat = (int) htmlspecialchars($_POST["category"]);
         
-        if ($_FILES["images"]!=NULL && empty($_FILES['images'])){
+        if ($_FILES["images"]!=NULL && !empty($_FILES['images'])){
             $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
             if(!empty($allresult)){
                 $msg.="Errore nel caricamento di una o più immagini. ";

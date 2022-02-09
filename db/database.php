@@ -130,6 +130,5 @@ class DatabaseHelper{
         
         return true;
     }
-
 }
 ?>
