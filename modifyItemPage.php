@@ -12,7 +12,7 @@
     if(isSet($_GET["cod"])){
         $templateParams["item"]=$dbh->getProductById($_GET["cod"])[0];
         if($templateParams["item"]==NULL){
-            header("location: index.php?formmsg=l'oggetto richiesto non esiste");
+            header("location: index.php?formmsg=l'oggetto richiesto non esiste. ");
         }
         $templateParams["action"]=1;
     }

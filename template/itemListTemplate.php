@@ -1,4 +1,5 @@
     <div class="px-4 my-5 text-left">
+        <h1>Store di <?php if (isSet($templateParams["items"][0]["Venditore"])){ echo $templateParams["items"][0]["Venditore"]; } else { echo "miao";}?></h1>
     <?php if (empty($templateParams["items"])): ?>
         <h5>Sembra non ci sia nessun prodotto.</h5>
     <?php endif; ?>

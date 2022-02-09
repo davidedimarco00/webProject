@@ -11,8 +11,9 @@
         $templateParams["items"]=$dbh->getProductsByVendor($_SESSION["Nickname"]);
     }
     else {
-        $templateParams["items"]=$dbh->getAllProducts(); //TODO
+        //$templateParams["items"]=$dbh->getAllProducts(); //TODO
         //$templateParams["items"]=$dbh->getPurchasedProducts($_SESSION["Nickname"]);
+        header("location: index.php?formmsg=Venditore non esistente. ");
     }
 
     //Home Template
