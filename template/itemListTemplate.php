@@ -2,7 +2,7 @@
     <?php if (empty($templateParams["items"])): ?>
         <h5>Sembra non ci sia nessun prodotto.</h5>
     <?php endif; ?>
-    <?php if ($templateParams["items"][0]["Venditore"] == $_SESSION["Nickname"] && isUserVendor()): ?>
+    <?php if (isSet($_SESSION["Nickname"]) && $templateParams["items"][0]["Venditore"] == $_SESSION["Nickname"] && isUserVendor()): ?>
         <a href="modifyItemPage.php">Aggiungi nuovo prodotto</a>
     <?php endif; ?>
     </div>
@@ -19,7 +19,7 @@
                     <p class="lead mb-2">Prezzo: <?php echo $current["Prezzo"]; ?>€ & Spedizione a <?php echo "0"; ?> €</p>
                 </div>
                 <div class="col-lg-2">
-                <?php if($current["Venditore"] == $_SESSION["Nickname"] && isUserVendor()): ?>
+                <?php if(isSet($_SESSION["Nickname"]) && $current["Venditore"] == $_SESSION["Nickname"] && isUserVendor()): ?>
                     <a class="btn btn-primary btn-lg px-4 gap-3" href='modifyItemPage.php?cod=<?php echo $current["CodProdotto"]; ?>'>Modifica</a>
                 <?php endif; ?>
                     <a class="btn btn-primary btn-lg px-4 gap-3" href='productPage.php?cod=<?php echo $current["CodProdotto"]; ?>'>Visualizza</a>
