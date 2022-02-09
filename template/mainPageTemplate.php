@@ -52,30 +52,31 @@
     
 
       <div class="row">
-
-      <div class="col-xl-2 col-md-4 justify-content-center mycols">
-      <div class="form-inline my-2 my-lg-0">
-        <form>
-          <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
-        </form>
-      </div>
-      <div class="list-group" id="list-tab" role="presentation">
-      <?php foreach($templateParams["categories"] as $id => $value): ?> 
-        <a class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" href="#list-<?php echo $value['Nome']?>" role="tab" aria-controls="home"><?php echo $value['Nome']?></a>  
-      <?php endforeach;?>    
-      
-      </div>
-      </div>
-      <?php foreach($templateParams["items"] as $current): ?>
-      <div class="col-xl-2 col-md-4 justify-content-center mycols">
-          <div class="card">
-            <img class="card-img-top" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo $current["Nome"];?></h5>
-              <p class="card-text"><?php echo $current["Descrizione"];?></p>
-              <a href="productPage.php?cod=<?php echo $current["CodProdotto"]; ?>">Visualizza</a>
+        <div class="col-lg-3 justify-content-center mycols">
+          <div class="form-inline my-2 my-lg-0">
+            <form>
+              <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+            </form>
+          </div>
+          <div class="list-group" id="list-tab" role="presentation">
+          <?php foreach($templateParams["categories"] as $id => $value): ?> 
+            <a class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" href="#list-<?php echo $value['Nome']?>" role="tab" aria-controls="home"><?php echo $value['Nome']?></a>  
+          <?php endforeach;?>    
+          
+          </div>
+        </div>
+        <div class="row col-lg-9">
+        <?php foreach($templateParams["items"] as $current): ?>
+          <div class="col-lg-3 justify-content-center mycols">
+            <div class="card">
+              <img class="card-img-top" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $current["Nome"];?></h5>
+                <p class="card-text"><?php echo $current["Descrizione"];?></p>
+                <a href="productPage.php?cod=<?php echo $current["CodProdotto"]; ?>">Visualizza</a>
+              </div>
             </div>
           </div>
-      </div>
-      <?php endforeach; ?>
+        <?php endforeach; ?>
+        </div>
   </div>

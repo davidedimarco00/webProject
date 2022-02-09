@@ -4,7 +4,7 @@
     if(isSet($_GET["vendor"])){
         $templateParams["items"]=$dbh->getProductsByVendor($_GET["vendor"]);
         if(empty($templateParams["items"])){
-            header("location: index.php?formmsg=Venditore non esistente");
+            header("location: index.php?formmsg=Venditore non esistente. ");
         }
     }
     else if (isUserVendor()) {
