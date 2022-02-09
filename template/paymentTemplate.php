@@ -104,16 +104,6 @@
                         Please select a valid country.
                       </div>
                     </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="state">State</label>
-                      <select class="custom-select d-block w-100" id="state" required="">
-                        <option value="">Choose...</option>
-                        <option>California</option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                    </div>
                     <div class="col-md-3 mb-3">
                       <label for="zip">Zip</label>
                       <input type="number" class="form-control" id="zip" placeholder="" required="">

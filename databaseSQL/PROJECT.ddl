@@ -81,6 +81,12 @@ create table SPEDIZIONE (
      constraint ID_SPEDIZIONE_ID primary key (CodSpedizione),
      constraint SID_SPEDI_ORDIN_ID unique (CodOrdine));
 
+create table codici (
+     Id int(11) not null AUTO_INCREMENT,
+     codiceSconto varchar(20) not null,
+     sconto int(20) not null,
+     isActive bit not null,
+     constraint ID_codici_ID primary key (Id));
 
 -- Constraints Section
 -- ___________________ 
@@ -158,6 +164,9 @@ create unique index ID_SPEDIZIONE_IND
 
 create unique index SID_SPEDI_ORDIN_IND
      on SPEDIZIONE (CodOrdine);
+
+create unique index ID_codici_IND
+     on codici (Id);
 
 rename TABLE CARRELLO to carrello;
 rename TABLE NOTIFICA to notifica;

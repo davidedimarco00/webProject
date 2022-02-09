@@ -64,9 +64,9 @@ INSERT INTO `notifica`(`CodNotifica`, `Data`, `Testo`, `Letto`, `Nickname`) VALU
 
 /*CODICI SCONTO*/
 
-INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto%`) VALUES (1,'PROMO20',20);
-INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto%`) VALUES (2,'PROMO30',30);
-INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto%`) VALUES (3,'PROMO50',50);
+INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto`, `isActive`) VALUES (1,'PROMO20',20,1);
+INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto`, `isActive`) VALUES (2,'PROMO30',30,1);
+INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto`, `isActive`) VALUES (3,'PROMO50',50,0);
 
 /*UPDATE PRODOTTO->VENDITORE*/
 ALTER TABLE prodotto 

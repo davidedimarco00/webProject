@@ -5,7 +5,7 @@
 
 
             <section>
-              <div class="col-md-4 order-md-2 mb-4" style="width: 60%">
+              <div class="col-md-10 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span class="text-muted">Your cart</span>
                   <span class="badge badge-secondary badge-pill">3</span>
@@ -20,9 +20,9 @@
                                 <thead class="text-muted bg-light">
                                     <tr class="small text-uppercase">
                                         <th scope="col">Product</th>
-                                        <th scope="col" width="120">Quantity</th>
-                                        <th scope="col" width="120">Price</th>
-                                        <th scope="col" class="text-right d-none d-md-block"></th>
+                                        <th scope="col" width="150">Quantity</th>
+                                        <th scope="col" width="150">Price</th>
+                                        <th scope="col" width="120"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,7 +46,7 @@
                                         <td>
                                             <div class="price-wrap"> <var class="price"><?php echo $item["price"]; ?> €</var></div>
                                         </td>
-                                        <td class="text-right d-none d-md-block">
+                                        <td>
                                         <a type="button" class="btn btn-outline-secondary" id="remove-item" href="cartPage.php?delete=<?php echo $item["CodProdotto"]; ?>">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M6.5 1a.5.5 0 0 0-.5.5v1h4v-1a.5.5 0 0 0-.5-.5h-3ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1H3.042l.846 10.58a1 1 0 0 0 .997.92h6.23a1 1 0 0 0 .997-.92l.846-10.58Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"></path>
