@@ -26,37 +26,37 @@ INSERT INTO `utente` (`Nome`, `Cognome`, `Nickname`, `E_mail`, `Password`, `isVe
 INSERT INTO `utente`(`Nome`, `Cognome`, `Nickname`, `E_mail`, `Password`, `isVend`) VALUES ('Marco','Rossi','marcolinor','marcorossi@gmail.com','b133a0c0e9bee3be20163d2ad31d6248db292aa6dcb1ee087a2aa50e0fc75ae2',b'0');
 
 /*PRODOTTI -> SUBWOOFER*/
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('1897','Subwoofer XENON','Medium Level','185.00','1');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('1898','Subwoofer DAEMON','For your tech house','225.00','1');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('1899','Subwoofer EVIL','EXTREME bass for your music','385.99','1');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('1897','Subwoofer XENON','Medium Level','185.00','1','5','davidima00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('1898','Subwoofer DAEMON','For your tech house','225.00','1','4','davidima00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('1899','Subwoofer EVIL','EXTREME bass for your music','385.99','1','10','bribri00');
 
 
 /*PRODOTTI -> SPEAKER*/
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2564','Speaker XENON','Medium Level','85.00','2');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2565','Speaker DAEMON','Fantastic voices','130.00','2');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2566','Speaker EVIL','EXTREME high-mid for your music','250.00','2');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2564','Speaker XENON','Medium Level','85.00','2','2','bribri00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2565','Speaker DAEMON','Fantastic voices','130.00','2','3','davidima00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2566','Speaker EVIL','EXTREME high-mid for your music','250.00','2','5','richileo');
 
 /*PRODOTTI -> MIXER*/
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2568','Mixer XENON','Are you a beginner?','300','3');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2569','Mixer DAEMON','Mix your best songs','600','3');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2570','Mixer EVIL','Your console where you want','1200','3');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2568','Mixer XENON','Are you a beginner?','300','3','7','richileo');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2569','Mixer DAEMON','Mix your best songs','600','3','2','bribri00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2570','Mixer EVIL','Your console where you want','1200','3','5','davidima00');
 
 /*PRODOTTI -> HEADPHONES*/
 
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2897','Headphones XENON','For home use','100','4');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2898','Headphones DAEMON','Use them where you want','200','4');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('2899','headphones EVIL','For professional use','600','4');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2897','Headphones XENON','For home use','100','4','4','davidima00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2898','Headphones DAEMON','Use them where you want','200','4','10','bribri00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('2899','headphones EVIL','For professional use','600','4','8','richileo');
 
 /*PRODOTTI -> MICROPHONES */
 
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('1885','Microphone XENON','Powerfull, easy to use','39.99','5');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('1886','Microphone DAEMON','the cheapest','15.99','5');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('1887','Microphone EVIL','For professional use','79.99','5');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('1885','Microphone XENON','Powerfull, easy to use','39.99','5','1','davidima00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('1886','Microphone DAEMON','the cheapest','15.99','5','20','richileo');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('1887','Microphone EVIL','For professional use','79.99','5','6','bribri00');
 
 /*PRODOTTI -> CABLES*/
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('3541','Cables XENON 3.5mm','For home use','10','6');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('3542','Cables DAEMON 1.5mm','Use them where you want','25','6');
-INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`) VALUES ('3543','Cables EXTREME 6.5mm','For professional use','35','6');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('3541','Cables XENON 3.5mm','For home use','10','6','0','bribri00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('3542','Cables DAEMON 1.5mm','Use them where you want','25','6','5','bribri00');
+INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCategoria`, `Quantità`, `Venditore`) VALUES ('3543','Cables EXTREME 6.5mm','For professional use','35','6','3','davidima00');
 
 
 /*NOTIFICA SOLO PER PROVA A DAVIDE CHE E UN VENDITORE*/
@@ -67,9 +67,3 @@ INSERT INTO `notifica`(`CodNotifica`, `Data`, `Testo`, `Letto`, `Nickname`) VALU
 INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto`, `isActive`) VALUES (1,'PROMO20',20,1);
 INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto`, `isActive`) VALUES (2,'PROMO30',30,1);
 INSERT INTO `codici`(`Id`, `codiceSconto`, `sconto`, `isActive`) VALUES (3,'PROMO50',50,0);
-
-/*UPDATE PRODOTTO->VENDITORE*/
-ALTER TABLE prodotto 
-ADD Venditore varchar(200);
-
-UPDATE `prodotto` SET `Venditore`='davidima00' WHERE 1 

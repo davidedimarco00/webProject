@@ -55,13 +55,13 @@
             </form>
           </div>
           <div class="list-group" id="list-tab" role="presentation">
-            <button class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" onclick="loadDoc('all')" role="tab" aria-controls="home">Tutto</a>
+            <button class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" onclick="dynamicProduct('all')" role="tab" aria-controls="home">Tutto</a>
           <?php foreach($templateParams["categories"] as $id => $value): ?> 
-            <button class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" onclick="loadDoc(<?php echo $value['CodCategoria']; ?>)" role="tab" aria-controls="home"><?php echo $value['Nome']?></a>  
+            <button class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" onclick="dynamicProduct(<?php echo $value['CodCategoria']; ?>)" role="tab" aria-controls="home"><?php echo $value['Nome']?></a>  
           <?php endforeach;?>
           </div>
         </div>
-        <div id="dynamic" class="row col-lg-9">
+        <div id="dynamicByCategory" class="row col-lg-9">
         <?php foreach($templateParams["items"] as $current): ?>
           <div class="col-lg-3 justify-content-center mycols">
             <div class="card">

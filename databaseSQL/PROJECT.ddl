@@ -22,20 +22,22 @@ create database dsoundsystemLOGIC;
 -- Tables Section
 -- _____________ 
 
-create table PRODOTTO (
+create table prodotto (
      CodProdotto int(11) not null AUTO_INCREMENT,
      Nome varchar(20) not null,
      Descrizione varchar(600) not null,
      Prezzo float not null,
      CodCategoria int(11) not null,
+     Quantità int(11) not null,
+     Venditore varchar(200) not null,
      constraint ID_PRODOTTO_ID primary key (CodProdotto));
 
-create table CARRELLO (
+create table carrello (
      CodCarrello int(11) not null AUTO_INCREMENT,
      Nickname varchar(20) not null,
      constraint ID_CARRELLO_ID primary key (CodCarrello));
 
-create table UTENTE (
+create table utente (
      Nome varchar(20) not null,
      Cognome varchar(20) not null,
      Nickname varchar(20) not null,
@@ -44,7 +46,7 @@ create table UTENTE (
      isVend bit not null,
      constraint ID_UTENTE_ID primary key (Nickname));
 
-create table ORDINE (
+create table ordine (
      CodOrdine int(11) not null,
      CodCarrello int(11) not null,
      Stato varchar(20) not null,
@@ -52,12 +54,12 @@ create table ORDINE (
      constraint ID_ORDINE_ID primary key (CodOrdine),
      constraint SID_ORDIN_CARRE_ID unique (CodCarrello));
 
-create table CATEGORIA (
+create table categoria (
      CodCategoria int(11) not null AUTO_INCREMENT,
      Nome varchar(20) not null,
      constraint ID_CATEGORIA_ID primary key (CodCategoria));
 
-create table NOTIFICA (
+create table notifica (
      CodNotifica int(11) not null AUTO_INCREMENT,
      Data datetime not null,
      Testo varchar(600) not null,
@@ -71,7 +73,7 @@ create table Incarrello (
      quantita int(11) not null,
      constraint ID_Incarrello_ID primary key (CodProdotto, CodCarrello));
 
-create table SPEDIZIONE (
+create table spedizione (
      CodSpedizione int(11) not null AUTO_INCREMENT,
      CodOrdine int(11) not null,
      StatoSpedizione varchar(20) not null,
@@ -91,67 +93,67 @@ create table codici (
 -- Constraints Section
 -- ___________________ 
 
-alter table PRODOTTO add constraint REF_PRODO_CATEG_FK
+alter table prodotto add constraint REF_PRODO_CATEG_FK
      foreign key (CodCategoria)
-     references CATEGORIA (CodCategoria);
+     references categoria (CodCategoria);
 
-alter table CARRELLO add constraint REF_CARRE_UTENT_FK
+alter table carrello add constraint REF_CARRE_UTENT_FK
      foreign key (Nickname)
-     references UTENTE (Nickname);
+     references utente (Nickname);
 
-alter table ORDINE add constraint SID_ORDIN_CARRE_FK
+alter table ordine add constraint SID_ORDIN_CARRE_FK
      foreign key (CodCarrello)
-     references CARRELLO (CodCarrello);
+     references carrello (CodCarrello);
 
-alter table NOTIFICA add constraint REF_NOTIF_UTENT_FK
+alter table notifica add constraint REF_NOTIF_UTENT_FK
      foreign key (Nickname)
-     references UTENTE(Nickname);
+     references utente(Nickname);
 
 alter table Incarrello add constraint REF_Incar_PRODO
      foreign key (CodProdotto)
-     references PRODOTTO(CodProdotto);
+     references prodotto(CodProdotto);
 
 alter table Incarrello add constraint REF_Incar_CARRE_FK
      foreign key (CodCarrello)
-     references CARRELLO(CodCarrello);
+     references carrello(CodCarrello);
 
-alter table SPEDIZIONE add constraint SID_SPEDI_ORDIN_FK
+alter table spedizione add constraint SID_SPEDI_ORDIN_FK
      foreign key (CodOrdine)
-     references ORDINE (CodOrdine);
+     references ordine (CodOrdine);
 
 
 -- Index Section
 -- _____________ 
 
 create unique index ID_PRODOTTO_IND
-     on PRODOTTO (CodProdotto);
+     on prodotto (CodProdotto);
 
 create index REF_PRODO_CATEG_IND
-     on PRODOTTO (CodCategoria);
+     on prodotto (CodCategoria);
 
 create unique index ID_CARRELLO_IND
-     on CARRELLO (CodCarrello);
+     on carrello (CodCarrello);
 
 create index REF_CARRE_UTENT_IND
-     on CARRELLO (Nickname);
+     on carrello (Nickname);
 
 create unique index ID_UTENTE_IND
-     on UTENTE (Nickname);
+     on utente (Nickname);
 
 create unique index ID_ORDINE_IND
-     on ORDINE (CodOrdine);
+     on ordine (CodOrdine);
 
 create unique index SID_ORDIN_CARRE_IND
-     on ORDINE (CodCarrello);
+     on ordine (CodCarrello);
 
 create unique index ID_CATEGORIA_IND
-     on CATEGORIA (CodCategoria);
+     on categoria (CodCategoria);
 
 create unique index ID_NOTIFICA_IND
-     on NOTIFICA (CodNotifica);
+     on notifica (CodNotifica);
 
 create index REF_NOTIF_UTENT_IND
-     on NOTIFICA (Nickname);
+     on notifica (Nickname);
 
 create unique index ID_Incarrello_IND
      on Incarrello (CodProdotto, CodCarrello);
@@ -160,18 +162,10 @@ create index REF_Incar_CARRE_IND
      on Incarrello (CodCarrello);
 
 create unique index ID_SPEDIZIONE_IND
-     on SPEDIZIONE (CodSpedizione);
+     on spedizione (CodSpedizione);
 
 create unique index SID_SPEDI_ORDIN_IND
-     on SPEDIZIONE (CodOrdine);
+     on spedizione (CodOrdine);
 
 create unique index ID_codici_IND
      on codici (Id);
-
-rename TABLE CARRELLO to carrello;
-rename TABLE NOTIFICA to notifica;
-rename TABLE CATEGORIA to categoria;
-rename TABLE ORDINE to ordine;
-rename TABLE PRODOTTO to prodotto;
-rename TABLE SPEDIZIONE to spedizione;
-rename TABLE UTENTE to utente;
