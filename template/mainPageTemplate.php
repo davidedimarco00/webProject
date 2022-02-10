@@ -50,7 +50,7 @@
       <div class="row">
         <div class="col-lg-3 justify-content-center mycols">
           <div class="form-inline my-2 my-lg-0">
-            <input class="me-2" type="text" id="searchbar" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" id="searchbar" placeholder="Search" aria-label="Search">
           </div>
           <div class="list-group" id="list-tab" role="presentation">
             <button class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" onclick="dynamicProduct('all')" role="tab" aria-controls="home">Tutto</a>
