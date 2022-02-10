@@ -65,8 +65,6 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         //verifica qui che la rimozione sia andata a buon fine
     }
-
-
     
     public function getAllProducts(){
         $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto";
