@@ -8,8 +8,8 @@ $templateParams["js"] = "js/notifies.js";
 $templateParams["titolo"] = "Notifies";
 $templateParams["pagereq"] = "template/notifiesTemplate.php";
 
-if (isSet($_SESSION["Nickname"])) {
-    $templateParams["allnotifies"]=$dbh->getAllNotifies($_SESSION["Nickname"]);
+if (isSet($_SESSION["Nickname"])){
+    $templateParams["allnotifies"] = $dbh->getAllNotifies($_SESSION["Nickname"]);
 }
 
 require 'template/base.php';
