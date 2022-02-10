@@ -58,7 +58,7 @@ class DatabaseHelper{
     }
     
     public function getAllProducts(){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -67,7 +67,7 @@ class DatabaseHelper{
     }
 
     public function getProductsByVendor($vendor){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto where Venditore=?";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto where Venditore=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$vendor);
         $stmt->execute();
@@ -77,7 +77,7 @@ class DatabaseHelper{
     }
 
     public function getProductsByCategory($cat){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto where CodCategoria=?";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto where CodCategoria=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$cat);
         $stmt->execute();
@@ -86,18 +86,8 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getObject($cod){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria FROM prodotto WHERE CodProdotto=?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$cod);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
     public function getRandomProducts($limit){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto ORDER BY RAND() LIMIT ?";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto ORDER BY RAND() LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$limit);
         $stmt->execute();
@@ -115,7 +105,7 @@ class DatabaseHelper{
     }
 
     public function getProductById($id){
-        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Venditore FROM prodotto WHERE CodProdotto=?";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto WHERE CodProdotto=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -124,19 +114,19 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertProduct($nome, $descrizione, $prezzo, $codCategoria, $venditore){
-        $query = "INSERT INTO prodotto (Nome, Descrizione, Prezzo, CodCategoria, Venditore) VALUES (?, ?, ?, ?, ?)";
+    public function insertProduct($nome, $descrizione, $prezzo, $codCategoria, $quant, $venditore){
+        $query = "INSERT INTO prodotto (Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssdis', $nome, $descrizione, $prezzo, $codCategoria, $venditore);
+        $stmt->bind_param('ssdiis', $nome, $descrizione, $prezzo, $codCategoria, $quant, $venditore);
         $stmt->execute();
         
         return $stmt->insert_id;
     }
 
-    public function updateProduct($codProdotto, $nome, $descrizione, $prezzo, $codCategoria, $venditore){
-        $query = "UPDATE prodotto SET Nome = ?, Descrizione = ?, Prezzo = ?, CodCategoria = ?, Venditore=? WHERE CodProdotto = ?";
+    public function updateProduct($codProdotto, $nome, $descrizione, $prezzo, $codCategoria, $quant, $venditore){
+        $query = "UPDATE prodotto SET Nome = ?, Descrizione = ?, Prezzo = ?, CodCategoria = ?, Quantità = ?, Venditore = ? WHERE CodProdotto = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssdisi', $nome, $descrizione, $prezzo, $codCategoria, $venditore, $codProdotto);
+        $stmt->bind_param('ssdiisi', $nome, $descrizione, $prezzo, $codCategoria, $quant, $venditore, $codProdotto);
         
         return $stmt->execute();
     }
@@ -149,5 +139,16 @@ class DatabaseHelper{
         
         return true;
     }
+
+    public function productInStock($codProdotto, $quantity){
+        $query = "SELECT CodProdotto, Nome, Quantità FROM prodotto WHERE CodProdotto=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$codProdotto);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["Quantità"] >= $quantity;
+    }
+
+    /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }
 ?>

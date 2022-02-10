@@ -14,6 +14,14 @@
             <h1 class="display-6">Inserisci Nuovo Elemento</h1>
           <?php endif;?>
           </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <img class="d-block mx-auto my-auto" src="<?php echo getFirstImage($item["CodProdotto"]) ?>" alt="PrimaryImage">
+            </div>
+            <div class="row">
+                <input name="images[]" type="file" multiple="true" />
+            </div>
+          </div>
           <div class="col-lg-9">
             <table class="table table-striped">
               <thead>
@@ -36,10 +44,14 @@
                   <td><input type="text" class="form-control" id="Prezzo" name="Prezzo" value="<?php echo $templateParams["item"]["Prezzo"]; ?>"></td>
                 </tr>
                 <tr>
+                  <th scope="row">Quantità:</th>
+                  <td><input type="text" class="form-control" id="Quantità" name="Quantità" value="<?php echo $templateParams["item"]["Quantità"]; ?>"></td>
+                </tr>
+                <tr>
                   <th scope="row">Categoria</th>
                   <td><select class="custom-select" id="categorySelection" name="category">
                   <option selected value=-1>Choose...</option>
-                  <?php for($i=1; $i<count($templateParams["categories"]); $i++): ?>
+                  <?php for($i=0; $i<count($templateParams["categories"]); $i++): ?>
                   <option value="<?php echo $templateParams["categories"][$i]["CodCategoria"]; ?>"><?php echo $templateParams["categories"][$i]["Nome"]; ?></option>
                   <?php endfor; ?>
                   </select></td>
@@ -47,14 +59,6 @@
               </tbody>
             </table>
           </div>
-          <div class="col-lg-3">
-            <div class="row">
-              <img class="d-block mx-auto my-auto" src="<?php echo getFirstImage($item["CodProdotto"]) ?>" alt="PrimaryImage">
-            </div>
-            <div class="row">
-                <input name="images[]" type="file" multiple="true" />
-          </div>
-        </div>
           <div class="row">
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-right my-2 col-6">
               <input type="submit" name="submit" value="Conferma" class="btn btn-primary btn-lg px-4 gap-3"></input>

@@ -28,10 +28,10 @@
         $nome = htmlspecialchars($_POST["Nome"]);
         $desc = htmlspecialchars($_POST["Descrizione"]);
         $prezzo = (float) htmlspecialchars($_POST["Prezzo"]);
+        $quant = (int) htmlspecialchars($_POST["Quantità"]);
         $vend = $_SESSION["Nickname"];
         $codcat = (int) htmlspecialchars($_POST["category"]);
         
-        $result=1;
         $msg="";
         var_dump($_FILES["images"]);
         if ($_FILES["images"]!=NULL && !empty($_FILES['images']["name"][0])){
@@ -41,8 +41,8 @@
             }
         }
         
-        if($codcat != "-1"){
-            $codProdotto = $dbh->insertProduct($nome, $desc, $prezzo, $codcat, $vend);
+        if($codcat != "-1" && $nome != "" && $desc != "" && $prezzo != "" && $quant != "" && $vend != ""){
+            $codProdotto = $dbh->insertProduct($nome, $desc, $prezzo, $codcat, $quant, $vend);
             if($codProdotto != false){
                 $msg.="Prodotto inserito con successo. ";
             }
@@ -64,6 +64,7 @@
         $nome = htmlspecialchars($_POST["Nome"]);
         $desc = htmlspecialchars($_POST["Descrizione"]);
         $prezzo = (float) htmlspecialchars($_POST["Prezzo"]);
+        $quant = (int) htmlspecialchars($_POST["Quantità"]);
         $vend = $_SESSION["Nickname"];
         $codcat = (int) htmlspecialchars($_POST["category"]);
         
@@ -74,9 +75,9 @@
             }
         }
 
-        if($codcat != "-1" && !empty($dbh->getProductById((int)$_POST["codProdotto"]))){
+        if($codcat != "-1" && !empty($dbh->getProductById((int)$_POST["codProdotto"])) && $nome != "" && $desc != "" && $prezzo != "" && $quant != "" && $vend != ""){
             //$imgarticolo = $msg;
-            $codProdotto = $dbh->updateProduct((int)$_POST["codProdotto"], $nome, $desc, $prezzo, $codcat, $vend);
+            $codProdotto = $dbh->updateProduct((int)$_POST["codProdotto"], $nome, $desc, $prezzo, $codcat, $quant, $vend);
             if($codProdotto != false){
                 $msg.="Prodotto aggiornato con successo! ";
             }
