@@ -58,7 +58,7 @@
                 </tr>
               </tbody>
             </table>
-            <?php if ($templateParams["action"] == 1): ?>
+            <?php if ($templateParams["action"] == 1 && hasImages($templateParams["item"]["CodProdotto"])): ?>
                 <div class="row">
                   <div class="col-lg-3">
                     <h5>Seleziona le immagini da eliminare: </h5>
