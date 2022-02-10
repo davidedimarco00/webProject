@@ -164,4 +164,8 @@
     function removeImage($imgpath){
         unlink($imgpath);
     }
+
+    function hasImages($cod){
+        return getFirstImage($cod)!="images/placeholder.jpg";
+    }
 ?>

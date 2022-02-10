@@ -37,7 +37,7 @@
               <div class="row">
                 <a class="lead mb-4" href="listPage.php?cat=<?php echo $current["CodCategoria"]; ?>">Visualizza altri prodotti della categoria <?php echo $dbh->getCategoryName($current["CodCategoria"]); ?></a>
               </div>
-              <p class="lead mb-2">Prezzo: <?php echo $current["Prezzo"]; ?>€ & Spedizione a <?php echo "0"; ?> €</p>
+              <p class="lead mb-2">Prezzo: <?php echo $current["Prezzo"]; ?>€</p>
               <?php if ($current["Quantità"] <= 0): ?>
                 <p class="text-danger">Sold Out!</p>
               <?php endif; ?>
