@@ -22,4 +22,7 @@
         }
         echo "$inner";
     }
+    else {
+        $dbh->deleteNotify($cat);
+    }
 ?> 

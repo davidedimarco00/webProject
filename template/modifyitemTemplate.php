@@ -79,7 +79,7 @@
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-right my-2 col-6">
               <input type="submit" name="submit" value="Conferma" class="btn btn-primary btn-lg px-4 gap-3"></input>
               <?php if ($templateParams["action"] == 1): ?>
-              <input type="submit" name="submit" value="Elimina" class="btn btn-primary bg-danger btn-lg px-4 gap-3"></input>
+              <input type="submit" name="submit" value="Elimina Prodotto" class="btn btn-primary bg-danger btn-lg px-4 gap-3"></input>
               <?php endif; ?>
               <a class="btn btn-outline-secondary btn-lg px-4" href="index.php">Annulla</a>
             </div>
