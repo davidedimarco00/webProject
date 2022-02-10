@@ -2,10 +2,18 @@
     require_once "bootstrap.php";
 
     $cat=$_REQUEST["q"];
+    if (isSet($_REQUEST["t"])){
+      $text=$_REQUEST["t"];
+    }
+    
+
     if ($cat == "all"){
         $items=$dbh->getRandomProducts(100);
     }
-    else{
+    else if ($cat == "search") {
+      $items=$dbh->searchProduct($text);
+    }
+    else {
         $items=$dbh->getProductsByCategory($cat);
     }
     $inner="";

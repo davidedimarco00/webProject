@@ -91,9 +91,21 @@ class DatabaseHelper{
         $stmt->bind_param('i',$cat);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function searchProduct($string) {
+        $string = "$string%";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto where Nome LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(1, "$string%", PDO::PARAM_STR);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    
 
     public function getRandomProducts($limit){
         $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto ORDER BY RAND() LIMIT ?";

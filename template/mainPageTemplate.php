@@ -51,7 +51,8 @@
         <div class="col-lg-3 justify-content-center mycols">
           <div class="form-inline my-2 my-lg-0">
             <form>
-              <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+              <input class="form-control me-2" type="text" id= "searchbar" placeholder="Search" aria-label="Search">
+              <script type="text/javascript" src="./javascript/ajaxutils.js"></script>
             </form>
           </div>
           <div class="list-group" id="list-tab" role="presentation">
