@@ -168,6 +168,43 @@ class DatabaseHelper{
         return $result[0]["Nome"];
     }
 
+    public function addCart($Nickname){
+        $query = "INSERT INTO carrello (CodCarrello, Nickname, Stato) VALUES (?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si',$Nickname, 1);
+        $stmt->execute();
+
+        return $stmt->insert_id;
+    }
+
+    public function getCart($Nickname){
+        $query = "SELECT CodCarrello, Nickname, Stato FROM carrello WHERE Stato = 1 AND Nickname = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$Nickname);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+
+        if (empty($result)){
+            return addCart($Nickname);
+        }
+        return $result[0]["CodCarrello"];
+
+    }
+
+    public function addProductToCart($Nickname,$codProdotto){
+        /*se esiste il carrello attivo per quel nikname aggiungi il prodotto a quel carrello se non esiste ne creo uno nuovo e glielo aggiungo*/
+
+        $CodCarrello=getCart($Nickname);
+
+        $query = "INSERT INTO Incarrello (CodCarrello,CodProdotto,quantita) VALUES (?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii',$CodCarrello , $codProdotto, 1);
+        $stmt->execute();
+        
+        return $stmt->insert_id;
+    }
+
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }
 ?>

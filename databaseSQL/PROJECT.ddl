@@ -35,6 +35,7 @@ create table prodotto (
 create table carrello (
      CodCarrello int(11) not null AUTO_INCREMENT,
      Nickname varchar(20) not null,
+     Stato bit not null,
      constraint ID_CARRELLO_ID primary key (CodCarrello));
 
 create table utente (
