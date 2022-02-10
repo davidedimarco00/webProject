@@ -64,7 +64,7 @@
         <div id="dynamicByCategory" class="row col-lg-9">
         <?php foreach($templateParams["items"] as $current): ?>
           <div class="col-lg-3 justify-content-center mycols">
-            <div class="card">
+            <div class="card" id="card">
               <img class="card-img-top" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title"><?php echo $current["Nome"];?></h5>

@@ -6,8 +6,6 @@
     $templateParams["titolo"] = "Products";
     $templateParams["pagereq"] = "template/modifyitemTemplate.php";
 
-    
-
     $templateParams["categories"]=$dbh->getCategories();
     if(isSet($_GET["cod"])){
         $templateParams["item"]=$dbh->getProductById($_GET["cod"])[0];

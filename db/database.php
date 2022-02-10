@@ -168,38 +168,40 @@ class DatabaseHelper{
         return $result[0]["Nome"];
     }
 
-    public function addCart($Nickname){
-        $query = "INSERT INTO carrello (CodCarrello, Nickname, Stato) VALUES (?,?)";
+    public function addCart($nick){
+        $query = "INSERT INTO carrello (Nickname, Stato) VALUES (?,?)";
+        $status=1;
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('si',$Nickname, 1);
+        $stmt->bind_param('si',$nick,$status);
         $stmt->execute();
 
         return $stmt->insert_id;
     }
 
-    public function getCart($Nickname){
-        $query = "SELECT CodCarrello, Nickname, Stato FROM carrello WHERE Stato = 1 AND Nickname = ?";
+    public function getCart($nick){
+        $query = "SELECT CodCarrello, Nickname, Stato FROM carrello WHERE Stato = ? AND Nickname = ?";
+        $status=1;
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s',$Nickname);
+        $stmt->bind_param('is',$status,$nick);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = $result->fetch_all(MYSQLI_ASSOC);
 
         if (empty($result)){
-            return addCart($Nickname);
+            return $this->addCart($nick);
         }
         return $result[0]["CodCarrello"];
 
     }
 
-    public function addProductToCart($Nickname,$codProdotto){
+    public function addProductToCart($nickname,$codProdotto){
         /*se esiste il carrello attivo per quel nikname aggiungi il prodotto a quel carrello se non esiste ne creo uno nuovo e glielo aggiungo*/
 
-        $CodCarrello=getCart($Nickname);
-
+        $CodCarrello=$this->getCart($nickname);
+        $status=1;
         $query = "INSERT INTO Incarrello (CodCarrello,CodProdotto,quantita) VALUES (?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii',$CodCarrello , $codProdotto, 1);
+        $stmt->bind_param('iii',$CodCarrello , $codProdotto, $status);
         $stmt->execute();
         
         return $stmt->insert_id;
