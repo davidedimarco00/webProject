@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL); ini_set('display_errors', 1);
 class DatabaseHelper{
     private $db;
 
@@ -91,9 +91,20 @@ class DatabaseHelper{
         $stmt->bind_param('i',$cat);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function searchProduct($string) {
+        $string = "%$string%";
+        $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto where Nome LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $string);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    
 
     public function getRandomProducts($limit){
         $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto ORDER BY RAND() LIMIT ?";

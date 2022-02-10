@@ -1,14 +1,8 @@
 <?php
     require_once "bootstrap.php";
 
-    $cat=$_REQUEST["q"];    
-
-    if ($cat == "all"){
-        $items=$dbh->getRandomProducts(100);
-    }
-    else {
-        $items=$dbh->getProductsByCategory($cat);
-    }
+    $string=$_REQUEST["q"];
+    $items=$dbh->searchProduct($string);
     $inner="";
     foreach($items as $current){
         $cod=$current["CodProdotto"];
