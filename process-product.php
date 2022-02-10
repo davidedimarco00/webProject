@@ -1,18 +1,4 @@
-<?php error_reporting(E_ALL); ini_set('display_errors', 1);
-    require_once 'bootstrap.php';
-
-    /*Home Template
-    $templateParams["css"] = array("css/header.css", "css/footer.css");
-    $templateParams["titolo"] = "Products";
-    $templateParams["pagereq"] = "template/modifyitemTemplate.php";
-
-    $templateParams["item"]=$dbh->getProductById($_GET["cod"])[0];
-
-    $templateParams["categories"]=$dbh->getCategories();
-    
-    var_dump($_POST);
-    require 'template/base.php';*/
-    //array(6) { ["Nome"]=> string(15) "Microphone EVIL" ["Descrizione"]=> string(20) "For professional use" ["Prezzo"]=> string(5) "79.99" ["category"]=> string(2) "-1" ["submit"]=> string(12) "Submit Query" ["action"]=> string(1) "0" } 
+<?php
     require_once "bootstrap.php";
 
     if (!isUserLoggedIn() || !isUserVendor() || !isSet($_POST["action"]) || ($_POST["action"]!=1 && $_POST["action"]!=2 && $_POST["action"]!=0)){
@@ -60,7 +46,7 @@
     //agiorna/ modifica
     else if($_POST["action"]==1){
         $msg="";
-
+        var_dump($_POST);
         $nome = htmlspecialchars($_POST["Nome"]);
         $desc = htmlspecialchars($_POST["Descrizione"]);
         $prezzo = (float) htmlspecialchars($_POST["Prezzo"]);
@@ -74,12 +60,9 @@
                 foreach($allresult as $err){
                     $msg.=$err;
                 }
-                //$msg.="Errore nel caricamento di una o più immagini. ";
             }
         }
-
         if($codcat != "-1" && !empty($dbh->getProductById((int)$_POST["codProdotto"])) && $nome != "" && $desc != "" && $prezzo != "" && $quant != "" && $vend != ""){
-            //$imgarticolo = $msg;
             $codProdotto = $dbh->updateProduct((int)$_POST["codProdotto"], $nome, $desc, $prezzo, $codcat, $quant, $vend);
             if($codProdotto != false){
                 $msg.="Prodotto aggiornato con successo! ";
@@ -90,6 +73,12 @@
         }
         else{
             $msg.="Errore generico. ";
+        }
+        $allimages=getImages($_POST["codProdotto"]);
+        foreach($_POST as $index => $status){
+            if ($status == "on" && tempImageCheck($allimages[$index])){
+                removeImage($allimages[$index]);
+            }
         }
         header("location: index.php?formmsg=".$msg);
     }

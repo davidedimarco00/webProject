@@ -15,6 +15,7 @@
             header("location: index.php?formmsg=l'oggetto richiesto non esiste. ");
         }
         $templateParams["action"]=1;
+        $templateParams["item"]["images"]=getImages($_GET["cod"]);
     }
     else{
         $templateParams["action"]=0;

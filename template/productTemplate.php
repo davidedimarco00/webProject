@@ -48,7 +48,7 @@
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Acquista Ora</button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4">Aggiungi al Carrello</button>
                 <?php if (isSet($_SESSION["Nickname"]) && $current["Venditore"] == $_SESSION["Nickname"] && isUserVendor()): ?>
-                <a type="button" class="btn btn-outline-secondary text-danger btn-lg px-4 gap-3" href="modifyItemPage.php?cod=<?php echo $current["CodProdotto"]; ?>">Modifica</a>
+                <a type="button" class="btn btn-primary bg-danger btn-lg px-4 gap-3" href="modifyItemPage.php?cod=<?php echo $current["CodProdotto"]; ?>">Modifica</a>
                 <?php endif; ?>
               </div>
             </div>

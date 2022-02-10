@@ -1,32 +1,38 @@
 aside {
-    float: left;
-  }
-  
-  #logoImg {
-    height: 100px;
-  }
-  
-  #loginImage{
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; 
-  }
-  
-  #dropdownMenuLink {
-    color: #FFFFFF;;
-    background-color: #549037;
-  }
+  float: left;
+}
 
-  nav .navbar-nav li .nav-item{
-    color: #549037 ;
-  }
-  
-  img {
-    object-fit: contain;
-    max-height: 300px;
-    max-width: 300px;
-  }
+#logoImg {
+  height: 100px;
+}
+
+#loginImage{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; 
+}
+
+#dropdownMenuLink {
+  color: #FFFFFF;;
+  background-color: #549037;
+}
+
+nav .navbar-nav li .nav-item{
+  color: #549037 ;
+}
+
+img {
+  object-fit: contain;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.miniature{
+  object-fit: contain;
+  max-height: 80px;
+  max-width: 80px;
+}

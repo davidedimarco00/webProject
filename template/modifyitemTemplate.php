@@ -4,7 +4,7 @@
         <div class="goback">
           <img src="images/arrow-return-left.svg" class="bi bi-arrow-return-left"
             alt=""></img>
-          <a href="vendorPage.php" role="button" aria-expanded="false">Torna Indietro</a>
+          <a href="index.php" role="button" aria-expanded="false">Torna Indietro</a>
         </div>
         <div class="row">            
           <div class="col-lg-12">
@@ -58,6 +58,22 @@
                 </tr>
               </tbody>
             </table>
+            <?php if ($templateParams["action"] == 1): ?>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h5>Seleziona le immagini da eliminare: </h5>
+                  </div>
+                <?php for($i=0; $i<count($templateParams["item"]["images"]); $i++): ?>
+                  <?php $img=$templateParams["item"]["images"][$i]; ?>
+                  <div class="col-lg-1">
+                    <input type="checkbox" id="<?php echo "$i"; ?>" name="<?php echo "$i"; ?>" />
+                    <div class="miniature">
+                      <img class="d-block mx-auto my-auto miniature" src="<?php echo "$img"; ?>" alt="">
+                    </div>
+                  </div>
+                <?php endfor; ?>
+                </div>
+            <?php endif; ?>
           </div>
           <div class="row">
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-right my-2 col-6">
@@ -68,6 +84,7 @@
               <a class="btn btn-outline-secondary btn-lg px-4" href="index.php">Annulla</a>
             </div>
           </div>
+        </div>
       </div> 
       <input name="action" type="hidden" value="<?php echo $templateParams["action"] ?>" />
       <?php if(isSet($_GET["cod"])): ?>

@@ -160,4 +160,8 @@
         }
         return $vend;
     }
+
+    function removeImage($imgpath){
+        unlink($imgpath);
+    }
 ?>
