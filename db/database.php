@@ -56,6 +56,17 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function deleteNotify($codNotifica) { //in codNotifica va passata l
+        $query = "DELETE FROM notifica where CodNotifica=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$codNotifica);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        //verifica qui che la rimozione sia andata a buon fine
+    }
+
+
     
     public function getAllProducts(){
         $query = "SELECT CodProdotto, Nome, Descrizione, Prezzo, CodCategoria, Quantità, Venditore FROM prodotto";
