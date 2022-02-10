@@ -2,7 +2,7 @@
     require_once 'bootstrap.php';
 
     //Home Template
-    $templateParams["css"] = array("css/header.css", "css/footer.css", "css/productPage.css");
+    $templateParams["css"] = array("css/header.css", "css/footer.css", "css/listPage.css");
     $templateParams["titolo"] = "Products";
     $templateParams["pagereq"] = "template/modifyitemTemplate.php";
 

@@ -3,15 +3,15 @@
     <?php if (empty($templateParams["items"])): ?>
         <h5>Sembra non ci sia nessun prodotto.</h5>
     <?php endif; ?>
-    <?php if (isSet($_SESSION["Nickname"]) && $templateParams["items"][0]["Venditore"] == $_SESSION["Nickname"] && isUserVendor()): ?>
+    <?php if (isSet($_SESSION["Nickname"]) && getVendorFromList($templateParams["items"]) == $_SESSION["Nickname"] && isUserVendor()): ?>
         <a href="modifyItemPage.php">Aggiungi nuovo prodotto</a>
     <?php endif; ?>
     </div>
     <?php foreach($templateParams["items"] as $current): ?>
         <div class="px-4 my-5 text-left">
             <div class="row">
-                <div class="col-lg-4">
-                    <img class="d-block mx-auto my-auto col-lg-8" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="productImage"></img> <!-- TODO -->
+                <div class="col-lg-4 img">
+                    <img class="d-block mx-auto my-auto col-lg-8" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="productImage"></img>
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-6"><?php echo $current["Nome"]; ?></h1>

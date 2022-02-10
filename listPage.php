@@ -9,7 +9,8 @@
         }
     }
     else if (isSet($_GET["cat"])){
-        $templateParams["title"]="Prodotti della Categoria ".$_GET["cat"];
+        $catname=$dbh->getCategoryName($_GET["cat"]);
+        $templateParams["title"]="Prodotti della Categoria ".$catname;
         $templateParams["items"]=$dbh->getProductsByCategory($_GET["cat"]);
         if(empty($templateParams["items"])){
             header("location: index.php?formmsg=Categoria non esistente. ");
@@ -26,7 +27,7 @@
     }
 
     //Home Template
-    $templateParams["css"] = array("css/productPage.css", "css/header.css", "css/footer.css");
+    $templateParams["css"] = array("css/listPage.css", "css/header.css", "css/footer.css");
     $templateParams["titolo"] = "Products";
     $templateParams["pagereq"] = "template/itemListTemplate.php";
     require 'template/base.php';

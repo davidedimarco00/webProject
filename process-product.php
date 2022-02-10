@@ -71,7 +71,10 @@
         if ($_FILES["images"]!=NULL && !empty($_FILES['images']["name"][0])){
             $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
             if(!empty($allresult)){
-                $msg.="Errore nel caricamento di una o più immagini. ";
+                foreach($allresult as $err){
+                    $msg.=$err;
+                }
+                //$msg.="Errore nel caricamento di una o più immagini. ";
             }
         }
 

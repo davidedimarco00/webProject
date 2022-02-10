@@ -103,57 +103,6 @@
         return "images/placeholder.jpg";
     }
 
-    /*function uploadImage($path, $image, $cod){
-        $imageName = basename($image["name"]);
-        $fullPath = $path.$cod."_";
-        
-        $maxKB = 1500;
-        $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
-        $result = 0;
-        $msg = "";
-        //Controllo se immagine è veramente un'immagine
-        $imageSize = getimagesize($image["tmp_name"]);
-        if($imageSize === false) {
-            $msg .= "File caricato non è un'immagine! ";
-        }
-        //Controllo dimensione dell'immagine < 500KB
-        if ($image["size"] > $maxKB * 1024) {
-            $msg .= "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
-        }
-
-        //Controllo estensione del file
-        $imageFileType = strtolower(pathinfo($fullPath,PATHINFO_EXTENSION));
-        if(!in_array($imageFileType, $acceptedExtensions)){
-            $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
-        }
-        //Controllo il primo nome disponibile
-        $i=0;
-        while (true){
-            if($i>=10){
-                $msg .= "Troppi file gia presenti per lo stesso prodotto. ";
-                break;
-            }
-            if(!tempImageCheck($fullPath.$i.$imageFileType)){
-                $fullPath.=$i;
-                break;
-            }
-            $i++;
-
-        }
-        
-        //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
-        if(strlen($msg)==0){
-            if(!move_uploaded_file($image["tmp_name"], $fullPath)){
-                $msg.= "Errore nel caricamento dell'immagine.";
-            }
-            else{
-                $result = 1;
-                $msg = $imageName;
-            }
-        }
-        return array($result, $msg);
-    }*/
-
     function uploadImages($path, $images, $cod){
         $maxKB = 1500;
         $allresults=array();
@@ -200,5 +149,15 @@
             }
         }
         return $allresults;
+    }
+
+    function getVendorFromList($items){
+        $vend=$items[0]["Venditore"];
+        foreach($items as $item){
+            if ($item["Venditore"] != $vend){
+                return NULL;
+            }
+        }
+        return $vend;
     }
 ?>
