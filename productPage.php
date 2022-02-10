@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL); ini_set('display_errors', 1);
 require_once 'bootstrap.php';
 
 //Placeholder Templates: da sostituire con le query al database
@@ -13,6 +13,5 @@ if(empty($templateParams["item"])){
     header("location: index.php?formmsg=Prodotto non esistente");
 }
 $templateParams["item"]["images"]=getImages($_GET["cod"]);
-
 require 'template/base.php';
 ?>

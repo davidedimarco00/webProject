@@ -152,12 +152,22 @@ class DatabaseHelper{
     }
 
     public function productInStock($codProdotto, $quantity){
-        $query = "SELECT CodProdotto, Nome, Quantità FROM prodotto WHERE CodProdotto=?";
+        $query = "SELECT CodProdotto, Nome, Quantità FROM prodotto WHERE CodProdotto = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$codProdotto);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0]["Quantità"] >= $quantity;
+    }
+
+    public function getCategoryName($codCategoria){
+        $query = "SELECT CodCategoria, Nome FROM categoria WHERE CodCategoria = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$codCategoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["Nome"];
     }
 
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
