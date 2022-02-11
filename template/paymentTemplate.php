@@ -12,7 +12,7 @@
                     <div class="card p-3">
                         <h4 class="text-uppercase">Payment details</h4>
 
-                        <form class="needs-validation" novalidate="" action="orderConfirmedPage.php">
+                        <form class="needs-validation" action="process-payment.php" method="POST" enctype="multipart/form-data">
                         <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required">
                         <div class="invalid-feedback">
                         Please enter a valid Name.

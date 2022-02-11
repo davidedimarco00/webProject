@@ -220,8 +220,8 @@ class DatabaseHelper{
 
     public function getCartItems($CodCarrello){
         $query = "SELECT * from Incarrello JOIN prodotto
-                  ON Incarrello.CodProdotto = prodotto.CodProdotto
-                  WHERE Incarrello.CodCarrello=?;";
+                ON Incarrello.CodProdotto = prodotto.CodProdotto
+                WHERE Incarrello.CodCarrello=?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$CodCarrello);
         $stmt->execute();
@@ -230,7 +230,7 @@ class DatabaseHelper{
     }
 
     public function deleteCartProduct($CodCarrello,$CodProdotto){
-        $query = "DELETE * FROM Incarrello WHERE CodProdotto = ? AND Incarrello.CodCarrello=?";
+        $query = "DELETE FROM Incarrello WHERE CodProdotto = ? AND Incarrello.CodCarrello=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii',$CodProdotto,$CodCarrello);
         $stmt->execute();
@@ -238,12 +238,20 @@ class DatabaseHelper{
         return true;
     }
 
-    public function deleteCartProduct2($CodCarrello,$CodProdotto){
-        $query = "DELETE FROM Incarrello WHERE CodProdotto = ? AND CodCarrello=?";
+    public function totalPrice($CodCarrello){
+        $query = "SELECT Prezzo from Incarrello JOIN prodotto
+                ON Incarrello.CodProdotto = prodotto.CodProdotto
+                WHERE Incarrello.CodCarrello=?;";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ii',$CodProdotto,$CodCarrello);
+        $stmt->bind_param('i',$CodCarrello);
         $stmt->execute();
-        return true;
+        $result = $stmt->get_result();
+        $resut = $result->fetch_all(MYSQLI_ASSOC);
+        $total=0;
+        foreach($result["Prezzo"] as $price):
+            $total+=$price; 
+        endforeach;
+        return $total;
     }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }

@@ -5,7 +5,7 @@
     $CodCarrello=$dbh->getCart($_SESSION["Nickname"]);
 
     //TODO: esegui query di cancellazione qui
-    $dbh->deleteCartProduct2($CodCarrello, $item);
+    $dbh->deleteCartProduct($CodCarrello, $item);
     //Qua sotto ottengo gli oggetti e li ricarico dinamicamente nella pagina cartpage
     $items=$dbh->getCartItems($CodCarrello);
     $inner="";

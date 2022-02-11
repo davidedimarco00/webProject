@@ -33,7 +33,7 @@
                                             <figure class="itemside align-items-center">
                                                 <div class="aside"><img src="<?php echo getFirstImage($item["CodProdotto"]); ?>" alt="PrimaryImage" style="height: 180px"></div>
                                                 <figcaption class="info"> <a href="productPage.php?cod=<?php echo $item["CodProdotto"]; ?>" class="title text-dark" data-abc="true"><?php echo $item["Nome"]; ?></a>
-                                                    <p class="text-muted small">VENDOR: <?php echo $item["Venditore"]; ?><br> CodArticle: MAXTRA</p>
+                                                    <p class="text-muted small">VENDOR: <?php echo $item["Venditore"]; ?><br> CodArticle: <?php echo $item["CodProdotto"]; ?></p>
                                                 </figcaption>
                                             </figure>
                                         </td>
