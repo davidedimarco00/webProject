@@ -44,15 +44,15 @@
                 
                   <div class="row">
                     <div class="col-md-6 mb-3">
-                      <label for="firstName">First name</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                      <label for="firstName">Name</label>
+                      <input type="text" class="form-control" id="name" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <label for="lastName">Last name</label>
-                      <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                      <label for="lastName">Surname</label>
+                      <input type="text" class="form-control" id="surname" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid last name is required.
                       </div>
