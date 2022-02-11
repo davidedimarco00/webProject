@@ -168,4 +168,8 @@
     function hasImages($cod){
         return getFirstImage($cod)!="images/placeholder.jpg";
     }
+
+    function updateTotal($quantity,$price,$total){
+        return $total+=$quantity*$price;
+    }
 ?>

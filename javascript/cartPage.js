@@ -1,6 +1,11 @@
-
+/*
 function orderCompletedAlert() {
     window.alert("Il tuo ordine è stato effettuato con successo, grazie!");
 }
+*/
 
-orderCompletedAlert();
+function updateTotal(){
+    $("selectQ").on("change",function(){
+        alert(this.value)
+    });
+}

@@ -32,19 +32,18 @@
                                         <td>
                                             <figure class="itemside align-items-center">
                                                 <div class="aside"><img src="<?php echo $item["images"][0]; ?>" alt="PrimaryImage" style="height: 180px"></div>
-                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true"><?php echo $item["name"]; ?></a>
-                                                    <p class="text-muted small">VENDOR: <?php echo $item["vendor"]; ?><br> CodArticle: MAXTRA</p>
+                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true"><?php echo $item["Nome"]; ?></a>
+                                                    <p class="text-muted small">VENDOR: <?php echo $item["Venditore"]; ?><br> CodArticle: MAXTRA</p>
                                                 </figcaption>
                                             </figure>
                                         </td>
-                                        <td> <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select> </td>
+                                        <td> <select class="form-control" id="selectQ">
+                                            <?php for($k=1;$k<=$item["Quantità"];$k++): ?> 
+                                              <option><?php echo $k; ?></option>
+                                            <?php endfor; ?>
+                                            </select><script type="text/javascript" src="../javascript/cartPage.js"></script> </td>
                                         <td>
-                                            <div class="price-wrap"> <var class="price"><?php echo $item["price"]; ?> €</var></div>
+                                            <div class="price-wrap"> <var class="price"><?php echo $item["Prezzo"]; ?> €</var></div>
                                         </td>
                                         <td>
                                         <a type="button" class="btn btn-outline-secondary" id="remove-item" href="cartPage.php?delete=<?php echo $item["CodProdotto"]; ?>">

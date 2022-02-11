@@ -218,6 +218,25 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
 
+    public function getCartItems($CodCarrello){
+        $query = "SELECT * from Incarrello JOIN prodotto
+                  ON Incarrello.CodProdotto = prodotto.CodProdotto
+                  WHERE Incarrello.CodCarrello=?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$CodCarrello);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function deleteCartProduct($CodCarrello,$CodProdotto){
+        $query = "DELETE * FROM Incarrello WHERE CodProdotto = ? AND Incarrello.CodCarrello=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$CodProdotto,$CodCarrello);
+        $stmt->execute();
+        
+        return true;
+}
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }
 ?>
