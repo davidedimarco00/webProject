@@ -308,9 +308,9 @@ class DatabaseHelper{
     }
 
     public function getOrderCarts($Nickname){
-        $query = "SELECT * from ordine JOIN carrello
+        $query = "SELECT * from carrello JOIN ordine
                 ON carrello.CodCarrello = ordine.CodCarrello
-                WHERE carrello.Nickname=?;";
+                WHERE carrello.Nickname=? AND carrello.Stato=0;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$Nickname);
         $stmt->execute();

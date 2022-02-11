@@ -2,7 +2,7 @@
 <?php foreach($templateParams["orders"] as $current): ?>
     <?php $items=$dbh->getCartItems($current["CodCarrello"]); ?>
     <div class="px-4 my-5 text-left">
-        <h1>Ordine del <?php echo $current["Data"]; ?></h1>
+        <h1>Ordine del <?php echo $current["Data"].', '.$current["Stato"]; ?></h1>
     </div>
     <?php foreach($items as $item): ?>
         <div class="px-4 my-5 text-left">
