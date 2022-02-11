@@ -13,7 +13,9 @@ function addtocart(cod){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.location.href = 'cartPage.php';
+        if(this.responseText == true){
+          document.location.href = 'cartPage.php';
+        }
       }
     };
     xhttp.open("GET", "cartUtils.php?q=" + cod, true);
@@ -27,18 +29,18 @@ function removefromcart(cod){
       document.getElementById("dynamicCart").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "getDynamicCart.php?q=" + cod, true);
+  xhttp.open("GET", "getDynamicCart.php?d=" + cod, true);
   xhttp.send();
 }
 
-function updatecart(quant){
+function updatecart(quant,cod){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         document.getElementById("dynamicCart").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "getDynamicCart.php?s=" + quant + "", true);
+  xhttp.open("GET", "getDynamicCart.php?q=" + quant + "&c=" + cod, true);
   xhttp.send();
 }
 
@@ -75,7 +77,6 @@ $(document).ready(function(){
     });
   }
 
-  var dropdown = document.getElementById("selectQ");
   $("#selectQ").change(function(){
     updatecart(this.value);
   });

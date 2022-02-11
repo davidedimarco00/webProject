@@ -289,13 +289,21 @@ class DatabaseHelper{
     }
 
     
-    public function insertNotify($CodNotifica, $Data, $Testo, $Letto, $Nickname){
+    public function insertNotify($Data, $Testo, $Letto, $Nickname){
         $query = "INSERT INTO  notifica (Data, Testo, Letto, Nickname) VALUES (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssis',$Data, $Testo, $Letto, $Nickname);
         $stmt->execute();
         
         return $stmt->insert_id;
+
+    }
+
+    public function updateProductInCart($codCarrello, $codProdotto, $quantita){
+        $query = "UPDATE Incarrello SET CodCarrello=?, CodProdotto=?, quantita=? WHERE CodProdotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iiii', $codCarrello, $codProdotto, $quantita, $codProdotto);
+        return $stmt->execute();
 
     }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/

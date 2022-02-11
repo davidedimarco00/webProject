@@ -2,11 +2,13 @@
     require_once "bootstrap.php";
     $CodCarrello=$dbh->getCart($_SESSION["Nickname"]);
 
-    if(isSet($_REQUEST["q"])){
-        $dbh->deleteCartProduct($CodCarrello, $_REQUEST["q"]);
+    if(isSet($_REQUEST["q"]) && isSet($_REQUEST["c"])){
+        if($dbh->productInStock($_REQUEST["c"], $_REQUEST["q"]) && $_REQUEST["q"]>0){
+            $dbh->updateProductInCart($CodCarrello, $_REQUEST["c"], $_REQUEST["q"]);
+        }
     }
-    if(isSet($_REQUEST["s"])){
-        //var_dump($_REQUEST["s"]);
+    else if(isSet($_REQUEST["d"])){
+        $dbh->deleteCartProduct($CodCarrello, $_REQUEST["d"]);
     }
     $tot=$dbh->totalPrice($CodCarrello);
     //Qua sotto ottengo gli oggetti e li ricarico dinamicamente nella pagina cartpage
@@ -37,9 +39,13 @@
                                     </figcaption>
                                 </figure>
                             </td>
-                            <td> <select class="form-control" id="selectQ">
-                                ';
-        for($k=1;$k<=$current["Quantità"];$k++){
+                            <td>
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-secondary" type="button" id="minus" onclick="updatecart('.(string)($current["quantita"]-1).','.$current["CodProdotto"].')">-</button>
+                                    <input type="text" class="form-control" placeholder="'.$current["quantita"].'" aria-label="Example text with button addon"">
+                                    <button class="btn btn-outline-secondary" type="button" id="plus" onclick="updatecart('.(string)($current["quantita"]+1).','.$current["CodProdotto"].')">+</button>
+                                </div>';
+        /*for($k=1;$k<=$current["Quantità"];$k++){
             if($k==(string)$reqQuant){
                 $inner.='<option selected="selected">'.$k.'</option>
                                 ';
@@ -48,9 +54,8 @@
                 $inner.='<option>'.$k.'</option>
                                 ';
             }
-        }
+        }*/
                     $inner.='
-                            </select>
                             </td>
                             <td>
                                 <div class="price-wrap"> <var class="price">'.$reqQuant * $current["Prezzo"].'€</var></div>
