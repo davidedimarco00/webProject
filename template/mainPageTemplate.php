@@ -1,7 +1,7 @@
   <?php if(isSet($_GET["formmsg"])): ?>
   <div class="error">
-      <h5>Attenzione!</h5>
-      <p><?php echo $_GET["formmsg"]; ?></p>
+      <h5 class="text-center">Attenzione!</h5>
+      <p class="text-center"><?php echo $_GET["formmsg"]; ?></p>
   </div>
   <?php endif; ?>
   <!--   CAROUSEL     ---->

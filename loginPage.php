@@ -1,4 +1,4 @@
-<?php
+<?php 
     require_once 'bootstrap.php';
 
     /*if(isSet($_GET["action"]) && $_GET["action"]=="logout"){
@@ -21,9 +21,10 @@
 
         if(count($login_result)!=0){
             registerLoggedUser($login_result[0], $login_result[0]["isVend"], $notifiesCount_result[0]["notRead"], $notifies_result);
+            $templateParams["formmsg"] = "Login Avvenuto Con Successo";
         }
         else{
-            $templateParams["formmsg"] = "Incorrect Nickname or Password";
+            $templateParams["formmsg"] = "Nickname or Password Sbagliati";
         }
     }
 
@@ -40,6 +41,15 @@
                                             hash("sha256", $_POST["password"]),
                                             1);
         }
+        $templateParams["formmsg"]= "Registrazione Avvenuta con Successo!";
+        $login_result = $dbh->checkLogin($_POST["nickname"], hash("sha256", $_POST["password"]));
+        $notifiesCount_result = $dbh->getNotReadNotifiesNumber($_POST["nickname"]);
+        $notifies_result = $dbh->getNotifies($_POST["nickname"]);
+        
+
+        if(count($login_result)!=0){
+            registerLoggedUser($login_result[0], $login_result[0]["isVend"], $notifiesCount_result[0]["notRead"], $notifies_result);
+        }
     }
     
     if(isUserLoggedIn()){
@@ -50,7 +60,7 @@
         if ($_SESSION["Nickname"]) {
             $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
         }*/
-        header("location: index.php");
+        header("location: index.php?formmsg=".$templateParams["formmsg"]);
        
     }
     else {

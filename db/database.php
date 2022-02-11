@@ -307,6 +307,17 @@ class DatabaseHelper{
         $stmt->bind_param('iiii', $codCarrello, $codProdotto, $quantita, $codProdotto);
         return $stmt->execute();
     }
+
+    public function getOrderCarts($Nickname){
+        $query = "SELECT * from carrello JOIN ordine
+                ON carrello.CodCarrello = ordine.CodCarrello
+                WHERE carrello.Nickname=? AND carrello.Stato=0;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$Nickname);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }
 ?>

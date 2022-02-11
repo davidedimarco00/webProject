@@ -42,19 +42,9 @@
                             <td>
                                 <div class="input-group mb-3">
                                     <button class="btn btn-outline-secondary" type="button" id="minus" onclick="updatecart('.(string)($current["quantita"]-1).','.$current["CodProdotto"].')">-</button>
-                                    <input type="text" class="form-control" placeholder="'.$current["quantita"].'" aria-label="Example text with button addon"">
+                                    <span class="input-group-text">'.$current["quantita"].'</span>
                                     <button class="btn btn-outline-secondary" type="button" id="plus" onclick="updatecart('.(string)($current["quantita"]+1).','.$current["CodProdotto"].')">+</button>
                                 </div>';
-        /*for($k=1;$k<=$current["Quantità"];$k++){
-            if($k==(string)$reqQuant){
-                $inner.='<option selected="selected">'.$k.'</option>
-                                ';
-            }
-            else{
-                $inner.='<option>'.$k.'</option>
-                                ';
-            }
-        }*/
                     $inner.='
                             </td>
                             <td>
