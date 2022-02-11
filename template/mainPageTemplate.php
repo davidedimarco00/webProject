@@ -49,9 +49,35 @@
   <div class="container">
       <div class="row">
         <div class="col-lg-3 justify-content-center mycols">
+
+        
+        <div class="dropdown">
+                  <?php if(!isUserLoggedIn()): ?>
+                    <h6><a id = "loginbtn"href="./loginPage.php">Accedi</a></h6>
+                  <?php endif; ?>
+                <h6><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></h6>
+                <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
+
+                <ul>
+                  <?php if(isUserLoggedIn() && isUserVendor()): ?>
+                    <li><a class="dropdown-item" href="./listPage.php">I miei Prodotti</a></li>
+                    <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
+                  <?php endif; ?>
+
+                  <?php if(isUserLoggedIn() && !isUserVendor()): ?>
+                    <li><a class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></a></li>
+                    <li><a class="dropdown-item" href="./listPage.php">I miei Acquisti</a></li>
+                    <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
+                  <?php endif; ?>
+                </ul>
+          </div>
+          <hr>
+       
+
           <div class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" id="searchbar" placeholder="Search" aria-label="Search">
           </div>
+
           <div class="list-group" id="list-tab" role="presentation">
             <button class="list-group-item list-group-item-action mx-auto" id="list-home-list" data-toggle="list" onclick="dynamicProduct('all')" role="tab" aria-controls="home">Tutto</a>
           <?php foreach($templateParams["categories"] as $id => $value): ?> 
@@ -61,14 +87,18 @@
         </div>
         <div id="dynamicByCategory" class="row col-lg-9">
         <?php foreach($templateParams["items"] as $current): ?>
+
           <div class="col-lg-3 justify-content-center mycols">
-            <div class="card" id="card">
-              <img class="card-img-top" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $current["Nome"];?></h5>
-                <p class="card-text"><?php echo $current["Descrizione"];?></p>
-                <a href="productPage.php?cod=<?php echo $current["CodProdotto"]; ?>">Visualizza</a>
+              <div class="card" id="card">
+                <img class="card-img-top" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="Card image cap">
+                <div class="card-body">
+                <a href="productPage.php?cod=<?php echo $current["CodProdotto"]; ?>">
+                  <h5 class="card-title"><?php echo $current["Nome"];?></h5>
+                  </a>
+                  <p class="card-text"><?php echo $current["Descrizione"];?></p>
+                
               </div>
+        
             </div>
           </div>
         <?php endforeach; ?>

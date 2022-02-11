@@ -9,7 +9,6 @@
     $templateParams["pagereq"] = "template/mainPageTemplate.php";
     $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
     $templateParams["categories"] = $dbh->getCategories();
-
     $templateParams["items"]=$dbh->getRandomProducts(10);
 
     require 'template/base.php';

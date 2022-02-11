@@ -51,6 +51,7 @@
                   </ul>
                  
                       <div class="dropdown text-end" id="dropDownNotification">
+
                         <img src="images/notificationIcon.png" alt="notificationImage" id="notificationImage" class="rounded-circle">
                         <?php if(isUserHasNotifies()): ?>
                           <p id ="notificationCounter"><?php echo $_SESSION["NotifiesNumber"] ?> </p>  
@@ -83,7 +84,7 @@
 
                       </div>
                       <div class="dropdown text-end">
-                        <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
+                          <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
                         <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-20px, 34px);" data-popper-placement="bottom-end">
                         <?php if(!isUserLoggedIn()): ?>
                           <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
@@ -115,14 +116,11 @@
       </main>
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top" id="myFooter">
           <div class="col-md-4 d-flex align-items-center mx-2">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-            <span class="text-muted">
+          <p id="info" fg="blue">
               Partita IVA: 0125469874<br>
               Capitale Sociale: 500'000€<br>
               © 2021 D-Sound System Company, Inc<br>
-            </span>
+        </p>
           </div>
       
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-2">
