@@ -1,7 +1,7 @@
 <?php
     require_once "bootstrap.php";
 
-    $date="23/08/2000";
+    $date=date("Y,m,d");
     $deliver="UPS";
 
     $CodCarrello =$dbh->getCart($_SESSION["Nickname"]);
