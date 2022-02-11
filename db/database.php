@@ -236,7 +236,15 @@ class DatabaseHelper{
         $stmt->execute();
         
         return true;
-}
+    }
+
+    public function deleteCartProduct2($CodCarrello,$CodProdotto){
+        $query = "DELETE FROM Incarrello WHERE CodProdotto = ? AND CodCarrello=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$CodProdotto,$CodCarrello);
+        $stmt->execute();
+        return true;
+    }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }
 ?>

@@ -2,11 +2,11 @@
     require_once "bootstrap.php";
 
     $item=$_REQUEST["q"]; //questo è il codice prodotto fornito
+    $CodCarrello=$dbh->getCart($_SESSION["Nickname"]);
 
     //TODO: esegui query di cancellazione qui
-
+    $dbh->deleteCartProduct2($CodCarrello, $item);
     //Qua sotto ottengo gli oggetti e li ricarico dinamicamente nella pagina cartpage
-    $CodCarrello=$dbh->getCart($_SESSION["Nickname"]);
     $items=$dbh->getCartItems($CodCarrello);
     $inner="";
     foreach($items as $current){
