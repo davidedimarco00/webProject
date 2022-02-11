@@ -268,7 +268,7 @@ class DatabaseHelper{
     public function insertOrder($nickname,$date){
         $CodCarrello=$this->getCart($nickname);
         $status="Non ancora Spedito";
-        $query = "INSERT INTO Incarrello (CodCarrello, Stato, Data) VALUES (?,?,?)";
+        $query = "INSERT INTO ordine (CodCarrello, Stato, Data) VALUES (?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('iii',$CodCarrello, $status, $date);
         $stmt->execute();
