@@ -218,6 +218,17 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
 
+    public function getCartItem($CodCarrello, $CodProdotto){
+        $query = "SELECT * from Incarrello JOIN prodotto
+                ON Incarrello.CodProdotto = prodotto.CodProdotto
+                WHERE Incarrello.CodCarrello=? AND Incarrello.CodProdotto=?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$CodCarrello,$CodProdotto);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
     public function getCartItems($CodCarrello){
         $query = "SELECT * from Incarrello JOIN prodotto
                 ON Incarrello.CodProdotto = prodotto.CodProdotto
@@ -239,18 +250,18 @@ class DatabaseHelper{
     }
 
     public function totalPrice($CodCarrello){
-        $query = "SELECT Prezzo from Incarrello JOIN prodotto
+        $query = "SELECT Prezzo, quantita from Incarrello JOIN prodotto
                 ON Incarrello.CodProdotto = prodotto.CodProdotto
-                WHERE Incarrello.CodCarrello=?;";
+                WHERE Incarrello.CodCarrello=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$CodCarrello);
         $stmt->execute();
         $result = $stmt->get_result();
-        $resut = $result->fetch_all(MYSQLI_ASSOC);
-        $total=0;
-        foreach($result["Prezzo"] as $price):
-            $total+=$price; 
-        endforeach;
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        $total=0.0;
+        foreach($result as $result){
+            $total=$total+($result["Prezzo"]*$result["quantita"]); 
+        }
         return $total;
     }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/

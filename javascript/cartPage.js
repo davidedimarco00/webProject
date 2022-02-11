@@ -6,6 +6,6 @@ function orderCompletedAlert() {
 
 function updateTotal(){
     $("selectQ").on("change",function(){
-        alert(this.value)
+        //alert(this.value);
     });
 }

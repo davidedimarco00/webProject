@@ -31,6 +31,17 @@ function removefromcart(cod){
   xhttp.send();
 }
 
+function updatecart(quant){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("dynamicCart").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "getDynamicCart.php?s=" + quant + "", true);
+  xhttp.send();
+}
+
 function deleteNotify(cod) {
   var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -53,14 +64,22 @@ function searchProduct(string) {
   xhttp.send();
 }
 
+$(document).ready(function(){
+  var input = document.getElementById("searchbar");
+  if (!!input){
+      input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {  
+        var text = e.target.value;
+        searchProduct(input.value);
+      }
+    });
+  }
 
-// Execute a function when the user releases a key on the keyboard
-var input = document.getElementById("searchbar");
-input.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {  
-      var text = e.target.value;
-      searchProduct(input.value);
-    }
+  var dropdown = document.getElementById("selectQ");
+  $("#selectQ").change(function(){
+    updatecart(this.value);
+  });
 });
+// Execute a function when the user releases a key on the keyboard
 
 

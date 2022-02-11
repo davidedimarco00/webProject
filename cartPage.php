@@ -52,10 +52,7 @@ public function updateQuantity(){
 
 */
 
-$templateParams["total"] = 0;
-foreach($templateParams["items"] as $item):
-    $templateParams["total"]+=$item["Prezzo"]; 
-endforeach;
+$templateParams["total"] = $dbh->totalPrice($CodCarrello);
 
 
 require 'template/base.php';
