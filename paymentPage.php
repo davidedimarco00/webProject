@@ -5,7 +5,9 @@ $templateParams["css"] = array("css/paymentPage.css", "css/header.css", "css/foo
 $templateParams["titolo"] = "Payment Details";
 $templateParams["pagereq"] = "template/paymentTemplate.php";
 
-$templateParams["total"] = 100.00;
+
+$CodCarrello =$dbh->getCart($_SESSION["Nickname"]);
+$templateParams["total"] = $dbh->totalPrice($CodCarrello);
 
 require 'template/base.php';
 ?>

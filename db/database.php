@@ -264,6 +264,40 @@ class DatabaseHelper{
         }
         return $total;
     }
+
+    public function insertOrder($nickname,$date){
+        $CodCarrello=$this->getCart($nickname);
+        $status="Non ancora Spedito";
+        $query = "INSERT INTO Incarrello (CodCarrello, Stato, Data) VALUES (?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii',$CodCarrello, $status, $date);
+        $stmt->execute();
+        
+        return $stmt->insert_id;
+
+    }
+
+    public function insertBilling($CodOrdine, $cost, $name, $surname, $email, $address, $zip){
+        $status="Non ancora spedito";
+        $query = "INSERT INTO IndirizzoFattura (CodOrdine, Importo, Nome, Cognome, Email, Indirizzo, Zip) VALUES (?,?,?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iissssi',$CodOrdine, $cost, $name, $surname, $email, $address, $zip);
+        $stmt->execute();
+        
+        return $stmt->insert_id;
+
+    }
+
+    
+    public function insertNotify($CodNotifica, $Data, $Testo, $Letto, $Nickname){
+        $query = "INSERT INTO  notifica (Data, Testo, Letto, Nickname) VALUES (?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssis',$Data, $Testo, $Letto, $Nickname);
+        $stmt->execute();
+        
+        return $stmt->insert_id;
+
+    }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }
 ?>
