@@ -19,7 +19,7 @@
             <td>'.$date.'</td>
             <td id ="text">'.$text.'</td>
             <td id="action" class = "deletebtn">
-                <button type="button" class="btn btn-danger" onclick="deleteNotify('.$current["codNotify"].')">Elimina</button>
+                <button type="button" class="btn btn-danger" onclick="deleteNotify('.$codNotify.')">Elimina</button>
             </td>
         </tr>';
     }

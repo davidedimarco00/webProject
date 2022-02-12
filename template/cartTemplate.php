@@ -4,7 +4,7 @@
         <?php endif;?>
 
 
-            <section>
+            <section style="margin-bottom: 25%">
               <div class="col-md-10 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span class="text-muted">Il Tuo Carrello</span>

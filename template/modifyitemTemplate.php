@@ -1,5 +1,5 @@
     <?php if (isSet($templateParams["item"])) {$item=$templateParams["item"];} ?>
-    <form action="process-product.php" method="POST" enctype="multipart/form-data">
+    <form action="process-product.php" method="POST" enctype="multipart/form-data" style="margin-bottom: 10%">
       <div class="px-4 my-5 text-left">
         <div class="goback">
           <img src="images/arrow-return-left.svg" class="bi bi-arrow-return-left"
@@ -50,7 +50,7 @@
                 <tr>
                   <th scope="row">Categoria</th>
                   <td><select class="custom-select" id="categorySelection" name="category">
-                  <option selected value=-1>Choose...</option>
+                  <option selected value=-1>Seleziona...</option>
                   <?php for($i=0; $i<count($templateParams["categories"]); $i++): ?>
                   <option value="<?php echo $templateParams["categories"][$i]["CodCategoria"]; ?>"><?php echo $templateParams["categories"][$i]["Nome"]; ?></option>
                   <?php endfor; ?>

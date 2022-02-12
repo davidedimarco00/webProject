@@ -5,12 +5,12 @@ function showRegistrationForm() {
                     <form id ="registrationForm" action="../webProject/loginPage.php" method="POST">
 
                     <div class='mb-3'>
-                    <label for='Name' class='form-label'>Name</label>
+                    <label for='Name' class='form-label'>Nome</label>
                     <input type='text' class='form-control' id='nameText' name="name" aria-describedby='emailHelp'>
                     </div>
                     
                     <div class='mb-3'>
-                        <label for='exampleInputEmail1' class='form-label'>Surname</label> 
+                        <label for='exampleInputEmail1' class='form-label'>Cognome</label> 
                         <input type='text' class='form-control' id='surnameText' name="surname">
                     </div>
                     
@@ -28,12 +28,15 @@ function showRegistrationForm() {
                     </div>
 
                     <div class="buttonAndLink" id="lastDiv">
-                        <button type="submit" id="registrationButton" class="btn btn-secondary">Register</button>
+                        <button type="submit" id="registrationButton" class="btn btn-secondary">Registrati</button>
                     </div>
-                    <p>If you are a vendor, please check below.</p>
+                    <hr>
+                    <p>Se sei un venditore premi la casella</p>
                     <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="vendor" name="isVend" />
-                    <label id="checkbox" class="form-check-label" for="exampleCheck1">I'm a vendor</label>
+                    <label id="checkbox" class="form-check-label" for="exampleCheck1">Sono un venditore</label>
+                    <hr>
+                    <p>Dopo la registrazione in caso di esito positivo verrai reindirizzato alla mainpage.</p>
                     </div>        
         </form>
                     ` 

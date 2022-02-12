@@ -1,6 +1,6 @@
         
         <?php $current = $templateParams["item"]; ?>
-        <div class="px-4 my-5 text-left">
+        <div class="px-4 my-5 text-left" id="firstdiv">
           <div class="row">
             <div class="col-lg-4">
               <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">

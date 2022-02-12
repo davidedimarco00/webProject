@@ -2,7 +2,7 @@
 <section>
     <div class="cardLogin">
         <img src="./images/LOGO/D-SOUND SYSTEM.png" alt="logoLogin">
-        <h2>Log-in or Register</h2>
+        <h2>Accedi o Registrati</h2>
         <?php if(isset($templateParams["formmsg"])):?>
         <p><?php echo $templateParams["formmsg"]; ?></p>
         <?php endif; ?>
@@ -18,7 +18,7 @@
 
             <div class="buttonAndLink" id="lastDiv">
                     <button type="submit" id="loginButton" href="#" class="btn btn-secondary">Login</button>
-                <button type="button" id="registrationButton" class="btn btn-secondary" onclick="showRegistrationForm()">Register</button>
+                <button type="button" id="registrationButton" class="btn btn-secondary" onclick="showRegistrationForm()">Registrati</button>
             </div>
         </form>
     </div>

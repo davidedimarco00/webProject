@@ -14,7 +14,8 @@ function addtocart(cod){
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         if(this.responseText == true){
-          document.location.href = 'cartPage.php';
+          document.location.href = '#';
+          alert("Prodotto aggiunto correttamente al carrello");
         }
       }
     };
