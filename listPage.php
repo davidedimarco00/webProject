@@ -21,14 +21,12 @@
         $templateParams["items"]=$dbh->getProductsByVendor($_SESSION["Nickname"]);
     }
     else {
-        //$templateParams["items"]=$dbh->getAllProducts(); //TODO
-        //$templateParams["items"]=$dbh->getPurchasedProducts($_SESSION["Nickname"]);
         header("location: index.php?formmsg=Venditore non esistente. ");
     }
 
     //Home Template
     $templateParams["css"] = array("css/listPage.css", "css/header.css", "css/footer.css");
-    $templateParams["titolo"] = "Products";
+    $templateParams["titolo"] = "Lista Prodotti";
     $templateParams["pagereq"] = "template/itemListTemplate.php";
     require 'template/base.php';
 ?>

@@ -1,10 +1,10 @@
-    <?php $item=$templateParams["item"]; ?>
+    <?php if (isSet($templateParams["item"])) {$item=$templateParams["item"];} ?>
     <form action="process-product.php" method="POST" enctype="multipart/form-data">
       <div class="px-4 my-5 text-left">
         <div class="goback">
           <img src="images/arrow-return-left.svg" class="bi bi-arrow-return-left"
             alt=""></img>
-          <a href="index.php" role="button" aria-expanded="false">Torna Indietro</a>
+          <a href="listPage.php" role="button" aria-expanded="false">Torna Indietro</a>
         </div>
         <div class="row">            
           <div class="col-lg-12">
@@ -16,7 +16,7 @@
           </div>
           <div class="col-lg-3">
             <div class="row">
-              <img class="d-block mx-auto my-auto" src="<?php echo getFirstImage($item["CodProdotto"]) ?>" alt="PrimaryImage">
+              <img class="d-block mx-auto my-auto" src="<?php if ($templateParams["action"]!=0) { echo getFirstImage($item["CodProdotto"]);} else { echo getFirstImage("");} ?>" alt="PrimaryImage">
             </div>
             <div class="row">
                 <input name="images[]" type="file" multiple="true" />
@@ -33,19 +33,19 @@
               <tbody>
                 <tr>
                   <th scope="row">Nome:</th>
-                  <td><input type="text" class="form-control" id="Nome" name="Nome" value="<?php echo $templateParams["item"]["Nome"]; ?>"></td>
+                  <td><input type="text" class="form-control" id="Nome" name="Nome" value="<?php if(isSet($templateParams["item"])) {echo $templateParams["item"]["Nome"]; }?>"></td>
                 </tr>
                 <tr>
                   <th scope="row">Descrizione:</th>
-                  <td><input type="text" class="form-control" id="Descrizione" name="Descrizione" value="<?php echo $templateParams["item"]["Descrizione"]; ?>"></td>
+                  <td><input type="text" class="form-control" id="Descrizione" name="Descrizione" value="<?php if(isSet($templateParams["item"])) {echo $templateParams["item"]["Descrizione"];} ?>"></td>
                 </tr>
                 <tr>
                   <th scope="row">Prezzo:</th>
-                  <td><input type="text" class="form-control" id="Prezzo" name="Prezzo" value="<?php echo $templateParams["item"]["Prezzo"]; ?>"></td>
+                  <td><input type="text" class="form-control" id="Prezzo" name="Prezzo" value="<?php if(isSet($templateParams["item"])) {echo $templateParams["item"]["Prezzo"];} ?>"></td>
                 </tr>
                 <tr>
                   <th scope="row">Quantità:</th>
-                  <td><input type="text" class="form-control" id="Quantità" name="Quantità" value="<?php echo $templateParams["item"]["Quantità"]; ?>"></td>
+                  <td><input type="text" class="form-control" id="Quantità" name="Quantità" value="<?php if(isSet($templateParams["item"])) { echo $templateParams["item"]["Quantità"]; }?>"></td>
                 </tr>
                 <tr>
                   <th scope="row">Categoria</th>

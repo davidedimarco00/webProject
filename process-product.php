@@ -1,12 +1,17 @@
 <?php
     require_once "bootstrap.php";
-
+    
     if (!isUserLoggedIn() || !isUserVendor() || !isSet($_POST["action"]) || ($_POST["action"]!=1 && $_POST["action"]!=2 && $_POST["action"]!=0)){
         header("location: index.php?formmsg=Permesso negato. ");
     }
     //elimina
-    if ($_POST["submit"] == "Elimina"){
+    //header("location: index.php?formmsg=".$_POST["submit"]);
+    if ($_POST["submit"] == "Elimina Prodotto"){
         $dbh->deleteProduct($_POST["codProdotto"]);
+        $images=getImages($_POST["codProdotto"]);
+        foreach ($images as $img){
+            removeImage($img);
+        }
         header("location: index.php?formmsg=Prodotto eliminato con successo. ");
     }
     //aggiungi
@@ -19,11 +24,12 @@
         $codcat = (int) htmlspecialchars($_POST["category"]);
         
         $msg="";
-        var_dump($_FILES["images"]);
         if ($_FILES["images"]!=NULL && !empty($_FILES['images']["name"][0])){
             $allresult=uploadImages("images/", $_FILES["images"], $_POST["codProdotto"]);
             if(!empty($allresult)){
-                $msg.="Errore nel caricamento di una o più immagini. ";
+                foreach($allresult as $err){
+                    $msg.=$err;
+                }
             }
         }
         
