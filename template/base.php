@@ -49,7 +49,7 @@
               </button>
               
             </div>
-            <div class="collapse" id="navbarToggleContent">
+            <div class="collapse text-left" id="navbarToggleContent">
               <div>
                 <ul class="aria-hidden">
                 <?php if(!isUserLoggedIn()): ?>
