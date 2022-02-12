@@ -77,25 +77,25 @@
           }
         ?>
       </main>
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top" id="myFooter">
-          <div class="col-md-4 d-flex align-items-center mx-2">
+      <footer class="justify-content-between align-items-center py-3 border-top" id="myFooter">
+        <div class="col-md-4 d-flex align-items-center mx-2">
           <p id="info" fg="blue">
-              Partita IVA: 0125469874<br>
-              Capitale Sociale: 500'000€<br>
-              © 2021 D-Sound System Company, Inc<br>
-        </p>
-          </div>
-      
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-2">
-            <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/"><img class="bi" width="24" height="24" src="images/whatsapp.svg"></a></li>
-            <li class="ms-3"><a class="text-muted" href="https://wwww.facebook.com/"><img class="bi" width="24" height="24" src="images/facebook.svg"></a></li>
-            <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><img class="bi" width="24" height="24" src="images/instagram.svg"></a></li>
-          </ul>
-        </footer>
-      </body>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-      <script type="text/javascript "src="./jsUtils/header.js"></script>
-      <script type="text/javascript "src="javascript/ajaxutils.js"></script>
-      <script type="text/javascript "src="javascript/mainPage.js"></script>
+            Partita IVA: 0125469874<br>
+            Capitale Sociale: 500'000€<br>
+            © 2021 D-Sound System Company, Inc<br>
+          </p>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-2">
+          <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/"><img class="bi" width="24" height="24" src="images/whatsapp.svg"></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://wwww.facebook.com/"><img class="bi" width="24" height="24" src="images/facebook.svg"></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><img class="bi" width="24" height="24" src="images/instagram.svg"></a></li>
+        </ul>
+      </footer>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script type="text/javascript "src="./jsUtils/header.js"></script>
+    <script type="text/javascript "src="javascript/ajaxutils.js"></script>
+    <script type="text/javascript "src="javascript/mainPage.js"></script>
 </html> 
