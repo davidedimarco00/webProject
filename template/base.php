@@ -51,19 +51,16 @@
             </div>
             <div class="collapse" id="navbarToggleContent">
               <div>
-                <ul class="text-small aria-hidden">
+                <ul class="aria-hidden">
                 <?php if(!isUserLoggedIn()): ?>
-                  <li class="nav-item"><img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle"><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="./loginPage.php">Accedi</a><img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle"></li>
                 <?php endif; ?>
                 <?php if(isUserLoggedIn()): ?>
                   <li class="nav-item">
-                    <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
-                    <p class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></p></li>
-                  <li class="nav-item"> <img src="images/notificationIcon.png" alt="notificationImage" id="notificationImage" class="rounded-circle">
-                  <?php if(isUserHasNotifies()): ?>
-                    <p id ="notificationCounter"><?php echo $_SESSION["NotifiesNumber"] ?> </p>  
-                  <?php endif; ?>
-                  <a class="dropdown-item" href="./notifies.php" >Vedi tutte le notifiche</a></li>
+                    <a class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></a><img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
+                    </li>
+                  <li class="nav-item"> <a class="dropdown-item" href="./notifies.php" >Vedi tutte le notifiche</a><img src="images/notificationIcon.png" alt="notificationImage" id="notificationImage" class="rounded-circle">
+                  </li>
                   <?php if(isUserLoggedIn() && isUserVendor()): ?>
                   <li class="nav-item"><a class="dropdown-item" href="./listPage.php">I miei Prodotti</a></li>
                   <?php endif; ?>
