@@ -5,32 +5,32 @@
 
           <div class="container mt-5 px-5">
             <div class="mb-4">
-                <h2>Confirm order and pay</h2>
+                <h2>Conferma Ordine e Paga</h2>
             </div>
             <div class="row">
                 <div class="col-md-8">
                     <div class="card p-3">
-                        <h4 class="text-uppercase">Payment details</h4>
+                        <h4 class="text-uppercase">Dati Pagamento</h4>
 
                         <form class="needs-validation" action="process-payment.php" method="POST" enctype="multipart/form-data">
-                        <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required">
+                        <div class="inputbox mt-3"> <input type="text" name="CardNumber" class="form-control" required="required">
                         <div class="invalid-feedback">
                         Please enter a valid Name.
-                        </div> <span>Name on card</span> </div>
+                        </div> <span>Intestatario Carta</span> </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="inputbox mt-3 mr-2"> <input type="number" name="name" class="form-control" required="required">
+                                <div class="inputbox mt-3 mr-2"> <input type="numberCard" name="name" class="form-control" required="required">
                                 <div class="invalid-feedback">
                                 Please enter a valid Card Number.
-                                </div> <i class="fa fa-credit-card"></i> <span>Card Number</span> </div>
+                                </div> <i class="fa fa-credit-card"></i> <span>Numero Carta</span> </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex flex-row">
-                                    <div class="inputbox mt-3 mr-2"> <input type="number" name="name" class="form-control" required="required">
+                                    <div class="inputbox mt-3 mr-2"> <input type="numberExpiry" name="name" class="form-control" required="required">
                                     <div class="invalid-feedback">
                                     Please enter a valid Expiry.
-                                    </div> <span>Expiry</span> </div>
-                                    <div class="inputbox mt-3 mr-2"> <input type="number" name="name" class="form-control" required="required">     
+                                    </div> <span>Data di Scadenza</span> </div>
+                                    <div class="inputbox mt-3 mr-2"> <input type="numberCVV" name="name" class="form-control" required="required">     
                                     <div class="invalid-feedback">
                                     Please enter a valid CVV.
                                     </div> <span>CVV</span> </div>
@@ -40,19 +40,19 @@
 
 
                         
-                <h4 class="text-uppercase">Billing address</h4>
+                <h4 class="text-uppercase">Indirizzo Fatturazione</h4>
                 
                   <div class="row">
                     <div class="col-md-6 mb-3">
-                      <label for="firstName">Name</label>
-                      <input type="text" class="form-control" id="name" placeholder="" value="" required="">
+                      <label for="firstName">Nome</label>
+                      <input type="text" class="form-control"name="name" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <label for="lastName">Surname</label>
-                      <input type="text" class="form-control" id="surname" placeholder="" value="" required="">
+                      <label for="lastName">Cognome</label>
+                      <input type="text" class="form-control"name="surname" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid last name is required.
                       </div>
@@ -60,53 +60,44 @@
                   </div>
       
                   <div class="mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
-                      </div>
-                      <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                      <div class="invalid-feedback" style="width: 100%;">
-                        Your username is required.
-                      </div>
-                    </div>
-                  </div>
-      
-                  <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control"name="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
                       Please enter a valid email address for shipping updates.
                     </div>
                   </div>
       
                   <div class="mb-3">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                    <label for="address">Indirizzo</label>
+                    <input type="text" class="form-control"name="address" placeholder="1234 Main St" required="">
                     <div class="invalid-feedback">
                       Please enter your shipping address.
                     </div>
                   </div>
       
                   <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                    <label for="address2">Indirizzo 2 <span class="text-muted">(Optional)</span></label>
+                    <input type="text" class="form-control"name="address2" placeholder="Apartment or suite">
                   </div>
       
                   <div class="row">
                     <div class="col-md-5 mb-3">
-                      <label for="country">Country</label>
-                      <select class="custom-select d-block w-100" id="country" required="">
-                        <option value="">Choose...</option>
-                        <option>United States</option>
+                      <label for="country">Stato</label>
+                      <select class="custom-select d-block w-100"name="country" required="">
+                        <option value="">Scegliere Stato...</option>
+                        <?php foreach($templateParams["countries"] as $country):?>
+                          <option><?php echo $country ?></option>
+                        <?php endforeach; ?>
+                        
+                        
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid country.
                       </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                      <label for="zip">Zip</label>
-                      <input type="number" class="form-control" id="zip" placeholder="" required="">
+                      <label for="zip">Codice Postale</label>
+                      <input type="number" class="form-control"name="zip" placeholder="" required="">
                       <div class="invalid-feedback">
                         Zip code required.
                       </div>
@@ -118,16 +109,16 @@
 
                     </div>
                     <div class="mt-4 mb-4 d-flex justify-content-between">
-                        <a class="btn btn-secondary btn-lg btn-block" href='cartPage.php'>Previous step</a>
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Complete Payment </button>
+                        <a class="btn btn-secondary btn-lg btn-block" href='cartPage.php'>Torna al Carrello</a>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Completa il Pagamento</button>
                         </form> 
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card card-blue p-3 text-black mb-3 bg-light"> <span>You have to pay</span>
+                <div class="col-md-3">
+                    <div class="card card-blue p-3 text-black mb-3 bg-light"> <span>IMPORTO</span>
                         <div class="d-flex flex-row align-items-end mb-3">
                             <h1 class="mb-0 black"><?php echo $templateParams["total"]; ?> € </h1>
-                        </div> <span>Enjoy all the features and perk after you complete the payment</span>
+                        </div> <span></span>
                     </div>
                 </div>
             </div>
