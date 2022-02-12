@@ -40,7 +40,7 @@
                                 </figure>
                             </td>
                             <td>
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <button class="btn btn-outline-secondary" type="button" id="minus" onclick="updatecart('.(string)($current["quantita"]-1).','.$current["CodProdotto"].')">-</button>
                                     <span class="input-group-text">'.$current["quantita"].'</span>
                                     <button class="btn btn-outline-secondary" type="button" id="plus" onclick="updatecart('.(string)($current["quantita"]+1).','.$current["CodProdotto"].')">+</button>
