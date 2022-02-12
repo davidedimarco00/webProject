@@ -1,5 +1,10 @@
+
 aside {
   float: left;
+}
+
+body, html {
+  height: 100% !important;
 }
 
 #logoImg {

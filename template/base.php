@@ -76,7 +76,7 @@
       </main>
       <footer class="justify-content-between align-items-center py-3 border-top" id="myFooter">
         <div class="col-md-4 d-flex align-items-center mx-2">
-          <p id="info" fg="blue">
+          <p id="info">
             Partita IVA: 0125469874<br>
             Capitale Sociale: 500'000€<br>
             © 2021 D-Sound System Company, Inc<br>

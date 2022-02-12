@@ -9,7 +9,7 @@ if (isset($_GET["delete"])){
     $dbh->deleteCartProduct($CodCarrello,$_GET["delete"]);
 }
 
-$templateParams["css"] = array( "css/header.css", "css/footer.css","css/cartPage.css");
+$templateParams["css"] = array("css/cartPage.css", "css/header.css", "css/footer.css");
 $templateParams["titolo"] = "Cart Details";
 $templateParams["pagereq"] = "template/cartTemplate.php";
 

@@ -169,9 +169,7 @@ ul a {
 }
 
  .card-body:hover {
-    background-color:  #495057;
     transition: .2s;
-    color: white;
     font-size: bold;
 }
 
