@@ -1,4 +1,7 @@
-
+<?php if (empty($templateParams["orders"])): ?>
+    <div class="px-4 my-5 text-left">
+        <h1></h1>
+    </div>
 <?php foreach($templateParams["orders"] as $current): ?>
     <?php $items=$dbh->getCartItems($current["CodCarrello"]); ?>
     <div class="px-4 my-5 text-left">

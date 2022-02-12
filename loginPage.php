@@ -1,16 +1,6 @@
 <?php 
     require_once 'bootstrap.php';
 
-    /*if(isSet($_GET["action"]) && $_GET["action"]=="logout"){
-        logUserOut();
-    }*/
-
-   /* if (isSet($_SESSION["Nickname"])) {
-        $templateParams["notReadNotifies"] = $dbh->getNotReadNotifiesNumber($_POST["nickname"]);
-        $templateParams["notifies"] = $dbh->getNotifies($_POST["nickname"]);
-    }*/
-
-
     //LOGIN
     if(isSet($_POST["nickname"]) && isSet($_POST["password"]) && !isSet($_POST["name"])) {
 
@@ -53,13 +43,6 @@
     }
     
     if(isUserLoggedIn()){
-        /*$templateParams["titolo"] = "Admin Page";
-        $templateParams["pagereq"] = "template/mainPageTemplate.php";
-        $templateParams["css"] = array("css/mainPageStyle.css", "css/header.css", "css/footer.css");
-        $templateParams["categories"] = $dbh->getCategories();
-        if ($_SESSION["Nickname"]) {
-            $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
-        }*/
         header("location: index.php?formmsg=".$templateParams["formmsg"]);
        
     }
@@ -68,10 +51,6 @@
         $templateParams["pagereq"] = "template/loginPageTemplate.php";
         $templateParams["css"] = array("css/loginPage.css", "css/header.css", "css/footer.css");
     }
-
-    /*if (isSet($_SESSION["Nickname"]) ) {
-        $templateParams["notifies"] = $dbh->getNotifies($_SESSION["Nickname"]);
-    }*/
 
     require 'template/base.php';
 ?> 

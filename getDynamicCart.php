@@ -1,7 +1,10 @@
 <?php
     require_once "bootstrap.php";
+    if(!isUserLoggedIn()){
+        header("Location: loginPage.php?formmsg='È necessario effettuare il login'");
+    }
     $CodCarrello=$dbh->getCart($_SESSION["Nickname"]);
-
+    
     if(isSet($_REQUEST["q"]) && isSet($_REQUEST["c"])){
         if($dbh->productInStock($_REQUEST["c"], $_REQUEST["q"]) && $_REQUEST["q"]>0){
             $dbh->updateProductInCart($CodCarrello, $_REQUEST["c"], $_REQUEST["q"]);

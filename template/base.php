@@ -47,54 +47,54 @@
                     </li>
                   </ul>
 
-                  <div class="dropdown text-end" id="dropDownNotification">
+                <div class="dropdown text-end" id="dropDownNotification">
 
-                    <img src="images/notificationIcon.png" alt="notificationImage" id="notificationImage" class="rounded-circle">
-                    <?php if(isUserHasNotifies()): ?>
-                      <p id ="notificationCounter"><?php echo $_SESSION["NotifiesNumber"] ?> </p>  
-                    <?php endif; ?>
-                    
-                    <ul class="dropdown-menu text-small aria-hidden" id="dropnotify" aria-labelledby="dropdownUser1" >
-                        <div class="notification" id="panelNotify">
-                          <img src="images/bellnotify.png" alt="bellNotify" id="bellImage" >
-                        </div>
-                        <?php if (!isUserLoggedIn()): ?>
-                            <div class="card-body" id="notificationCard">
-                              <p class="card-text">Log-in to see your notifies</p>
-                            </div>
-                        <?php endif; ?>
+                  <img src="images/notificationIcon.png" alt="notificationImage" id="notificationImage" class="rounded-circle">
+                  <?php if(isUserHasNotifies()): ?>
+                    <p id ="notificationCounter"><?php echo $_SESSION["NotifiesNumber"] ?> </p>  
+                  <?php endif; ?>
+                  
+                  <ul class="dropdown-menu text-small aria-hidden" id="dropnotify" aria-labelledby="dropdownUser1" >
+                      <div class="notification" id="panelNotify">
+                        <img src="images/bellnotify.png" alt="bellNotify" id="bellImage" >
+                      </div>
+                      <?php if (!isUserLoggedIn()): ?>
+                          <div class="card-body" id="notificationCard">
+                            <p class="card-text">Log-in to see your notifies</p>
+                          </div>
+                      <?php endif; ?>
 
-                        <?php if (isUserHasNotifies() && isUserLoggedIn()): ?>
-                          <?php foreach($templateParams["notifies"] as $key): ?>
-                            <div class="card-body" id="notificationCard">
-                                <p><?php echo $key["data"]?></p>
-                                <p><?php echo $key["testo"]?></p>
-                            </div>
-                          <?php endforeach; ?>
-                        <?php endif; ?>
-                        <a href="./notifies.php" >See all</a>
-                    </ul>
-                  </div>
-                  <div class="dropdown text-end">
-                      <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
-                    <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" data-popper-placement="bottom-end">
-                    <?php if(!isUserLoggedIn()): ?>
-                      <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
-                    <?php endif; ?>
-                    <?php if(isUserLoggedIn() && isUserVendor()): ?>
-                      <li><p class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></p></li>
-                      <li><a class="dropdown-item" href="./listPage.php">I miei Prodotti</a></li>
-                      <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
-                      <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
-                    <?php endif; ?>
-                    <?php if(isUserLoggedIn() && !isUserVendor()): ?>
-                      <li><a class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></a></li>
-                      <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
-                      <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
-                    <?php endif; ?>
-                    </ul>
-                  </div>
+                      <?php if (isUserHasNotifies() && isUserLoggedIn()): ?>
+                        <?php foreach($templateParams["notifies"] as $key): ?>
+                          <div class="card-body" id="notificationCard">
+                              <p><?php echo $key["data"]?></p>
+                              <p><?php echo $key["testo"]?></p>
+                          </div>
+                        <?php endforeach; ?>
+                      <?php endif; ?>
+                      <a href="./notifies.php" >See all</a>
+                  </ul>
                 </div>
+                <div class="dropdown text-end">
+                    <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
+                  <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" data-popper-placement="bottom-end">
+                  <?php if(!isUserLoggedIn()): ?>
+                    <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
+                  <?php endif; ?>
+                  <?php if(isUserLoggedIn() && isUserVendor()): ?>
+                    <li><p class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></p></li>
+                    <li><a class="dropdown-item" href="./listPage.php">I miei Prodotti</a></li>
+                    <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
+                    <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
+                  <?php endif; ?>
+                  <?php if(isUserLoggedIn() && !isUserVendor()): ?>
+                    <li><a class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></a></li>
+                    <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
+                    <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
+                  <?php endif; ?>
+                  </ul>
+                </div>
+              </div>
             </div>
           </nav>
         </header>
