@@ -16,7 +16,7 @@
           </div>
           <div class="col-lg-3">
             <div class="row">
-              <img class="d-block mx-auto my-auto" src="<?php if ($templateParams["action"]!=0) { echo getFirstImage($item["CodProdotto"]);} else { echo getFirstImage("");} ?>" alt="PrimaryImage">
+              <img class="d-block mx-auto my-auto" src="<?php if ($templateParams["action"]!=0) { echo getFirstImage($item["CodProdotto"]);} else { echo getFirstImage("");} ?>" alt="ProductImage">
             </div>
             <div class="row">
                 <input name="images[]" type="file" multiple="true" />

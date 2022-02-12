@@ -68,25 +68,10 @@
                 </table>
             </div>
         </div>
-        <li class="list-group-item d-flex justify-content-between bg-light visually-hidden">
-            <div class="text-success">
-                <h6 class="my-0">Codici Promozionali</h6>
-                <small>EXAMPLECODE</small>
-            </div>
-            <span class="text-success">-$5</span>
-        </li>
         <li class="list-group-item d-flex justify-content-between">
             <span>Totale</span>
             <strong>'.$tot.'€</strong>
         </li>
-        <form class="card p-2">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Insersci codice sconto">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">Riscatta</button>
-                </div>
-            </div>
-        </form>
             ';
     echo "$inner";
 ?>
