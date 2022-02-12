@@ -50,28 +50,6 @@
       <div class="row">
         <div class="col-lg-3 justify-content-center mycols">
 
-        
-        <div class="dropdown">
-                  <?php if(!isUserLoggedIn()): ?>
-                    <h6><a id = "loginbtn"href="./loginPage.php">Accedi</a></h6>
-                  <?php endif; ?>
-                <h6><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></h6>
-                <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
-
-                <ul>
-                  <?php if(isUserLoggedIn() && isUserVendor()): ?>
-                    <li><a class="dropdown-item" href="./listPage.php">I miei Prodotti</a></li>
-                    <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
-                    <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
-                  <?php endif; ?>
-
-                  <?php if(isUserLoggedIn() && !isUserVendor()): ?>
-                    <li><a class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></a></li>
-                    <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
-                    <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
-                  <?php endif; ?>
-                </ul>
-          </div>
           <hr>
        
 

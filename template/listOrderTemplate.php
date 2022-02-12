@@ -1,7 +1,8 @@
 <?php if (empty($templateParams["orders"])): ?>
     <div class="px-4 my-5 text-left">
-        <h1></h1>
+        <h5>Nessun ordine effettuato</h5>
     </div>
+<?php endif; ?>
 <?php foreach($templateParams["orders"] as $current): ?>
     <?php $items=$dbh->getCartItems($current["CodCarrello"]); ?>
     <div class="px-4 my-5 text-left">

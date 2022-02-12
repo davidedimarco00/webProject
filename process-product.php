@@ -27,7 +27,7 @@
             }
         }
         
-        if($codcat != "-1" && $nome != "" && $desc != "" && $prezzo != "" && $quant != "" && $vend != ""){
+        if($codcat != "-1" && $nome != "" && $desc != "" && $prezzo != "" && $quant != "" && $vend != "" && $prezzo>0){
             $codProdotto = $dbh->insertProduct($nome, $desc, $prezzo, $codcat, $quant, $vend);
             if($codProdotto != false){
                 $msg.="Prodotto inserito con successo. ";
