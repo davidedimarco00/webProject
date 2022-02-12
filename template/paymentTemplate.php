@@ -103,25 +103,19 @@
                       </div>
                     </div>
                   </div>
-              </div>
-
-                <div class="col-md-8 order-md-1">
-
-                    </div>
-                    <div class="mt-4 mb-4 d-flex justify-content-between">
-                        <a class="btn btn-secondary btn-lg btn-block" href='cartPage.php'>Torna al Carrello</a>
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Completa il Pagamento</button>
-                        </form> 
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-blue p-3 text-black mb-3 bg-light"> <span>IMPORTO</span>
-                        <div class="d-flex flex-row align-items-end mb-3">
-                            <h1 class="mb-0 black"><?php echo $templateParams["total"]; ?> € </h1>
-                        </div> <span></span>
-                    </div>
-                </div>
             </div>
+              <div class="mt-4 mb-4 d-flex justify-content-between">
+                  <a class="btn btn-secondary btn-lg btn-block" href='cartPage.php'>Torna al Carrello</a>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Completa il Pagamento</button>
+                  </form> 
+              </div>
+              <div class="col-md-3">
+                  <div class="card card-blue p-3 text-black mb-3 bg-light"> <span>IMPORTO</span>
+                      <div class="d-flex flex-row align-items-end mb-3">
+                          <h1 class="mb-0 black"><?php echo $templateParams["total"]; ?> € </h1>
+                      </div> <span></span>
+                  </div>
+              </div>
 
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 

@@ -36,9 +36,6 @@
                   <li class="nav-item">
                     <a class="nav-link" href="../webProject/cartPage.php">Carrello</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../webProject/whoWeAre.php">Chi siamo?</a>
-                  </li>
                 </ul>
               </div>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleContent" aria-controls="navbarToggleContent" aria-expanded="true" aria-label="Toggle navigation">
