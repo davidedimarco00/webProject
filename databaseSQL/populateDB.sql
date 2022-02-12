@@ -10,12 +10,12 @@
 6= CABLES
 
 */
-INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (NULL,'Subwoofer');
-INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (NULL,'Speaker');
-INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (NULL,'Mixer');
-INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (NULL,'Headphones');
-INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (NULL,'Microphones');
-INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (NULL,'Cables');
+INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (1,'Subwoofer');
+INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (2,'Speaker');
+INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (3,'Mixer');
+INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (4,'Headphones');
+INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (5,'Microphones');
+INSERT INTO `categoria`(`CodCategoria`, `Nome`) VALUES (6,'Cables');
 
 /*UTENTI*/
 
@@ -60,7 +60,7 @@ INSERT INTO `prodotto`(`CodProdotto`, `Nome`, `Descrizione`, `Prezzo`, `CodCateg
 
 
 /*NOTIFICA SOLO PER PROVA A DAVIDE CHE E UN VENDITORE*/
-INSERT INTO `notifica`(`CodNotifica`, `Data`, `Testo`, `Letto`, `Nickname`) VALUES (NULL,'2022-01-22','Notifica di prova',false,'davidima00');
+INSERT INTO `notifica`(`CodNotifica`, `DataNotifica`, `Testo`, `Letto`, `Nickname`) VALUES (NULL,'2022-01-22','Notifica di prova',false,'davidima00');
 
 /*CODICI SCONTO*/
 

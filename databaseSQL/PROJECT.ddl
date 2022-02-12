@@ -1,172 +1,294 @@
--- *********************************************
--- * Standard SQL generation                   
--- *--------------------------------------------
--- * DB-MAIN version: 11.0.1              
--- * Generator date: Dec  4 2018              
--- * Generation date: Sat Jan 29 12:20:17 2022 
--- * LUN file: C:\xampp\htdocs\webProject\database\ER.lun 
--- * Schema: dsoundsystemLOGIC/SQL 
--- ********************************************* 
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Creato il: Feb 12, 2022 alle 17:36
+-- Versione del server: 10.4.21-MariaDB
+-- Versione PHP: 8.0.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
--- Database Section
--- ________________ 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-create database dsoundsystemLOGIC;
+--
+-- Database: `dsoundsystemLOGIC`
+--
+CREATE DATABASE dsoundsystemLOGIC;
+-- --------------------------------------------------------
 
+--
+-- Struttura della tabella `carrello`
+--
 
--- DBSpace Section
--- _______________
+CREATE TABLE `carrello` (
+  `CodCarrello` int(11) NOT NULL,
+  `Nickname` varchar(20) NOT NULL,
+  `Stato` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
--- Tables Section
--- _____________ 
+--
+-- Struttura della tabella `categoria`
+--
 
-create table prodotto (
-     CodProdotto int(11) not null AUTO_INCREMENT,
-     Nome varchar(20) not null,
-     Descrizione varchar(600) not null,
-     Prezzo float not null,
-     CodCategoria int(11) not null,
-     Quantità int(11) not null,
-     Venditore varchar(200) not null,
-     constraint ID_PRODOTTO_ID primary key (CodProdotto));
+CREATE TABLE `categoria` (
+  `CodCategoria` int(11) NOT NULL,
+  `Nome` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table carrello (
-     CodCarrello int(11) not null AUTO_INCREMENT,
-     Nickname varchar(20) not null,
-     Stato bit not null,
-     constraint ID_CARRELLO_ID primary key (CodCarrello));
+-- --------------------------------------------------------
 
-create table utente (
-     Nome varchar(20) not null,
-     Cognome varchar(20) not null,
-     Nickname varchar(20) not null,
-     E_mail varchar(200) not null,
-     Password varchar(256) not null,
-     isVend bit not null,
-     constraint ID_UTENTE_ID primary key (Nickname));
+--
+-- Struttura della tabella `codici`
+--
 
-create table ordine (
-     CodOrdine int(11) not null,
-     CodCarrello int(11) not null,
-     Stato varchar(20) not null,
-     Data date not null,
-     constraint ID_ORDINE_ID primary key (CodOrdine),
-     constraint SID_ORDIN_CARRE_ID unique (CodCarrello));
+CREATE TABLE `codici` (
+  `Id` int(11) NOT NULL,
+  `codiceSconto` varchar(20) NOT NULL,
+  `sconto` int(20) NOT NULL,
+  `isActive` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table categoria (
-     CodCategoria int(11) not null AUTO_INCREMENT,
-     Nome varchar(20) not null,
-     constraint ID_CATEGORIA_ID primary key (CodCategoria));
+-- --------------------------------------------------------
 
-create table notifica (
-     CodNotifica int(11) not null AUTO_INCREMENT,
-     Data datetime not null,
-     Testo varchar(600) not null,
-     Letto bit not null,
-     Nickname varchar(20) not null,
-     constraint ID_NOTIFICA_ID primary key (CodNotifica));
+--
+-- Struttura della tabella `fattura`
+--
 
-create table Incarrello (
-     CodCarrello int(11) not null,
-     CodProdotto int(11) not null,
-     quantita int(11) not null,
-     constraint ID_Incarrello_ID primary key (CodProdotto, CodCarrello));
+CREATE TABLE `fattura` (
+  `CodFattura` int(11) NOT NULL,
+  `CodOrdine` int(11) NOT NULL,
+  `Importo` int(11) NOT NULL,
+  `Nome` varchar(20) NOT NULL,
+  `Cognome` varchar(20) NOT NULL,
+  `Email` varchar(20) DEFAULT NULL,
+  `Indirizzo` varchar(22) NOT NULL,
+  `Zip` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table spedizione (
-     CodSpedizione int(11) not null AUTO_INCREMENT,
-     CodOrdine int(11) not null,
-     StatoSpedizione varchar(20) not null,
-     NomeCorriere varchar(50) not null,
-     DataInvio date not null,
-     DataArrivo date not null,
-     constraint ID_SPEDIZIONE_ID primary key (CodSpedizione),
-     constraint SID_SPEDI_ORDIN_ID unique (CodOrdine));
+-- --------------------------------------------------------
 
-create table codici (
-     Id int(11) not null AUTO_INCREMENT,
-     codiceSconto varchar(20) not null,
-     sconto int(20) not null,
-     isActive bit not null,
-     constraint ID_codici_ID primary key (Id));
+--
+-- Struttura della tabella `Incarrello`
+--
 
--- Constraints Section
--- ___________________ 
+CREATE TABLE `Incarrello` (
+  `CodCarrello` int(11) NOT NULL,
+  `CodProdotto` int(11) NOT NULL,
+  `quantita` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-alter table prodotto add constraint REF_PRODO_CATEG_FK
-     foreign key (CodCategoria)
-     references categoria (CodCategoria);
+-- --------------------------------------------------------
 
-alter table carrello add constraint REF_CARRE_UTENT_FK
-     foreign key (Nickname)
-     references utente (Nickname);
+--
+-- Struttura della tabella `notifica`
+--
 
-alter table ordine add constraint SID_ORDIN_CARRE_FK
-     foreign key (CodCarrello)
-     references carrello (CodCarrello);
+CREATE TABLE `notifica` (
+  `CodNotifica` int(11) NOT NULL,
+  `DataNotifica` varchar(20) NOT NULL,
+  `Testo` varchar(600) NOT NULL,
+  `Letto` bit(1) NOT NULL,
+  `Nickname` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-alter table notifica add constraint REF_NOTIF_UTENT_FK
-     foreign key (Nickname)
-     references utente(Nickname);
+-- --------------------------------------------------------
 
-alter table Incarrello add constraint REF_Incar_PRODO
-     foreign key (CodProdotto)
-     references prodotto(CodProdotto);
+--
+-- Struttura della tabella `ordine`
+--
 
-alter table Incarrello add constraint REF_Incar_CARRE_FK
-     foreign key (CodCarrello)
-     references carrello(CodCarrello);
+CREATE TABLE `ordine` (
+  `CodOrdine` int(11) NOT NULL,
+  `CodCarrello` int(11) NOT NULL,
+  `Stato` varchar(20) NOT NULL,
+  `DataOrdine` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-alter table spedizione add constraint SID_SPEDI_ORDIN_FK
-     foreign key (CodOrdine)
-     references ordine (CodOrdine);
+-- --------------------------------------------------------
 
+--
+-- Struttura della tabella `prodotto`
+--
 
--- Index Section
--- _____________ 
+CREATE TABLE `prodotto` (
+  `CodProdotto` int(11) NOT NULL,
+  `Nome` varchar(20) NOT NULL,
+  `Descrizione` varchar(600) NOT NULL,
+  `Prezzo` float NOT NULL,
+  `CodCategoria` int(11) NOT NULL,
+  `Quantità` int(11) NOT NULL,
+  `Venditore` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create unique index ID_PRODOTTO_IND
-     on prodotto (CodProdotto);
+-- --------------------------------------------------------
 
-create index REF_PRODO_CATEG_IND
-     on prodotto (CodCategoria);
+--
+-- Struttura della tabella `utente`
+--
 
-create unique index ID_CARRELLO_IND
-     on carrello (CodCarrello);
+CREATE TABLE `utente` (
+  `Nome` varchar(20) NOT NULL,
+  `Cognome` varchar(20) NOT NULL,
+  `Nickname` varchar(20) NOT NULL,
+  `E_mail` varchar(200) NOT NULL,
+  `Password` varchar(256) NOT NULL,
+  `isVend` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create index REF_CARRE_UTENT_IND
-     on carrello (Nickname);
+--
+-- Indici per le tabelle scaricate
+--
 
-create unique index ID_UTENTE_IND
-     on utente (Nickname);
+--
+-- Indici per le tabelle `carrello`
+--
+ALTER TABLE `carrello`
+  ADD PRIMARY KEY (`CodCarrello`),
+  ADD UNIQUE KEY `ID_CARRELLO_IND` (`CodCarrello`),
+  ADD KEY `REF_CARRE_UTENT_IND` (`Nickname`);
 
-create unique index ID_ORDINE_IND
-     on ordine (CodOrdine);
+--
+-- Indici per le tabelle `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`CodCategoria`),
+  ADD UNIQUE KEY `ID_CATEGORIA_IND` (`CodCategoria`);
 
-create unique index SID_ORDIN_CARRE_IND
-     on ordine (CodCarrello);
+--
+-- Indici per le tabelle `codici`
+--
+ALTER TABLE `codici`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `ID_codici_IND` (`Id`);
 
-create unique index ID_CATEGORIA_IND
-     on categoria (CodCategoria);
+--
+-- Indici per le tabelle `fattura`
+--
+ALTER TABLE `fattura`
+  ADD PRIMARY KEY (`CodFattura`,`CodOrdine`);
 
-create unique index ID_NOTIFICA_IND
-     on notifica (CodNotifica);
+--
+-- Indici per le tabelle `Incarrello`
+--
+ALTER TABLE `Incarrello`
+  ADD PRIMARY KEY (`CodProdotto`,`CodCarrello`),
+  ADD UNIQUE KEY `ID_Incarrello_IND` (`CodProdotto`,`CodCarrello`),
+  ADD KEY `REF_Incar_CARRE_IND` (`CodCarrello`);
 
-create index REF_NOTIF_UTENT_IND
-     on notifica (Nickname);
+--
+-- Indici per le tabelle `notifica`
+--
+ALTER TABLE `notifica`
+  ADD PRIMARY KEY (`CodNotifica`),
+  ADD UNIQUE KEY `ID_NOTIFICA_IND` (`CodNotifica`),
+  ADD KEY `REF_NOTIF_UTENT_IND` (`Nickname`);
 
-create unique index ID_Incarrello_IND
-     on Incarrello (CodProdotto, CodCarrello);
+--
+-- Indici per le tabelle `ordine`
+--
+ALTER TABLE `ordine`
+  ADD PRIMARY KEY (`CodOrdine`,`CodCarrello`);
 
-create index REF_Incar_CARRE_IND
-     on Incarrello (CodCarrello);
+--
+-- Indici per le tabelle `prodotto`
+--
+ALTER TABLE `prodotto`
+  ADD PRIMARY KEY (`CodProdotto`),
+  ADD UNIQUE KEY `ID_PRODOTTO_IND` (`CodProdotto`),
+  ADD KEY `REF_PRODO_CATEG_IND` (`CodCategoria`);
 
-create unique index ID_SPEDIZIONE_IND
-     on spedizione (CodSpedizione);
+--
+-- Indici per le tabelle `utente`
+--
+ALTER TABLE `utente`
+  ADD PRIMARY KEY (`Nickname`),
+  ADD UNIQUE KEY `ID_UTENTE_IND` (`Nickname`);
 
-create unique index SID_SPEDI_ORDIN_IND
-     on spedizione (CodOrdine);
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
 
-create unique index ID_codici_IND
-     on codici (Id);
+--
+-- AUTO_INCREMENT per la tabella `carrello`
+--
+ALTER TABLE `carrello`
+  MODIFY `CodCarrello` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT per la tabella `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `CodCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT per la tabella `codici`
+--
+ALTER TABLE `codici`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `fattura`
+--
+ALTER TABLE `fattura`
+  MODIFY `CodFattura` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `notifica`
+--
+ALTER TABLE `notifica`
+  MODIFY `CodNotifica` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `ordine`
+--
+ALTER TABLE `ordine`
+  MODIFY `CodOrdine` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `prodotto`
+--
+ALTER TABLE `prodotto`
+  MODIFY `CodProdotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3544;
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `carrello`
+--
+ALTER TABLE `carrello`
+  ADD CONSTRAINT `REF_CARRE_UTENT_FK` FOREIGN KEY (`Nickname`) REFERENCES `utente` (`Nickname`);
+
+--
+-- Limiti per la tabella `Incarrello`
+--
+ALTER TABLE `Incarrello`
+  ADD CONSTRAINT `REF_Incar_CARRE_FK` FOREIGN KEY (`CodCarrello`) REFERENCES `carrello` (`CodCarrello`),
+  ADD CONSTRAINT `REF_Incar_PRODO` FOREIGN KEY (`CodProdotto`) REFERENCES `prodotto` (`CodProdotto`);
+
+--
+-- Limiti per la tabella `notifica`
+--
+ALTER TABLE `notifica`
+  ADD CONSTRAINT `REF_NOTIF_UTENT_FK` FOREIGN KEY (`Nickname`) REFERENCES `utente` (`Nickname`);
+
+--
+-- Limiti per la tabella `prodotto`
+--
+ALTER TABLE `prodotto`
+  ADD CONSTRAINT `REF_PRODO_CATEG_FK` FOREIGN KEY (`CodCategoria`) REFERENCES `categoria` (`CodCategoria`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

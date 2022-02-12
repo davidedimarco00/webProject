@@ -32,7 +32,7 @@ class DatabaseHelper{
     }
 
     public function getNotifies($nickname){
-        $query = "SELECT data, testo from notifica WHERE NOT letto and data < NOW() and Nickname=?;";
+        $query = "SELECT DataNotifica, testo from notifica WHERE NOT letto and DataNotifica < NOW() and Nickname=?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$nickname);
         $stmt->execute();
@@ -50,7 +50,7 @@ class DatabaseHelper{
     }
 
     public function getNotReadNotifiesNumber($nickname){
-        $query = "SELECT count(*) as notRead from notifica where NOT letto and data < NOW() and Nickname=?; ";
+        $query = "SELECT count(*) as notRead from notifica where NOT letto and DataNotifica < NOW() and Nickname=?; ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$nickname);
         $stmt->execute();
@@ -266,12 +266,11 @@ class DatabaseHelper{
         return $total;
     }
 
-    public function insertOrder($nickname,$date){
-        $CodCarrello=$this->getCart($nickname);
+    public function insertOrder($CodCarrello,$date){
         $status="Non ancora Spedito";
-        $query = "INSERT INTO ordine (CodCarrello, Stato, Data) VALUES (?,?,?)";
+        $query = "INSERT INTO ordine (CodCarrello, Stato, DataOrdine) VALUES (?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii',$CodCarrello, $status, $date);
+        $stmt->bind_param('iss',$CodCarrello, $status, $date);
         $stmt->execute();
         
         return $stmt->insert_id;
@@ -279,8 +278,7 @@ class DatabaseHelper{
     }
 
     public function insertBilling($CodOrdine, $cost, $name, $surname, $email, $address, $zip){
-        $status="Non ancora spedito";
-        $query = "INSERT INTO IndirizzoFattura (CodOrdine, Importo, Nome, Cognome, Email, Indirizzo, Zip) VALUES (?,?,?,?,?,?,?)";
+        $query = "INSERT INTO fattura (CodOrdine, Importo, Nome, Cognome, Email, Indirizzo, Zip) VALUES (?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('iissssi',$CodOrdine, $cost, $name, $surname, $email, $address, $zip);
         $stmt->execute();
@@ -292,7 +290,7 @@ class DatabaseHelper{
     
     public function insertNotify($Data, $Testo, $Nickname){
         $Letto=0;
-        $query = "INSERT INTO  notifica (Data, Testo, Letto, Nickname) VALUES (?,?,?,?,?)";
+        $query = "INSERT INTO  notifica (DataNotifica, Testo, Letto, Nickname) VALUES (?,?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssis',$Data, $Testo, $Letto, $Nickname);
         $stmt->execute();
@@ -324,6 +322,14 @@ class DatabaseHelper{
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('iss', $codCarrello, $Nickname, $Nickname);
         return $stmt->execute();
+    }
+
+    public function getAllCodes(){
+        $query = "SELECT codiceSconto,sconto from codici WHERE IsActive=1";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }

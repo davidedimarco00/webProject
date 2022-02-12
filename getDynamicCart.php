@@ -21,9 +21,9 @@
                 <table class="table table-borderless table-shopping-cart">
                     <thead class="text-muted bg-light">
                         <tr class="small text-uppercase">
-                            <th scope="col">Product</th>
-                            <th scope="col" width="150">Quantity</th>
-                            <th scope="col" width="150">Price</th>
+                            <th scope="col">Prodotto</th>
+                            <th scope="col" width="150">Quantità</th>
+                            <th scope="col" width="150">Prezzo</th>
                             <th scope="col" width="120"></th>
                         </tr>
                     </thead>
@@ -37,7 +37,7 @@
                                 <figure class="itemside align-items-center">
                                     <div class="aside"><img src="'.getFirstImage($current["CodProdotto"]).'" alt="PrimaryImage" style="max-height: 180px; max-width: 300px"></div>
                                     <figcaption class="info"> <a href="productPage.php?cod='.$current["CodProdotto"].'" class="title text-dark" data-abc="true">'.$current["Nome"].'</a>
-                                        <p class="text-muted small">VENDOR: '.$current["Venditore"].'<br> CodArticle: '.$current["CodProdotto"].'</p>
+                                        <p class="text-muted small">VENDITORE: '.$current["Venditore"].'<br> CodArticolo: '.$current["CodProdotto"].'</p>
                                     </figcaption>
                                 </figure>
                             </td>
@@ -70,20 +70,20 @@
         </div>
         <li class="list-group-item d-flex justify-content-between bg-light visually-hidden">
             <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
+                <h6 class="my-0">Codici Promozionali</h6>
                 <small>EXAMPLECODE</small>
             </div>
             <span class="text-success">-$5</span>
         </li>
         <li class="list-group-item d-flex justify-content-between">
-            <span>Total</span>
+            <span>Totale</span>
             <strong>'.$tot.'€</strong>
         </li>
         <form class="card p-2">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Promo code">
+                <input type="text" class="form-control" placeholder="Insersci codice sconto">
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">Redeem</button>
+                    <button type="submit" class="btn btn-secondary">Riscatta</button>
                 </div>
             </div>
         </form>
