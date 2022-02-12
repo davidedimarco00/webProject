@@ -45,7 +45,7 @@
                 <p class="text-danger">In esaurimento!</p>
               <?php endif; ?>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-left">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Acquista Ora</button>
+                <!-- <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Acquista Ora</button> -->
                 <a type="button" class="btn btn-outline-secondary btn-lg px-4" onclick='addtocart(<?php echo $current["CodProdotto"];?>)'>Aggiungi al Carrello</a>
                 <?php if (isSet($_SESSION["Nickname"]) && $current["Venditore"] == $_SESSION["Nickname"] && isUserVendor()): ?>
                 <a type="button" class="btn btn-primary bg-danger btn-lg px-4 gap-3" href="modifyItemPage.php?cod=<?php echo $current["CodProdotto"]; ?>">Modifica</a>

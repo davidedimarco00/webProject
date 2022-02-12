@@ -49,9 +49,9 @@
               </button>
               
             </div>
-            <div class="collapse text-left" id="navbarToggleContent">
+            <div class="collapse" id="navbarToggleContent">
               <div>
-                <ul class="aria-hidden">
+                <ul class="aria-hidden float-end">
                 <?php if(!isUserLoggedIn()): ?>
                   <li class="nav-item"><a class="dropdown-item" href="./loginPage.php">Accedi</a><img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle"></li>
                 <?php endif; ?>
