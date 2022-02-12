@@ -13,21 +13,21 @@
   </div>
   <div class="carousel-inner">
   <div class="carousel-item active">
-    <img src="images/mixerCOVER.jpg" class="d-block w-100" alt="...">
+    <img src="images/mixerCOVER.jpg" class="d-block w-100" alt="mixer cover image">
     <div class="carousel-caption d-none d-md-block">
       <h5>MIXER</h5>
       <p>I migliori mixer per l'equalizzazione dei tuoi brani preferiti a prezzi super vantaggiosi!</p>
     </div>
   </div>
   <div class="carousel-item">
-    <img src="images/speakerCOVER.jpg" class="d-block w-100" alt="...">
+    <img src="images/speakerCOVER.jpg" class="d-block w-100" alt="speaker cover">
     <div class="carousel-caption d-none d-md-block">
       <h5>Speaker bluethoot</h5>
       <p>Addio a prolunghe e cavi, l'unico mezzo necessario? L'aria.</p>
     </div>
   </div>
   <div class="carousel-item">
-    <img src="images/subwooferCOVER.jpg" class="d-block w-100" alt="...">
+    <img src="images/subwooferCOVER.jpg" class="d-block w-100" alt="subwoofer cover">
     <div class="carousel-caption d-none d-md-block">
       <h5>Subwoofer</h5>
       <p>Quel basso che ti fa vibrare dentro, il cuore e la mente. Non esiste brano senza un basso in grado di emozionarti!</p>
@@ -66,7 +66,6 @@
         </div>
         <div id="dynamicByCategory" class="row col-lg-9">
         <?php foreach($templateParams["items"] as $current): ?>
-
           <div class="col-lg-3 justify-content-center mycols">
               <div class="card" id="card">
                 <img class="card-img-top" src="<?php echo getFirstImage($current["CodProdotto"]); ?>" alt="Card image cap">
