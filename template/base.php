@@ -86,11 +86,6 @@
           </p>
         </div>
     
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-2">
-          <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/"><img class="bi" width="24" height="24" src="images/whatsapp.svg"></a></li>
-          <li class="ms-3"><a class="text-muted" href="https://wwww.facebook.com/"><img class="bi" width="24" height="24" src="images/facebook.svg"></a></li>
-          <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><img class="bi" width="24" height="24" src="images/instagram.svg"></a></li>
-        </ul>
       </footer>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
