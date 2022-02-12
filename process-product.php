@@ -46,7 +46,6 @@
     //agiorna/ modifica
     else if($_POST["action"]==1){
         $msg="";
-        var_dump($_POST);
         $nome = htmlspecialchars($_POST["Nome"]);
         $desc = htmlspecialchars($_POST["Descrizione"]);
         $prezzo = (float) htmlspecialchars($_POST["Prezzo"]);
@@ -63,7 +62,7 @@
             }
         }
         if($codcat != "-1" && !empty($dbh->getProductById((int)$_POST["codProdotto"])) && $nome != "" && $desc != "" && $prezzo != "" && $quant != "" && $vend != ""){
-            $codProdotto = $dbh->updateProduct((int)$_POST["codProdotto"], $nome, $desc, $prezzo, $codcat, $quant, $vend);
+            $codProdotto = $dbh->updateProduct($_POST["codProdotto"], $nome, $desc, $prezzo, $codcat, $quant, $vend);
             if($codProdotto != false){
                 $msg.="Prodotto aggiornato con successo! ";
             }

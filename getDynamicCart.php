@@ -33,17 +33,17 @@
                         <tr>
                             <td>
                                 <figure class="itemside align-items-center">
-                                    <div class="aside"><img src="'.getFirstImage($current["CodProdotto"]).'" alt="PrimaryImage" style="height: 180px"></div>
+                                    <div class="aside"><img src="'.getFirstImage($current["CodProdotto"]).'" alt="PrimaryImage" style="max-height: 180px; max-width: 300px"></div>
                                     <figcaption class="info"> <a href="productPage.php?cod='.$current["CodProdotto"].'" class="title text-dark" data-abc="true">'.$current["Nome"].'</a>
                                         <p class="text-muted small">VENDOR: '.$current["Venditore"].'<br> CodArticle: '.$current["CodProdotto"].'</p>
                                     </figcaption>
                                 </figure>
                             </td>
                             <td>
-                                <div class="input-group">
-                                    <button class="btn btn-outline-secondary" type="button" id="minus" onclick="updatecart('.(string)($current["quantita"]-1).','.$current["CodProdotto"].')">-</button>
-                                    <span class="input-group-text">'.$current["quantita"].'</span>
-                                    <button class="btn btn-outline-secondary" type="button" id="plus" onclick="updatecart('.(string)($current["quantita"]+1).','.$current["CodProdotto"].')">+</button>
+                                <div class="row">
+                                    <button class="btn btn-outline-secondary col-md-3" type="button" id="minus" onclick="updatecart('.(string)($current["quantita"]-1).','.$current["CodProdotto"].')">-</button>
+                                    <span class="input-group-text col-md-3">'.$current["quantita"].'</span>
+                                    <button class="btn btn-outline-secondary col-md-3" type="button" id="plus" onclick="updatecart('.(string)($current["quantita"]+1).','.$current["CodProdotto"].')">+</button>
                                 </div>';
                     $inner.='
                             </td>

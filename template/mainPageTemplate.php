@@ -61,12 +61,13 @@
                 <ul>
                   <?php if(isUserLoggedIn() && isUserVendor()): ?>
                     <li><a class="dropdown-item" href="./listPage.php">I miei Prodotti</a></li>
+                    <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
                     <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
                   <?php endif; ?>
 
                   <?php if(isUserLoggedIn() && !isUserVendor()): ?>
                     <li><a class="dropdown-item"><?php echo $_SESSION["Nome"]." ".$_SESSION["Cognome"]; ?></a></li>
-                    <li><a class="dropdown-item" href="./listPage.php">I miei Acquisti</a></li>
+                    <li><a class="dropdown-item" href="./listOrderPage.php">I miei Acquisti</a></li>
                     <li><a class="dropdown-item" href="./index.php?action=logout">Logout</a></li>
                   <?php endif; ?>
                 </ul>
