@@ -11,17 +11,32 @@
 
     $items=$dbh->getCartItems($CodCarrello);
     //aggiorno le quantità di prodotto
+    $rollback=array();
     foreach($items as $item){
         $product=$dbh->getProductById($item["CodProdotto"])[0];
+        
+        if(($product["Quantità"]-$item["quantita"])<0){
+            foreach($rollback as $err){
+                $dbh->updateProduct($err["CodProdotto"], $err["Nome"], $err["Descrizione"], $err["Prezzo"], $err["CodCategoria"], $err["Quantità"], $err["Venditore"]);
+            }
+            foreach($items as $cartdel){
+                $dbh->deleteCartProduct($CodCarrello,$cartdel["CodProdotto"]);
+            }
+            header("location: index.php?formmsg=Si è verificato un errore durante l'ordine. Il carrello è stato svuotato.");
+        }
         $dbh->updateProduct($product["CodProdotto"], $product["Nome"], $product["Descrizione"], $product["Prezzo"], $product["CodCategoria"], $product["Quantità"]-$item["quantita"], $product["Venditore"]);
+        array_push($rollback, $item);
     }
 
     //notifica cliente
-    $CodNotifica = $dbh->insertNotify($date, "Your order is confirmed", $_SESSION["Nickname"]);
+    $CodNotifica = $dbh->insertNotify($date, "Il tuo ordine è stato completato con successo.", $_SESSION["Nickname"]);
 
     //notifica venditore
     foreach($items as $item){
         $product=$dbh->getProductById($item["CodProdotto"])[0];
+        if ($product["Quantità"]<=0){
+            $dbh->insertNotify($date, "Il tuo prodotto con codice: ".$product["CodProdotto"]." è esaurito.", $product["Venditore"]);
+        }
         $CodNotifica = $dbh->insertNotify($date, "Il tuo prodotto con codice: " . $product["CodProdotto"] . " è stato venduto a " . $_SESSION["Nickname"] . "." , $product["Venditore"]);
         print($CodNotifica);
     }

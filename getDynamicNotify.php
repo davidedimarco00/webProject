@@ -10,7 +10,7 @@
     $inner="";
     foreach($notify as $current){
         $codNotify=$current["CodNotifica"];
-        $date=$current["Data"];
+        $date=$current["DataNotifica"];
         $text=$current["Testo"];
         
         $inner=$inner.'

@@ -41,7 +41,7 @@ class DatabaseHelper{
     }
 
     public function getAllNotifies($nickname){
-        $query = "SELECT CodNotifica, Data, Testo from notifica WHERE Nickname=?;";
+        $query = "SELECT CodNotifica, DataNotifica, Testo from notifica WHERE Nickname=?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$nickname);
         $stmt->execute();
@@ -300,9 +300,9 @@ class DatabaseHelper{
     }
 
     public function updateProductInCart($codCarrello, $codProdotto, $quantita){
-        $query = "UPDATE Incarrello SET CodCarrello=?, CodProdotto=?, quantita=? WHERE CodProdotto = ?";
+        $query = "UPDATE Incarrello SET CodCarrello=?, CodProdotto=?, quantita=? WHERE CodProdotto = ? AND CodCarrello=?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iiii', $codCarrello, $codProdotto, $quantita, $codProdotto);
+        $stmt->bind_param('iiiii', $codCarrello, $codProdotto, $quantita, $codProdotto, $codCarrello);
         return $stmt->execute();
     }
 
