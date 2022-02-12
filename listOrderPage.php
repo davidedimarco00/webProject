@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL); ini_set('display_errors', 1);
+<?php
     require_once "bootstrap.php";
     $templateParams["orders"]=$dbh->getOrderCarts($_SESSION["Nickname"]);
     $templateParams["css"] = array("css/listPage.css", "css/header.css", "css/footer.css");

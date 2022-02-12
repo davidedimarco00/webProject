@@ -318,6 +318,13 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function disableCart($codCarrello, $Nickname){
+        $query = "UPDATE carrello SET CodCarrello=?, Nickname=?, stato=0 WHERE stato = 1 AND Nickname=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iss', $codCarrello, $Nickname, $Nickname);
+        return $stmt->execute();
+    }
     /*TODO: se prodotto esaurito -> manda notifica al venditore*/
 }
 ?>

@@ -57,7 +57,7 @@
                           <p id ="notificationCounter"><?php echo $_SESSION["NotifiesNumber"] ?> </p>  
                         <?php endif; ?>
                         
-                        <ul class="dropdown-menu text-small aria-hidden" id="dropnotify" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-20px, 34px);" >
+                        <ul class="dropdown-menu text-small aria-hidden" id="dropnotify" aria-labelledby="dropdownUser1" >
                             <div class="notification" id="panelNotify">
                               <img src="images/bellnotify.png" alt="bellNotify" id="bellImage" >
                             </div>
@@ -85,7 +85,7 @@
                       </div>
                       <div class="dropdown text-end">
                           <img src="images/account-circle.png" alt="loginImage" id="loginImage" class="rounded-circle">
-                        <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-20px, 34px);" data-popper-placement="bottom-end">
+                        <ul class="dropdown-menu text-small aria-hidden" aria-labelledby="dropdownUser1" data-popper-placement="bottom-end">
                         <?php if(!isUserLoggedIn()): ?>
                           <li><a class="dropdown-item" href="./loginPage.php">Accedi</a></li>
                         <?php endif; ?>
@@ -135,4 +135,5 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
       <script type="text/javascript "src="./jsUtils/header.js"></script>
       <script type="text/javascript "src="javascript/ajaxutils.js"></script>
+      <script type="text/javascript "src="javascript/mainPage.js"></script>
 </html> 

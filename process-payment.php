@@ -6,7 +6,7 @@
 
     $CodCarrello =$dbh->getCart($_SESSION["Nickname"]);
 
-    $dbh->disableCart();
+    $dbh->disableCart($CodCarrello, $_SESSION["Nickname"]);
 
     $CodOrdine = $dbh->insertOrder($CodCarrello,$date);
 
