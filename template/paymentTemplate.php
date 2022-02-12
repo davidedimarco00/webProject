@@ -3,7 +3,7 @@
         <h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
         <?php endif;?>
 
-          <div class="container mt-5 px-5">
+          <section class="container mt-5 px-5">
             <div class="mb-4">
                 <h2>Conferma Ordine e Paga</h2>
             </div>
@@ -19,18 +19,18 @@
                         </div> <span>Intestatario Carta</span> </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="inputbox mt-3 mr-2"> <input type="numberCard" name="name" class="form-control" required="required">
+                                <div class="inputbox mt-3 mr-2"> <input type="number" name="intestatario" class="form-control" required="required">
                                 <div class="invalid-feedback">
                                 Please enter a valid Card Number.
                                 </div> <i class="fa fa-credit-card"></i> <span>Numero Carta</span> </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex flex-row">
-                                    <div class="inputbox mt-3 mr-2"> <input type="numberExpiry" name="name" class="form-control" required="required">
+                                    <div class="inputbox mt-3 mr-2"> <input type="number" name="dataS" class="form-control" required="required">
                                     <div class="invalid-feedback">
                                     Please enter a valid Expiry.
                                     </div> <span>Data di Scadenza</span> </div>
-                                    <div class="inputbox mt-3 mr-2"> <input type="numberCVV" name="name" class="form-control" required="required">     
+                                    <div class="inputbox mt-3 mr-2"> <input type="number" name="cvv" class="form-control" required="required">     
                                     <div class="invalid-feedback">
                                     Please enter a valid CVV.
                                     </div> <span>CVV</span> </div>
@@ -45,45 +45,46 @@
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="firstName">Nome</label>
-                      <input type="text" class="form-control"name="name" placeholder="" value="" required="">
+                      <input type="text" class="form-control" name="name" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label for="lastName">Cognome</label>
-                      <input type="text" class="form-control"name="surname" placeholder="" value="" required="">
+                      <input type="text" class="form-control" name="surname" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid last name is required.
                       </div>
                     </div>
                   </div>
+                  
       
                   <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control"name="email" placeholder="you@example.com">
+                    <label>Email <span class="text-muted">(Optional)</span></label>
+                    <input type="email" class="form-control" name="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
                       Please enter a valid email address for shipping updates.
                     </div>
                   </div>
       
                   <div class="mb-3">
-                    <label for="address">Indirizzo</label>
-                    <input type="text" class="form-control"name="address" placeholder="1234 Main St" required="">
+                    <label>Indirizzo</label>
+                    <input type="text" class="form-control" name="address" placeholder="1234 Main St" required="">
                     <div class="invalid-feedback">
                       Please enter your shipping address.
                     </div>
                   </div>
       
                   <div class="mb-3">
-                    <label for="address2">Indirizzo 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control"name="address2" placeholder="Apartment or suite">
+                    <label>Indirizzo 2 <span class="text-muted">(Optional)</span></label>
+                    <input type="text" class="form-control" name="address2" placeholder="Apartment or suite">
                   </div>
       
                   <div class="row">
                     <div class="col-md-5 mb-3">
-                      <label for="country">Stato</label>
-                      <select class="custom-select d-block w-100"name="country" required="">
+                      <label>Stato</label>
+                      <select class="custom-select d-block w-100" name="country" required="">
                         <option value="">Scegliere Stato...</option>
                         <?php foreach($templateParams["countries"] as $country):?>
                           <option><?php echo $country ?></option>
@@ -96,15 +97,15 @@
                       </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                      <label for="zip">Codice Postale</label>
-                      <input type="number" class="form-control"name="zip" placeholder="" required="">
+                      <label>Codice Postale</label>
+                      <input type="number" class="form-control" name="zip" placeholder="" required="">
                       <div class="invalid-feedback">
                         Zip code required.
                       </div>
                     </div>
                   </div>
             </div>
-              <div class="mt-4 mb-4 d-flex justify-content-between">
+              <aside class="mt-4 mb-4 d-flex justify-content-between">
                   <a class="btn btn-secondary btn-lg btn-block" href='cartPage.php'>Torna al Carrello</a>
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Completa il Pagamento</button>
                   </form> 
@@ -115,7 +116,10 @@
                           <h1 class="mb-0 black"><?php echo $templateParams["total"]; ?> € </h1>
                       </div> <span></span>
                   </div>
+                </div>
               </div>
+              </aside>
+        </section>
 
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
