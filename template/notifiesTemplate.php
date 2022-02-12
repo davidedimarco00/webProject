@@ -18,7 +18,7 @@
                     <td><?php echo $templateParams["allnotifies"][$i]["DataNotifica"]?></td>
                     <td id ="text"><?php echo $templateParams["allnotifies"][$i]["Testo"]?></td>
                     <td id="action">
-                        <button type="button" class="btn btn-danger" onclick='deleteNotify(<?php echo $templateParams["allnotifies"][$i]["CodNotifica"]; ?>)'>Delete</button>
+                        <button type="button" class="btn btn-danger" onclick='deleteNotify(<?php echo $templateParams["allnotifies"][$i]["CodNotifica"]; ?>)'>Elimina</button>
                     </td>
                 </tr>
                 <?php endfor; ?>
